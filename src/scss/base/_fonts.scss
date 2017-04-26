@@ -1,0 +1,49 @@
+@if( $direction == 'rtl' ){
+    @font-face {
+        font-family: 'bahej';
+        src: url(fonts/bahij-greta-arabic/Bahij_Greta_Arabic-Regular.ttf);
+        font-weight:400;
+    }
+
+    @font-face {
+        font-family: 'din';
+        src: url('fonts/MT- DIN Next Arabic Font/DIN NEXT™ ARABIC REGULAR.otf');
+        font-weight:300;
+    }
+    @font-face {
+        font-family: 'din';
+        src: url('fonts/MT- DIN Next Arabic Font/DIN NEXT™ ARABIC BOLD.otf');
+        font-weight:500;
+    }
+}@else{
+    
+    @font-face {
+        font-family: 'JosefinSans';
+        src: url(fonts/Josefin_Sans/JosefinSans-Bold.ttf);
+        font-weight:500;
+    }    
+    @font-face {
+        font-family: 'Francois_One';
+        src: url(fonts/Francois_One/FrancoisOne-Regular.ttf);
+        font-weight:300;
+    }
+}
+
+body{
+    font-size:1rem;
+    font-family:$bodyFont;
+    line-height:1.5em;
+    font-weight: 300;
+
+}
+@each $num in 1,2,3,4,5,6{
+    h#{$num}{
+        font-family: $titleFont;        
+        font-weight: 500;
+        -webkit-margin-before: 0px;
+        -webkit-margin-after: 0px;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        margin: 0.67em 0;
+    }
+}

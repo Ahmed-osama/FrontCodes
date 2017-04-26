@@ -1,0 +1,15 @@
+footer.main-footer
+  nav.main-footer__nav
+    -for(var key in data.nav)
+      -if(key == "lang")
+        -continue
+      a(href=data.nav[key].link) #{data.nav[key].name}
+   
+  .main-footer__socials
+    -for(var i=0; i<= data.social.length-1; i++)
+      a.socialItem(data-wave href="" class=data.social[i].class): i(class=data.social[i].icon)
+
+//JS FILES
+//https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js
+script(src="js/vendor/jquery.min.js" async)
+script(src="js/vendor/axios.min.js" async)

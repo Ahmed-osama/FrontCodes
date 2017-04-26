@@ -1,0 +1,37 @@
+%mainGradient{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eae2d9+1,f9e9d7+100 */
+  background: rgb(234,226,217); /* Old browsers */
+  background: -moz-linear-gradient(to right, #e5d5fb 1%, #ffddf5 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(to right, #e5d5fb 1%, #ffddf5 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #e5d5fb 1%, #ffddf5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  
+}
+
+%mainGradientTxt{
+  @extend %mainGradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin rem($sizeValue){
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue/16) + rem;
+}
+
+@mixin mediaMin($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin mediaMax($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin mediaBoth($width1,$width2) {
+  @media only screen and(min-width:$width1) and (max-width: $width2) {
+    @content;
+  }
+}

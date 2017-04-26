@@ -1,0 +1,29 @@
+header.main-header
+  a.main-header__logo(href=data.nav.index.link)
+    img(src="img/logo.png")
+  input#headerSidemenu-state(type="checkbox" hiddin)
+  label.main-header__menuToggler(for='headerSidemenu-state')
+    -for(var i=0; i<=2; i++)
+      span
+  #headerSidemenu.main-header__sideMenu
+    nav.main-header__nav
+      ul
+
+        -for(var key in data.nav)
+          -if(key == "lang")
+            -continue
+          li
+            a(href=data.nav[key].link) #{data.nav[key].name}
+      .btn.yellow_bg.round.main-header__cta 
+        -if(rtl)
+          span أضف مشاركتك
+        -else
+          span add your story
+        i.mdi-plus
+
+      .main-header__social
+        a.language(href=data.nav.lang.link) #{data.nav.lang.name}
+        -for(var i=0; i<= data.social.length-2; i++)
+          a.socialItem(data-wave href="" class=data.social[i].class): i(class=data.social[i].icon)
+
+  label.main-header__menuTogglerOver(for='headerSidemenu-state')

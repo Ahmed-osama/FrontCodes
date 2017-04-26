@@ -1,0 +1,87 @@
+//-
+  #Config object
+  {
+    img          : data.content[i].img,
+    caption      : data.content[i].title,
+    date         : true,
+    abstract     : data.content[i].abstract,
+    video        : false,
+    over         : fale,
+    card         : false,
+    cardBounded  : true,
+    horizontal   : true,
+    horizontalSm : true,
+  }
+-var intro = {countery:false,calltoAction:true,img:data.content[0].img,icon:false,flag:""}
+include ../components/_intro.pug
+-var intro = {countery:true,calltoAction:false,img:data.content[11].img,icon:"mdi-play",flag:"egy"}
+include ../components/_intro.pug
+.category-title
+  h1 Egypt Tips & Places
+.container.main-container
+  .row.category-title
+    h1 Egypt Tips & Places
+  section
+    .section-title.section-title--noborder
+      h2.section-title__title #{data.sections.titels[0]}
+      ul.section-title__list
+        -for(i =0; i <= 2; i++)
+          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      .col-sm-6.col-md-4
+          include ../components/_guide-list.pug
+      -for(i =0; i <= 1; i++)
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false, over:true, horizontal:false,date:false}
+        .col-sm-6.col-md-4
+          include ../components/_basic-post-view.pug
+
+      .clearfix
+  section
+    .section-title
+      h2.section-title__title #{data.sections.titels[1]}
+      ul.section-title__list
+        -for(i =0; i <= 2; i++)
+          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =3; i <= 5; i++)
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
+        .col-sm-6.col-md-4
+          include ../components/_basic-post-view.pug 
+      .clearfix
+  section
+    .section-title
+      h2.section-title__title #{data.sections.titels[2]}
+      ul.section-title__list
+        -for(i =0; i <= 2; i++)
+          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row  
+      -for(i =6; i <= 8; i++)
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,video:true, card:true,cardBounded:true, horizontal:false,date:true,card:true}
+        .col-sm-6.col-md-4
+          include ../components/_basic-post-view.pug
+      .clearfix
+    
+  section
+    .section-title
+      h2.section-title__title #{data.sections.titels[3]}
+      ul.section-title__list
+        -for(i =0; i <= 2; i++)
+          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =0; i <= 2; i++)
+        .col-sm-12
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,video:false, card:false, horizontal:true,date:true}
+          include ../components/_basic-post-view.pug    
+      .clearfix
+  section
+    .section-title
+      h2.section-title__title #{data.sections.titels[0]}
+      ul.section-title__list
+        -for(i =0; i <= 2; i++)
+          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =3; i <= 5; i++)
+        .col-sm-12
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,video:false, card:false, horizontal:true,date:true,horizontalSm:true}
+          include ../components/_basic-post-view.pug
+      .clearfix

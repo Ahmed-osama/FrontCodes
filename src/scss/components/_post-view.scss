@@ -1,0 +1,328 @@
+%postGradient {
+    background: -moz-linear-gradient(top, rgba(44, 17, 84, 0.1) 0%, rgba(44, 17, 84, 0.82) 100%);
+    background: -webkit-linear-gradient(top, rgba(44, 17, 84, 0.1) 0%, rgba(44, 17, 84, 0.82) 100%);
+    background: linear-gradient(to bottom, rgba(44, 17, 84, 0.1) 0%, rgba(44, 17, 84, 0.82) 100%);
+}
+
+img.lazy {
+    background-color: $borderColor;
+    background-image: url(../img/loading.gif);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 26px 26px;
+}
+
+@keyframes fitIn {
+    from {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.post-view {
+    transition: 0.2s;
+    position: relative;
+    margin-bottom: 20px;
+    &:not(.post-view--over):hover {
+        .post-view__maxTitle{
+            color:$mainColor;
+        }
+    }
+    &:hover {
+        .post-view__img img {
+            transition: 1s;
+            transform: scale(1.2);
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        .post-view__share,
+        .post-view__fav {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    //Elements
+    &__link,
+    &__img img {
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 0;
+        #{$right}: 0;
+        #{$left}: 0;
+        bottom: 0;
+        background: $ts;
+        margin: auto;
+        transition: 1s;
+    }
+    &__link {
+        z-index: 3;
+    }
+    &__share {
+        transform: scale(0);
+        opacity: 0;
+        transition: 0.3s;
+        position: absolute;
+        #{$right}: 15px;
+        top: 15px;
+        z-index: 4;
+        display: none;
+        .post-view--horizontal-sm &{
+            display: none;
+        }
+        @include mediaMin(768px) {
+            display: block
+        }
+    }
+    &__fav {
+        z-index: 4;
+        position: absolute;
+        #{$left}: 10px;
+        top: 10px;
+        transition: 0.2s;
+        transform: translateX(0);
+        @include rem(20);
+        text-align: center  ;
+
+        i {
+            opacity: 0;
+            transform: scale(0);
+            animation: fitIn 0.3s forwards;
+            transform: scale(1);
+        }
+        i:first-child {
+            display: block;
+        }
+        i:last-child {
+            display: none;
+        }
+        input {
+            display: none;
+        }
+        input:checked + label {
+            i{
+                transform: scale(1.5);
+            }
+            i:first-child {
+                display: none;
+            }
+            i:last-child {
+                display: block;
+            }
+        }
+        label {
+            width: 20px;
+            height: 20px;
+            display: block;
+            color: $yellow;
+            cursor: pointer;
+            z-index: 4;
+            &:hover{
+                transform:scale(1.2);
+            }
+        }
+        .post-view--horizontal-sm &{
+            #{$left}: 10px;
+            top: 10px;
+        }
+
+        @include mediaMin(768px) {
+            #{$left}: 15px;
+            top: 15px;
+            transform: translateX(-1 * $reverse * 50px);
+            @include rem(25);
+            label {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+    &__icon {
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        #{$right}: 0;
+        bottom: 0;
+        #{$left}: 0;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 55px;
+        color: $wh;
+        @include rem(50);
+    }
+    &__img {
+        position: relative;
+        padding-top: 65%;
+        overflow: hidden;
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            #{$right}: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            @extend %postGradient;
+        }
+        img {
+            z-index: 0;
+        }
+
+        .post-view--horizontal &{
+            padding: 0;
+            width: 110px;
+            height:65px;
+            position:absolute;
+            #{$left}: 0;
+            top: 0;
+            @include mediaMin(375px) {
+                width: 130px;
+                height:75px;
+            }
+            @include mediaMin(768px) {
+                width: 300px;
+                height:195px; 
+            }
+        }
+        .post-view--horizontal-sm &{
+            width: 130px;
+            height:85px;
+        }
+    }
+    &__caption {
+        margin: 0;
+        @include rem(16);
+        min-height:50px;
+        
+        .post-view--over & {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 15px;
+            text-align: center;
+            line-height: 1.75em;
+            z-index: 1;
+            display: block;
+            #{$left}: 0;
+            width:100%;
+            color: $wh;
+            background: $ts;
+            text-shadow: 1px 1px 2px $mainColor;
+            .post-view__maxTitle {
+                height: auto;
+                max-height: 78px;
+            }
+            @include mediaMin(1024px) {
+                #{$left}: 10px;
+                bottom: 10px;
+                width: 90%;
+                width: calc(100% - 20px);
+            }
+        }
+        .post-view--card &{
+            padding-top: 10px;
+        }
+        .post-view--cardBounded &{
+            padding: 15px;
+        }
+        .post-view--horizontal-sm &{
+            padding-top: 0;
+            padding-#{$left}: 10px;
+            height: 85px;
+            border-bottom: 1px solid $borderColor;
+        }
+
+        @include mediaMin(768px) {
+            padding: 10px 0 0 0;
+            .post-view--card &{
+                height:140px;
+            }
+            .post-view--cardBounded &{
+                height:180px;
+                padding: 20px;
+            }
+        }
+    }
+    &__maxTitle {
+        display: block;
+        max-height: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+        margin: 0;
+        line-height: 1.7em;
+        @include mediaMin(768px) {
+           line-height: 1.6em;
+           max-height: 55px;
+        }
+
+        .post-view--cardBounded .date + &{
+            margin-top: 5px;
+        }
+        .post-view--horizontal &{
+            max-height:50px;
+            height: auto;
+        }
+    }
+    &__abstract{
+        overflow: hidden;
+        color:$abstractColor;
+        display: none;
+        .post-view__maxTitle + &{
+            margin-top: 10px;
+            
+        }
+        .post-view--card &{
+            height: 50px;
+        }        
+        .post-view--cardBounded &{
+            .post-view__maxTitle + &{
+                margin-top: 15px;
+            }
+        }
+
+        @include mediaMin(768px) {
+            display: block;
+        }
+    }
+    .date{
+        display: none
+    }
+    // Modifiers
+    &--horizontal{
+        padding-#{$left}:120px;
+        height:65px;
+        &.post-view--horizontal-sm{
+            padding-#{$left}:130px;
+            height:85px;
+        }
+        @include mediaMin(375px) {
+            padding-#{$left}:140px;
+            height:75px;
+        }
+        @include mediaMin(768px) {
+            padding-#{$left}:320px;
+            height:195px; 
+        }
+    }
+    &--cardBounded{
+        box-shadow:0 3px 20px -3px rgba(0,0,0,0.1);
+    }
+    @include mediaMin(375px) {
+        .date{
+            display: inline-block;
+        }
+    }
+    @include mediaMin(768px) {
+        margin-#{$left}: 0;
+        margin-#{$right}: 0;
+    }
+}

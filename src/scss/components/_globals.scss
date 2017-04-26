@@ -1,0 +1,404 @@
+
+//[0] - UTILITES
+    [hiddin]{
+        display: none;
+    }
+    a{
+        text-decoration: none;
+    }
+
+//[1] - Buttons
+    .btnHolder{
+        .singlePageContent &{
+
+            margin-bottom: 30px;
+        }
+        &.tac{
+            text-align: center;
+        }
+        .btn + .btn{
+            margin-#{$left}: 15px;
+        }
+    }
+    .btn{
+        display: inline-block;
+        padding:0 20px;
+        cursor:pointer;
+        font-size:1rem;
+        height: 40px;
+        line-height: 40px;
+        text-decoration:none;
+        transition:0.2s;
+        text-align: center;
+        border: none;
+        @mediaMin(1024px){
+            height: 44px;
+            line-height: 44px;
+        }
+        i{
+            line-height: inherit;
+            & + *{
+                margin-#{$left}: 10px;
+            }
+        }
+        *+*{
+             margin-#{$left}: 10px;
+        }
+        &:hover{
+            box-shadow:0px 5px 15px -1px rgba(0,0,0,0.05);
+        }
+        &.iconBtn{
+            border:1px dashed $borderColor;
+            box-shadow:none;
+            @mediaMin(1024px){
+                @include rem(22);
+                
+            }
+            &:hover{
+
+                 border:1px solid $ts;
+            }
+        }
+        &.square{
+            height:40px;
+            width:40px;
+            padding:0;
+              @mediaMin(1024px){
+                height: 44px;
+                width: 44px;
+              }
+        }
+        &.round{
+            border-radius: 22px;
+        }
+        &.loadmore{// used in index
+            background: #ef9a9a;
+            border-radius: 5px;
+            color:$genericFontColor;
+            margin-bottom: 20px;
+            clear: both;
+
+            &--cyan{
+                background: #b2dfdb;
+            }
+            .flex-layout__container--inner &{
+                margin-bottom: 0;
+            }
+        }
+        &.call-to-action{
+            padding:0 2em;
+            text-transform:uppercase;
+            font-weight:500;
+            position: relative;
+            text-transform: uppercase;
+            line-height: 51px;
+            height: 50px;
+            &:after, &:before{
+                content:"";
+                width: 30px;
+                height: 4px;
+            }
+            &:hover{
+                
+            }
+        }
+        &.touch-btn{
+            .touch &{
+                display: block;
+            }
+            .no-touch &{
+                display: none;
+            }
+        }
+        &.block{
+            display:block;
+        }
+        &.left{
+            float:$left;
+        }
+        &.right{
+            float:$right;
+        }
+        
+    }
+
+//[2] - social items
+
+    .socialItem{
+        width: 36px;
+        height: 36px;
+        line-height:35px;
+        text-align: center;
+        cursor: pointer;
+        color:$wh !important;
+        border-radius: 50%;
+        padding: 0;
+        display: inline-block;
+        box-shadow:none;
+        i,i:after{
+            line-height: inherit;
+        }
+        &:hover{
+            line-height:35px;
+        }
+        & + &{
+            margin-#{$left}: 10px;
+        }
+        &--sm{
+            width: 30px;
+            height: 30px;
+            line-height:29px;
+        }
+    }
+    .facebook{
+        background:$facebook;
+        &:hover{
+            background:darken($facebook,10%);
+        }
+    }
+    .googleplus{
+        background:$googlePlus;
+        &:hover{
+            background:darken($googlePlus,10%);
+        }
+    }
+    .youtube{
+        background:$youtube;
+        &:hover{
+            background:darken($youtube,10%);
+        }
+    }
+    .twitter{
+        background:$twitter ;
+        &:hover{
+            background:darken($twitter,10%);
+        }
+    }
+
+//[3] - CATEGORYIS PALLET
+    .blue{//
+        &_color{
+            color:$blue;
+        }
+        &_hover:hover{
+            color:$blue;
+        }
+        &_bg, &_bgHover:hover{
+            background: $blue;
+            color:$wh;
+        }
+        &_bg--darker{
+            color:$wh;
+            background:darken( $blue,5%);
+        }
+    }
+    .green{
+        &_color{
+            color:$green;
+        }
+        &_hover:hover{
+            color:$green;
+        }
+        &_bg, &_bgHover:hover{
+            background: $green;
+            color:$wh;
+        }
+        &_bg--darker{
+            color:$wh;
+            background:darken( $green,5%);
+        }
+    }
+
+  
+    .red{//
+        &_color{
+            color:$red;
+        }
+        &_hover:hover{
+            color:$red;
+        }
+        &_bg, &_bgHover:hover{
+            background: $red;
+            color:$wh;
+        }
+        &_bg--darker{
+            color:$wh;
+            background:darken( $red,5%);
+        }
+    }
+    .violet{//
+        &_color{
+            color:$violet;
+        }
+        &_hover:hover{
+            color:$violet;
+        }
+        &_bg, &_bgHover:hover{
+            background: $violet;
+            color:$wh;
+        }
+        &_bg--darker{
+            color:$wh;
+            background:darken( $violet,5%);
+        }
+    }
+    .yellow{
+        &_color{
+            color:$yellow;
+        }
+        &_hover:hover{
+            color:$yellow;
+        }
+        &_bg, &_bgHover:hover{
+            background: $yellow;
+            color:$bk;
+        }
+        &_bg--darker{
+            background:darken( $yellow,5%);
+            color:$bk;
+        }
+    }
+   
+    .gry{
+        &_color{
+            color:$lightGry;
+        }
+        &_hover:hover{
+            color:$lightGry;
+        }
+        &_bg, &_bgHover:hover{
+            background: $lightGry;
+            color:$genericFontColor;
+        }
+        &_bg--darker{
+            color:$genericFontColor;
+            background:darken( $lightGry,5%);
+        }
+    }
+
+//[4] - hidden xxs
+    .hide-xs{
+        @include mediaMax(1023px){
+            display: none;
+        }
+        @include mediaMin(1024px){
+            display: block ;
+        }
+    }
+    .hide-lg{
+        @include mediaMax(1023px){
+            display: block;
+        }
+        @include mediaMin(1024px){
+            display: none;
+        }
+    }
+
+//[5] - breadcrumb
+    .breadCrumb{
+        font-size: 0.85em;
+        list-style-type: none;
+        li{
+            display: inline-block;
+            a{
+                color: inherit;
+            }
+            & + li{
+                margin-#{$right}: 10px;
+                &:before{
+                    content:"\f04d";
+                    font-family: $icon;
+                    display: inline-block;
+                    margin-#{$left}: 10px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+
+//[6] data
+    .date{
+        @include rem(12);
+        color:$detailColor;
+        vertical-align: middle;
+        overflow: hidden    ;
+        &:before{
+            content:"\f150";
+            font-family: $icon ;
+            margin-#{$right}:5px;
+        }
+    }
+
+//[7] Title
+    .section-title{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        border-top: 1px solid $borderColor;
+        &--noborder{
+            padding-top: 0;
+            border-top: none;
+        }
+
+
+        &__title{
+            color:$sacColor;
+            flex-grow: 1;
+            text-transform: uppercase;
+            margin: 0.3em 0;
+        }
+        &__list{
+            flex-grow: 1;
+            text-align:$left;
+            list-style-type: none;
+            vertical-align: middle;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            align-items:center;
+            justify-content :flex-start;
+            @include mediaMin(768px){
+                justify-content :flex-end;
+                text-align:$left;
+            }
+        }
+        &__listItem{
+            display: inline-block;
+            @include mediaMax(768px){
+                background: $sacColor;
+                color:$wh;
+                padding:2px 7px;
+                border-radius:3px;
+            }
+
+            & + & {
+                margin-#{$left}: 10px;
+            }
+        }
+
+        @include mediaMin(768px){
+            flex-direction: row;
+             &__list{
+                text-align:$right;
+            }
+        }
+    }
+
+//[8] category title
+    
+    .category-title{
+        padding: 30px;
+        margin-bottom: 30px;
+        @extend %mainGradient;
+        h1{
+            @include rem(36);
+            margin: 0.5em 0;
+        }
+    }

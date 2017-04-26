@@ -1,0 +1,142 @@
+{
+    "nav": {
+        "index": {
+            "name": "home",
+            "link": "index-ar.html"
+        },
+        "lang": {
+            "name": "عربي",
+            "link": "index-ar.html"
+        },
+        "startHere": {
+            "name": "start here",
+            "link": "start-here-ar.html"
+        },
+        "destinations": {
+            "name": "destinations",
+            "link": "destinations-ar.html"
+        },
+        "tourism": {
+            "name": "tourism",
+            "link": "tourism-ar.html"
+        },
+        "education": {
+            "name": "education",
+            "link": "education-ar.html"
+        },
+        "work": {
+            "name": "work",
+            "link": "work-ar.html"
+        },
+        "immegration": {
+            "name": "immegration",
+            "link": "immegration-ar.html"
+        }
+    },
+    "cta":{
+        "title" : "Rahala Tour Guide",
+        "btn" : "Discover Now"
+    },
+    "sections": {
+        
+        "titels" : [
+            "travel for tourism",
+            "travel for education",
+            "travel for work",
+            "Immegration"
+        ],
+        "sub":[
+            {
+                "name": "Chances",
+                "link": "section.html"
+            },
+            {
+                "name": "Tips",
+                "link": "section.html"
+            },
+            {
+                "name": "Experinces",
+                "link": "section.html"
+            }
+        ]
+    },
+
+    "social": [{
+        "class": "facebook",
+        "icon": "mdi-facebook"
+    }, {
+        "class": "twitter",
+        "icon": "mdi-twitter"
+    }, {
+        "class": "youtube",
+        "icon": "mdi-youtube-play"
+    }],
+    "guidelist":[
+        "getting Excited",
+        "raising money",
+        "security",
+        "booking plane ticket",
+        "getting ready",
+        "having cheap hotel",
+        "coupls travel tips",
+        "single female travel"
+    ],    
+    "content": [{
+        "img": "img/content/1.jpg",
+        "title": "Guide to London for Seniors",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/2.jpg",
+        "title": "Shopping Guide for London",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/3.jpg",
+        "title": "Want to step back in time and visit 1920s Paris?",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/4.jpg",
+        "title": "America's 10 Best Spots for Seeing Wildflowers",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/5.jpg",
+        "title": "America's 10 Best Spots for Seeing Wildflowers",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/6.jpg",
+        "title": "9 California Music Festivals That Aren’t Coachella",
+        "abstract": "Not making it to Coachella this year? That festival-sized hole in your summer plans might be the universe’s way of telling you that there’s more than one gathering worth going to this year.—Meg Butler"
+    }, {
+        "img": "img/content/7.jpg",
+        "title": "The 1993 Movie ‘Groundhog Day’ has Been Made Into a Broadway Musical for Some Reason",
+        "abstract": "If you’ve always wanted to relive Groundhog Day over and over again, now’s your chance. The 1993 Bill Murray film has been made into a musical, which opened on Broadway on in March. "
+    }, {
+        "img": "img/content/8.jpg",
+        "title": "I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story",
+        "abstract": "Even though I’ve only been in Galápagos for all of an hour, it already feels like the world I came from is a lifetime away. Along with my fellow passengers"
+    }, {
+        "img": "img/content/9.jpg",
+        "title": "IS EUROPE SAFE TO VISIT RIGHT NOW?",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/10.jpg",
+        "title": "AN IN-DEPTH GUIDE TO PLANNING A LESBIAN FRIENDLY TRIP",
+        "abstract": "With the perceived rise of terrorism and immigration issues in the news, many people are wondering if Europe is still a safe destination to travel to. Should you cancel your trip? The unfortunate reality"
+    }, {
+        "img": "img/content/11.jpg",
+        "title": "There is no minimum donation, any sum is appreciated",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/12.jpg",
+        "title": "Google Streetview Wants to Send You Into an Active Volcano",
+        "abstract": "Street View teamed up with Geoff Mackley and Chris Horsley, two explorers, to get the shots that enable you to comfortably dive straight into Benbow and Marum"
+    }, {
+        "img": "img/content/13.jpg",
+        "title": "Donate: If you use this site regularly",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }, {
+        "img": "img/content/14.jpg",
+        "title": " man who chooses to enjoy a pleasure that has no annoying consequences",
+        "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
+    }]
+
+}

@@ -1,0 +1,59 @@
+.main-footer{
+	background:lighten($borderColor,5%);
+	border-top:1px solid $borderColor;
+	color:rgba(255,255,255,0.8);
+	padding:15px 30px;
+	flex-direction:column;
+	text-align: center	;
+	clear: both;
+	@include mediaMin(768px) {
+		text-align: $left	;
+		display: flex;
+		flex-direction:row;
+	}
+	&__logo{
+		img{
+			max-height: 40px;
+		}
+		@include mediaMin(768px) {
+			margin-#{$right}: 	20px;
+		}
+	}
+	&__nav{
+		flex-grow:1;
+		margin-top:20px;
+		margin-bottom:20px;
+		a{
+			color:$genericFontColor;
+			font-family:$titleFont;
+			vertical-align: middle	;
+			display: block;
+			padding: 10px;
+			font-weight: 400;
+			& + a {
+				border-top:1px solid rgba(255,255,255,0.1);
+			}
+			
+			&:hover{
+				color:$mainColor;
+			}
+		}
+		@include mediaMin(768px) {
+			margin-top:0;
+			margin-bottom:0;
+			a{
+				border: none;
+				padding: 0;
+				margin-#{$right}: 20px;
+				line-height: 40px;
+				display: inline-block	;
+				& + a {
+					border-top:none;
+				}
+			}
+		}
+	}
+	&__socials{
+
+	}
+}
