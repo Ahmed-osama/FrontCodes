@@ -1,76 +1,71 @@
 //colors
-    
-  //pallet
-    $violet           : #2c1154;
-    $green            : #00b37a;
-    $blue             : #6653ff;
-    $yellow           : #ffef30;
-    $page             : #f5e9ec;
-    $darkGry          : #3c3d54;
-    $lightGry         : #f4f3f6;
-    $red              : #ff615d;
-    $bk               : #000000;
-    $wh               : #fff;
-    $ts               : transparent;
-    $ts-bk            : rgba(0,0,0,0.5);
+		
+	//pallet
+		$violet          : #A001C9;
+		$green           : #00CA5B;
+		$blue            : #017EC9;
+		$yellow          : #ffef30;
+		$page            : #f5e9ec;
+		$darkGry         : #3c3d54;
+		$lightGry        : #f4f3f6;
+		$red             : #C9010D;
+		$bk              : #000000;
+		$wh              : #fff;
+		$ts              : transparent;
+		$ts-bk           : rgba(0,0,0,0.5);
+	//GRY COLORS
+		$gryBg           : #f6f6f6;
+		$borderColor     : #e4e4e4;
+		$footerTxt       : #cccccc;
+		$inputColor      : #666666;
+		$detailColor     : #9b9b9b;
+	//Socials
+		$facebook        : #3b5998;
+		$googlePlus      : #e02f2f;
+		$youtube         : #cd201f;
+		$twitter         : #55acee;
 
-  //theme
-    $titleColor       : $darkGry;
-    $genericFontColor : #212121;
-    $abstractColor    : lighten($genericFontColor,10%);
-    $mainColor        : $violet;
-    $sacColor         : $green;
-
-  //GRY COLORS
-    $gryBg            : #f6f6f6;
-    $borderColor      : #e4e4e4;
-    $footerTxt        : #cccccc;
-    $inputColor       : #666666;
-    $detailColor      : #9b9b9b;
-
-
-  //Socials
-    $facebook         : #3b5998;
-    $googlePlus       : #e02f2f;
-    $youtube          : #cd201f;
-    $twitter          : #55acee;
-
+	//theme
+		$mainColor       : $blue;
+		$sacColor        : $bk;
+		$titleColor      : $darkGry;
+		$genericFontColor: #212121;
+		$abstractColor   : lighten($genericFontColor,10%);
 
 //fonts
-  $icon             : "Material Design Icons";
+	$titleFont : "";
+	$bodyFont  : "";
 
 //screens
-  $mobile           : 321px;
-  $phablet          : 481px;
-  $tablet-PRT       : 769px;
-  $tablet-LS        : 1025px;
-  $desktop          : 1281px;
+	$mobile    : 321px;
+	$phablet   : 481px;
+	$tablet-PRT: 769px;
+	$tablet-LS : 1025px;
+	$desktop   : 1281px;
 
 //spaces
-  $space            : 15px;
-  $space-sm         : 10px;
+	$space     : 15px;
+	$space-sm  : 10px;
 
 //valueCapture
-  $shadow           : 0 5px 40px -3px rgba(0,0,0,0.2);
+	$shadow    : 0 5px 40px -3px rgba(0,0,0,0.2);
 
 //direction
-    $titleFont :"";
-    $bodyFont :"";
-    $left:"";
-    $right:"";
-    $reverse:"";
-    
- @if( $direction == 'rtl' ){
-    $titleFont        : 'din';
-    $bodyFont         : 'bahej';
-    $left             : right;
-    $right            : left;
-    $reverse          : -1;
+	$left      : "";
+	$right     : "";
+	$reverse   : "";
+		
+ @if($direction == 'rtl'){
+		$titleFont: 'din';
+		$bodyFont : 'bahej';
+		$left     : right;
+		$right    : left;
+		$reverse  : -1;
  }
  @else{
-    $titleFont        : 'Francois_One';
-    $bodyFont         : 'JosefinSans';
-    $left             : left;
-    $right            : right;
-    $reverse          : 1;
+		$titleFont: 'Francois_One';
+		$bodyFont : 'JosefinSans';
+		$left     : left;
+		$right    : right;
+		$reverse  : 1;
  }

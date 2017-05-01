@@ -2,35 +2,15 @@
     "nav": {
         "index": {
             "name": "home",
-            "link": "index-ar.html"
+            "link": "index-en.html"
         },
         "lang": {
             "name": "عربي",
             "link": "index-ar.html"
         },
-        "startHere": {
-            "name": "start here",
-            "link": "start-here-ar.html"
-        },
-        "destinations": {
-            "name": "destinations",
-            "link": "destinations-ar.html"
-        },
-        "tourism": {
-            "name": "tourism",
-            "link": "tourism-ar.html"
-        },
-        "education": {
-            "name": "education",
-            "link": "education-ar.html"
-        },
-        "work": {
-            "name": "work",
-            "link": "work-ar.html"
-        },
-        "immegration": {
-            "name": "immegration",
-            "link": "immegration-ar.html"
+        "icons": {
+            "name": "icons",
+            "link": "icons-en.html"
         }
     },
     "cta":{
@@ -38,7 +18,6 @@
         "btn" : "Discover Now"
     },
     "sections": {
-        
         "titels" : [
             "travel for tourism",
             "travel for education",
@@ -137,6 +116,6 @@
         "img": "img/content/14.jpg",
         "title": " man who chooses to enjoy a pleasure that has no annoying consequences",
         "abstract": "London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace"
-    }]
-
+    }],
+    "icons":["play","sound","image","chevron-right","chevron-left","chevron-up","chevron-down","arrow-up","arrow-down","arrow-right","arrow-left","date","search","share","folder","user","upload","download","link","trash","close","calendar","check","crop","minimize","maxmize","star","star-half","star-filled","facebook","twitter","googlePlus","plus","youtube"]
 }

@@ -19,21 +19,29 @@
     span.post-view__fav
       input(type="checkbox" id="fav_"+i)
       label(for="fav_"+i)
-        i.mdi-star-outline
-        i.mdi-star
+        -var icon = {case:"star"}
+        include ../shared/_icon.pug
+        -var icon = {case:"star-filled"}
+        include ../shared/_icon.pug
     //- [2.2] - SHARE
     span.post-view__share
-       a.socialItem(href="#" class=data.social[0].class): i(class=data.social[0].icon)
+       a.socialItem(href="#" class=data.social[0].class)
+          -var icon = {case:"facebook"}
+          include ../shared/_icon.pug
 
     //- [2.3] - ICONS
     span.post-view__icon
       -if(post.video)
-        i.mdi-play
+        -var icon = {case:"play", addClass:"post-view__icon-inner"}
+        include ../shared/_icon.pug
     img.lazy( alt=post.caption, src=post.img)
   //- [3] - TEXTAREA
   .post-view__caption(alt=post.caption )
     -if(post.date)
-      span.date October 19, 2017
+      span.date
+        -var icon = {case:"date"}
+        include ../shared/_icon.pug
+        span October 19, 2017
     h4.post-view__maxTitle #{post.caption}
     -if(post.abstract)
       p.post-view__abstract #{post.abstract}

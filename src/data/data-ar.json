@@ -8,29 +8,9 @@
             "name": "en",
             "link": "index-en.html"
         },
-        "startHere": {
-            "name": "ابدأ هنا",
-            "link": "start-here-ar.html"
-        },
-        "destinations": {
-            "name": "وجهات السفر",
-            "link": "destinations-ar.html"
-        },
-        "tourism": {
-            "name": "السفر للسياحة",
-            "link": "tourism-ar.html"
-        },
-        "education": {
-            "name": "السفر للتعليم",
-            "link": "education-ar.html"
-        },
-        "work": {
-            "name": "السفر للعمل",
-            "link": "work-ar.html"
-        },
-        "immegration": {
-            "name": "الهجرة",
-            "link": "immegration-ar.html"
+        "icons": {
+            "name": "الأيقونات",
+            "link": "icons-ar.html"
         }
     },
     "cta":{
@@ -137,6 +117,7 @@
         "img": "img/content/14.jpg",
         "title": " man who chooses to enjoy a pleasure that has no annoying consequences",
         "abstract": "لا يوجد قانون ينصّ على أنّ المرأة يحقّ لها قيادة سيارة في السعودية  ولكنّ المعتقدات الدينيّة الراسخة هي التي تحول دون ذلك."
-    }]
+    }],
+    "icons":["play","sound","image","chevron-right","chevron-left","chevron-up","chevron-down","arrow-up","arrow-down","arrow-right","arrow-left","date","search","share","folder","user","upload","download","link","trash","close","calendar","check","crop","minimize","maxmize","star","star-half","star-filled","facebook","twitter","googlePlus","plus","youtube"]
 
 }

@@ -1,6 +1,6 @@
 header.main-header
   a.main-header__logo(href=data.nav.index.link)
-    img(src="img/logo.png")
+    img(src="img/logo-wh.png")
   input#headerSidemenu-state(type="checkbox" hiddin)
   label.main-header__menuToggler(for='headerSidemenu-state')
     -for(var i=0; i<=2; i++)
@@ -19,11 +19,14 @@ header.main-header
           span أضف مشاركتك
         -else
           span add your story
-        i.mdi-plus
+          -var icon = {case:"plus"}
+          include ../shared/_icon.pug
 
       .main-header__social
         a.language(href=data.nav.lang.link) #{data.nav.lang.name}
         -for(var i=0; i<= data.social.length-2; i++)
-          a.socialItem(data-wave href="" class=data.social[i].class): i(class=data.social[i].icon)
+          a.socialItem(data-wave href="" class=data.social[i].class)
+            -var icon = {case:data.social[i].class}
+            include ../shared/_icon.pug
 
   label.main-header__menuTogglerOver(for='headerSidemenu-state')

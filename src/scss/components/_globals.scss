@@ -34,9 +34,15 @@
         @mediaMin(1024px){
             height: 44px;
             line-height: 44px;
+            .icon{
+                height:42px;
+            }
         }
-        i{
+        .icon{
             line-height: inherit;
+            height: 39px;
+            vertical-align: middle;
+            margin-bottom:3px;
             & + *{
                 margin-#{$left}: 10px;
             }
@@ -46,18 +52,6 @@
         }
         &:hover{
             box-shadow:0px 5px 15px -1px rgba(0,0,0,0.05);
-        }
-        &.iconBtn{
-            border:1px dashed $borderColor;
-            box-shadow:none;
-            @mediaMin(1024px){
-                @include rem(22);
-                
-            }
-            &:hover{
-
-                 border:1px solid $ts;
-            }
         }
         &.square{
             height:40px;
@@ -72,18 +66,11 @@
             border-radius: 22px;
         }
         &.loadmore{// used in index
-            background: #ef9a9a;
+            background:$mainColor;
             border-radius: 5px;
-            color:$genericFontColor;
+            color:$wh;
             margin-bottom: 20px;
             clear: both;
-
-            &--cyan{
-                background: #b2dfdb;
-            }
-            .flex-layout__container--inner &{
-                margin-bottom: 0;
-            }
         }
         &.call-to-action{
             padding:0 2em;
@@ -135,8 +122,10 @@
         padding: 0;
         display: inline-block;
         box-shadow:none;
-        i,i:after{
-            line-height: inherit;
+        .icon{
+            fill: $wh;
+            vertical-align: middle;
+            height: 36px;
         }
         &:hover{
             line-height:35px;
@@ -148,6 +137,9 @@
             width: 30px;
             height: 30px;
             line-height:29px;
+            .icon{
+                height: 36px;
+            }
         }
     }
     .facebook{
@@ -191,6 +183,11 @@
             color:$wh;
             background:darken( $blue,5%);
         }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$wh;
+            }
+        }
     }
     .green{
         &_color{
@@ -207,9 +204,12 @@
             color:$wh;
             background:darken( $green,5%);
         }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$wh;
+            }
+        }
     }
-
-  
     .red{//
         &_color{
             color:$red;
@@ -224,6 +224,11 @@
         &_bg--darker{
             color:$wh;
             background:darken( $red,5%);
+        }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$wh;
+            }
         }
     }
     .violet{//
@@ -241,6 +246,11 @@
             color:$wh;
             background:darken( $violet,5%);
         }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$wh;
+            }
+        }
     }
     .yellow{
         &_color{
@@ -257,8 +267,12 @@
             background:darken( $yellow,5%);
             color:$bk;
         }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$bk;
+            }
+        }
     }
-   
     .gry{
         &_color{
             color:$lightGry;
@@ -273,6 +287,11 @@
         &_bg--darker{
             color:$genericFontColor;
             background:darken( $lightGry,5%);
+        }
+        &_bg, &_bg--darker{
+            svg{
+                fill:$lightGry;
+            }
         }
     }
 
@@ -307,7 +326,7 @@
                 margin-#{$right}: 10px;
                 &:before{
                     content:"\f04d";
-                    font-family: $icon;
+                    font-family: "<";
                     display: inline-block;
                     margin-#{$left}: 10px;
                     vertical-align: middle;
@@ -322,10 +341,15 @@
         color:$detailColor;
         vertical-align: middle;
         overflow: hidden    ;
-        &:before{
-            content:"\f150";
-            font-family: $icon ;
+        span{
+            vertical-align: middle;
+        }
+        svg{
+            fill:$detailColor;
+            width: 1em;
+            height: 1em;
             margin-#{$right}:5px;
+            vertical-align: middle;
         }
     }
 
@@ -344,8 +368,6 @@
             padding-top: 0;
             border-top: none;
         }
-
-
         &__title{
             color:$sacColor;
             flex-grow: 1;
@@ -392,7 +414,6 @@
     }
 
 //[8] category title
-    
     .category-title{
         padding: 30px;
         margin-bottom: 30px;
@@ -401,4 +422,11 @@
             @include rem(36);
             margin: 0.5em 0;
         }
+    }
+//[9] icon
+    .icon{
+        width: 1em;
+        height: 1em;
+        font-size: inherit;
+        display: inline-block;
     }

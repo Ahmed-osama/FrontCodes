@@ -7,9 +7,7 @@ footer.main-footer
    
   .main-footer__socials
     -for(var i=0; i<= data.social.length-1; i++)
-      a.socialItem(data-wave href="" class=data.social[i].class)
-        -var icon = {case:data.social[i].class}
-        include ../shared/_icon.pug
+      a.socialItem(data-wave href="" class=data.social[i].class): i(class=data.social[i].icon)
 
 //JS FILES
 //https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js
