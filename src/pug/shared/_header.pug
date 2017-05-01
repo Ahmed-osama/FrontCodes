@@ -8,7 +8,6 @@ header.main-header
   #headerSidemenu.main-header__sideMenu
     nav.main-header__nav
       ul
-
         -for(var key in data.nav)
           -if(key == "lang")
             -continue
@@ -25,8 +24,7 @@ header.main-header
       .main-header__social
         a.language(href=data.nav.lang.link) #{data.nav.lang.name}
         -for(var i=0; i<= data.social.length-2; i++)
-          a.socialItem(data-wave href="" class=data.social[i].class)
+          a.socialItem(data-wave href="", class=data.social[i].class)
             -var icon = {case:data.social[i].class}
             include ../shared/_icon.pug
-
   label.main-header__menuTogglerOver(for='headerSidemenu-state')

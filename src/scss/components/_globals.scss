@@ -430,3 +430,50 @@
         font-size: inherit;
         display: inline-block;
     }
+//[10] placeholders
+.placeholder{ 
+  display: block;
+  background:rgba(0,0,0,0.05);
+  height: 20px;
+  border-radius:2px;
+  margin: 0;
+  margin-bottom: 10px;
+  @extend %mainGradient;
+  @include mediaMax(480px){
+      height: 10px;
+      margin-bottom:5px;
+  }
+  &--reverse{
+    background:rgba(255,255,255,0.05);
+  }
+  &--title{
+    margin-bottom: 0;
+    display: inline-block;
+    min-width: 30%;
+    height: 30px;
+    @include mediaMax(480px){
+      height: 15px;
+      margin-bottom: 0px;
+    }
+  }
+ 
+  &--33{
+    margin-bottom: 0;
+    display: inline-block;
+    width:calc(33% - 10px); 
+    margin-#{$right}: 10px;
+    
+  }
+   &--15{
+    margin-bottom: 0;
+    display: inline-block;
+    width:calc(15% - 10px); 
+    margin-#{$right}: 10px;
+  }
+   &--66{
+    margin-bottom: 0;
+    display: inline-block;
+    width:calc(66% - 10px); 
+    margin-#{$right}: 10px;
+  }
+}

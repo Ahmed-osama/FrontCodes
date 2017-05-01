@@ -118,6 +118,40 @@
         "title": " man who chooses to enjoy a pleasure that has no annoying consequences",
         "abstract": "لا يوجد قانون ينصّ على أنّ المرأة يحقّ لها قيادة سيارة في السعودية  ولكنّ المعتقدات الدينيّة الراسخة هي التي تحول دون ذلك."
     }],
-    "icons":["play","sound","image","chevron-right","chevron-left","chevron-up","chevron-down","arrow-up","arrow-down","arrow-right","arrow-left","date","search","share","folder","user","upload","download","link","trash","close","calendar","check","crop","minimize","maxmize","star","star-half","star-filled","facebook","twitter","googlePlus","plus","youtube"]
-
+    "icons":[
+        "play",
+        "sound",
+        "image",
+        "chevron-right",
+        "chevron-left",
+        "chevron-up",
+        "chevron-down",
+        "arrow-up",
+        "arrow-down",
+        "arrow-right",
+        "arrow-left",
+        "date",
+        "search",
+        "share",
+        "folder",
+        "user",
+        "upload",
+        "download",
+        "link",
+        "trash",
+        "close",
+        "calendar",
+        "check",
+        "crop",
+        "minimize",
+        "maxmize",
+        "star",
+        "star-half",
+        "star-filled",
+        "facebook",
+        "twitter",
+        "googlePlus",
+        "plus",
+        "youtube"
+        ]
 }
