@@ -12,10 +12,6 @@
     horizontal   : true,
     horizontalSm : true,
   }
--var intro = {countery:false,calltoAction:true,img:data.content[0].img,icon:false,flag:""}
-include ../components/_intro.pug
--var intro = {countery:true,calltoAction:false,img:data.content[11].img,icon:"mdi-play",flag:"egy"}
-include ../components/_intro.pug
 .category-title
   h1 Egypt Tips & Places
 .container.main-container
@@ -28,9 +24,7 @@ include ../components/_intro.pug
         -for(i =0; i <= 2; i++)
           li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
     .row
-      .col-sm-6.col-md-4
-          include ../components/_guide-list.pug
-      -for(i =0; i <= 1; i++)
+      -for(i =0; i <= 2; i++)
         -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false, over:true, horizontal:false,date:false}
         .col-sm-6.col-md-4
           include ../components/_basic-post-view.pug

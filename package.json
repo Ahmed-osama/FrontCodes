@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-pug": "^3.3.0",
     "svg-country-flags": "^1.0.0",
     "vue": "^2.2.1"
   },
