@@ -5,7 +5,6 @@
 	@import 'base/_fonts.scss';
 	@import 'base/_grid.scss';
 	@import 'base/_layout.scss';
-	@import 'base/_Framework.scss';
 	
 
 //[2] PLUGINS
@@ -18,3 +17,5 @@
 //[4] components
 	@import 'components/_post-view.scss';
 
+//[5] Frame work items
+	@import 'base/_Framework.scss';

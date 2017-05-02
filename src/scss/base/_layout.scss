@@ -1,0 +1,13 @@
+.layout{
+    display: flex;
+    flex-direction:column;
+    @include mediaMin(1024px){
+        flex-direction: row;
+        &__content{
+            flex-grow:1;
+        }
+        &__aside{
+            flex-basis:330px;
+        }
+    }
+}

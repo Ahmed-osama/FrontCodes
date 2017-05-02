@@ -180,9 +180,12 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
   color:inherit;
-  &:active, &:hover {
-    outline-width: 0;
-    color:$mainColor;
+  &:not(.btn){
+
+    &:active, &:hover {
+      outline-width: 0;
+      color:$mainColor;
+    }
   }
 }
 

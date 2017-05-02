@@ -1,12 +1,50 @@
+//[1] ICON LIB
 .icons-lib{
     text-align: center;
+    margin-top: -30px;
     &__item{
-
+        border:1px solid $borderColor;
+        height: 33vh;
+        min-height:200px;
+        border-left:none;
+        border-top:none;
+        &:hover{
+            background: $borderColor;
+        }
     }
     &__itemIcon{
-
+        width: 5em;
+        height:5em;
+        margin-top: 3em;
     }
     &__itemTitle{
 
+    }
+}
+//[2] GUIDE LIST
+.guideList{
+    background: $gryBg;
+    padding:30px 0;
+    border-#{$right}:1px solid $borderColor;
+    ul{
+        list-style-type: none;
+    }
+    ul, li{
+        margin: 0;
+        padding: 0;
+    }
+    &__item{
+        display: block;
+        padding:15px 30px;
+        border-bottom: 1px solid $borderColor;
+    }
+}    
+.guideSection{
+    padding:30px;
+    &__title{
+        margin-left:-30px;
+        margin-right:-30px;
+        padding-left:30px;
+        padding-right:30px;
     }
 }

@@ -11,6 +11,10 @@
         "icons": {
             "name": "الأيقونات",
             "link": "icons-ar.html"
+        },
+        "guide": {
+            "name": "المكتبة",
+            "link": "guide-ar.html"
         }
     },
     "cta":{

@@ -1,0 +1,27 @@
+.layout
+  aside.layout__aside.guideList
+    ul
+      -for(var i =0; i<9;i++)
+        li: a.guideList__item(href="#buttons") buttons
+  main.layout__content
+    -for(var i =0; i<9;i++)
+      section.guideSection#buttons
+        .section-title.guideSection__title
+          h2.section-title__title Buttons
+        div.btnHolder
+          a.btn.violet_bg(href="#") Default btn
+          a.btn.green_bg(href="#") 
+            span Button with icon
+            -var icon = {case:"download"}
+            include ../shared/_icon.pug
+          a.btn.square.red_bg(href="#")
+            -var icon = {case:"facebook"}
+            include ../shared/_icon.pug
+          a.btn.round.blue_bg(href="#") Round button
+          a.btn.yellow_bg.cta(href="#") Call to Action
+        a.btn.gry_bg.block(href="#") block button
+        div.btnHolder
+          a.btn.green_bg.right(href="#") floated right
+          a.btn.red_bg.left(href="#") floated left
+          .clearfix
+

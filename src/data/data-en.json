@@ -11,6 +11,10 @@
         "icons": {
             "name": "icons",
             "link": "icons-en.html"
+        },
+        "guide": {
+            "name": "Guide",
+            "link": "guide-ar.html"
         }
     },
     "cta":{

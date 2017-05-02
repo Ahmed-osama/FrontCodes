@@ -40,7 +40,7 @@
         }
         .icon{
             line-height: inherit;
-            height: 39px;
+            height: 42px;
             vertical-align: middle;
             margin-bottom:3px;
             & + *{
@@ -65,14 +65,7 @@
         &.round{
             border-radius: 22px;
         }
-        &.loadmore{// used in index
-            background:$mainColor;
-            border-radius: 5px;
-            color:$wh;
-            margin-bottom: 20px;
-            clear: both;
-        }
-        &.call-to-action{
+        &.cta{
             padding:0 2em;
             text-transform:uppercase;
             font-weight:500;
@@ -179,7 +172,7 @@
             background: $blue;
             color:$wh;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             color:$wh;
             background:darken( $blue,5%);
         }
@@ -200,7 +193,7 @@
             background: $green;
             color:$wh;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             color:$wh;
             background:darken( $green,5%);
         }
@@ -221,7 +214,7 @@
             background: $red;
             color:$wh;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             color:$wh;
             background:darken( $red,5%);
         }
@@ -242,7 +235,7 @@
             background: $violet;
             color:$wh;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             color:$wh;
             background:darken( $violet,5%);
         }
@@ -260,10 +253,10 @@
             color:$yellow;
         }
         &_bg, &_bgHover:hover{
-            background: $yellow;
+            background:darken( $yellow,5%);
             color:$bk;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             background:darken( $yellow,5%);
             color:$bk;
         }
@@ -284,7 +277,7 @@
             background: $lightGry;
             color:$genericFontColor;
         }
-        &_bg--darker{
+        &_bg--darker, &_bg:hover{
             color:$genericFontColor;
             background:darken( $lightGry,5%);
         }
