@@ -1,18 +1,18 @@
 //colors
 		
 	//pallet
-		$violet          : #A001C9;
-		$green           : #00CA5B;
 		$blue            : #017EC9;
-		$yellow          : #ffef30;
-		$page            : #f5e9ec;
-		$darkGry         : #3c3d54;
-		$lightGry        : #f4f3f6;
-		$red             : #C9010D;
 		$bk              : #000000;
-		$wh              : #fff;
+		$darkGry         : #3c3d54;
+		$green           : #00CA5B;
+		$lightGry        : #f4f3f6;
+		$page            : #f5e9ec;
+		$violet          : #A001C9;
+		$red             : #C9010D;
 		$ts              : transparent;
 		$ts-bk           : rgba(0,0,0,0.5);
+		$wh              : #fff;
+		$yellow          : #ffef30;
 	//GRY COLORS
 		$gryBg           : #f6f6f6;
 		$borderColor     : #e4e4e4;
@@ -55,17 +55,17 @@
 	$right     : "";
 	$reverse   : "";
 		
- @if($direction == 'rtl'){
+	@if($direction == 'rtl'){
 		$titleFont: 'din';
 		$bodyFont : 'bahej';
 		$left     : right;
 		$right    : left;
 		$reverse  : -1;
- }
- @else{
+	}
+	@else{
 		$titleFont: 'Francois_One';
 		$bodyFont : 'JosefinSans';
 		$left     : left;
 		$right    : right;
 		$reverse  : 1;
- }
+	}

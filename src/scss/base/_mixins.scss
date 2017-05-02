@@ -13,6 +13,8 @@
     -webkit-text-fill-color: transparent;
   }
 
+
+
 //[2] - Media Mixins
   @mixin rem($sizeValue){
     font-size: $sizeValue + px;
@@ -36,3 +38,69 @@
       @content;
     }
   }
+
+//[3] - color classes mixin 
+  @mixin colorSet($color, $textColor){
+      &_color{
+          color:$color;
+      }
+      &_hover:hover{
+          color:$color;
+      }
+      &_bg, &_bgHover:hover{
+          background: $color;
+          color:$textColor;
+      }
+      &_bg--darker, &_bg:hover{
+          color:$textColor;
+          background:darken( $color,5%);
+      }
+      &_bg, &_bg--darker{
+          svg{
+              fill:$textColor;
+          }
+      }
+  }
+
+//[4] - background hover
+  @mixin btnBg($color, $percent){
+    background:$color;
+    &:hover{
+        background:darken($color, $percent);
+    }
+  }
+//[5] - groupselectors
+  @mixin groupSelectors($num, $scope){
+    $selectors:"";
+    @for $i from 1 through $num {
+        $selectors:'#{$selectors}.col-#{$scope}-#{$i},' ;
+    }
+    #{$selectors}{
+      @content
+    }
+  }
+
+//[6] - init Grid
+@mixin initGrid($scope, $pull, $push, $offset){
+   @for $i from 12 through 1 {
+    .col-#{$scope}-#{$i}{
+      width:($i/12)*100%;
+    }
+    
+    @if($pull){
+      .col-#{$scope}-pull-#{$i} {
+        #{$right}:($i/12)*100%;
+      }
+    }
+    @if($push){
+      .col-#{$scope}-push-#{$i} {
+        #{$left}: ($i/12)*100%;
+      }
+    }
+    @if($offset){
+      .col-#{$scope}-offset-#{$i}{
+        margin-#{$left}: ($i/12)*100%;
+      }
+    }
+  }
+}

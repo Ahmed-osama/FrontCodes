@@ -1,3 +1,17 @@
+/*
+    [0] - UTILITES
+    [1] - Buttons
+    [2] - social items
+    [3] - CATEGORYIS PALLET
+    [4] - hidden xxs
+    [5] - breadcrumb
+    [6] - data
+    [7] - Title
+    [8] - category title
+    [9] - icon
+    [10]- placeholders
+*/
+
 
 //[0] - UTILITES
     [hiddin]{
@@ -10,7 +24,6 @@
 //[1] - Buttons
     .btnHolder{
         .singlePageContent &{
-
             margin-bottom: 30px;
         }
         &.tac{
@@ -38,6 +51,9 @@
                 height:42px;
             }
         }
+        &:hover{
+            box-shadow:0px 5px 15px -1px rgba(0,0,0,0.05);
+        }
         .icon{
             line-height: inherit;
             height: 42px;
@@ -49,9 +65,6 @@
         }
         *+*{
              margin-#{$left}: 10px;
-        }
-        &:hover{
-            box-shadow:0px 5px 15px -1px rgba(0,0,0,0.05);
         }
         &.square{
             height:40px;
@@ -99,7 +112,6 @@
         &.right{
             float:$right;
         }
-        
     }
 
 //[2] - social items
@@ -115,16 +127,13 @@
         padding: 0;
         display: inline-block;
         box-shadow:none;
+        &:hover{
+            line-height:35px;
+        }
         .icon{
             fill: $wh;
             vertical-align: middle;
             height: 36px;
-        }
-        &:hover{
-            line-height:35px;
-        }
-        & + &{
-            margin-#{$left}: 10px;
         }
         &--sm{
             width: 30px;
@@ -134,158 +143,41 @@
                 height: 36px;
             }
         }
+        & + &{
+            margin-#{$left}: 10px;
+        }
     }
     .facebook{
-        background:$facebook;
-        &:hover{
-            background:darken($facebook,10%);
-        }
+        @include btnBg($facebook,10%)
     }
     .googleplus{
-        background:$googlePlus;
-        &:hover{
-            background:darken($googlePlus,10%);
-        }
+         @include btnBg($googlePlus,10%)
     }
     .youtube{
-        background:$youtube;
-        &:hover{
-            background:darken($youtube,10%);
-        }
+         @include btnBg($youtube,10%)
     }
     .twitter{
-        background:$twitter ;
-        &:hover{
-            background:darken($twitter,10%);
-        }
+        @include btnBg($twitter,10%)
     }
 
 //[3] - CATEGORYIS PALLET
     .blue{//
-        &_color{
-            color:$blue;
-        }
-        &_hover:hover{
-            color:$blue;
-        }
-        &_bg, &_bgHover:hover{
-            background: $blue;
-            color:$wh;
-        }
-        &_bg--darker, &_bg:hover{
-            color:$wh;
-            background:darken( $blue,5%);
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$wh;
-            }
-        }
+        @include colorSet($blue, $wh);
     }
     .green{
-        &_color{
-            color:$green;
-        }
-        &_hover:hover{
-            color:$green;
-        }
-        &_bg, &_bgHover:hover{
-            background: $green;
-            color:$wh;
-        }
-        &_bg--darker, &_bg:hover{
-            color:$wh;
-            background:darken( $green,5%);
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$wh;
-            }
-        }
+         @include colorSet($green, $wh);
     }
-    .red{//
-        &_color{
-            color:$red;
-        }
-        &_hover:hover{
-            color:$red;
-        }
-        &_bg, &_bgHover:hover{
-            background: $red;
-            color:$wh;
-        }
-        &_bg--darker, &_bg:hover{
-            color:$wh;
-            background:darken( $red,5%);
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$wh;
-            }
-        }
+    .red{
+         @include colorSet($red, $wh);
     }
-    .violet{//
-        &_color{
-            color:$violet;
-        }
-        &_hover:hover{
-            color:$violet;
-        }
-        &_bg, &_bgHover:hover{
-            background: $violet;
-            color:$wh;
-        }
-        &_bg--darker, &_bg:hover{
-            color:$wh;
-            background:darken( $violet,5%);
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$wh;
-            }
-        }
+    .violet{
+         @include colorSet($violet, $wh);
     }
     .yellow{
-        &_color{
-            color:$yellow;
-        }
-        &_hover:hover{
-            color:$yellow;
-        }
-        &_bg, &_bgHover:hover{
-            background:darken( $yellow,5%);
-            color:$bk;
-        }
-        &_bg--darker, &_bg:hover{
-            background:darken( $yellow,5%);
-            color:$bk;
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$bk;
-            }
-        }
+        @include colorSet($yellow, $bk);
     }
     .gry{
-        &_color{
-            color:$lightGry;
-        }
-        &_hover:hover{
-            color:$lightGry;
-        }
-        &_bg, &_bgHover:hover{
-            background: $lightGry;
-            color:$genericFontColor;
-        }
-        &_bg--darker, &_bg:hover{
-            color:$genericFontColor;
-            background:darken( $lightGry,5%);
-        }
-        &_bg, &_bg--darker{
-            svg{
-                fill:$lightGry;
-            }
-        }
+        @include colorSet($lightGry, $genericFontColor);
     }
 
 //[4] - hidden xxs
@@ -337,7 +229,7 @@
         span{
             vertical-align: middle;
         }
-        svg{
+        .icon{
             fill:$detailColor;
             width: 1em;
             height: 1em;
@@ -424,49 +316,49 @@
         display: inline-block;
     }
 //[10] placeholders
-.placeholder{ 
-  display: block;
-  background:rgba(0,0,0,0.05);
-  height: 20px;
-  border-radius:2px;
-  margin: 0;
-  margin-bottom: 10px;
-  @extend %mainGradient;
-  @include mediaMax(480px){
-      height: 10px;
-      margin-bottom:5px;
-  }
-  &--reverse{
-    background:rgba(255,255,255,0.05);
-  }
-  &--title{
-    margin-bottom: 0;
-    display: inline-block;
-    min-width: 30%;
-    height: 30px;
-    @include mediaMax(480px){
-      height: 15px;
-      margin-bottom: 0px;
+    .placeholder{ 
+        @extend %mainGradient;
+        display: block;
+        background:rgba(0,0,0,0.05);
+        height: 20px;
+        border-radius:2px;
+        margin: 0;
+        margin-bottom: 10px;
+        @include mediaMax(480px){
+            height: 10px;
+            margin-bottom:5px;
+        }
+        &--reverse{
+            background:rgba(255,255,255,0.05);
+        }
+        &--title{
+            margin-bottom: 0;
+            display: inline-block;
+            min-width: 30%;
+            height: 30px;
+            @include mediaMax(480px){
+            height: 15px;
+            margin-bottom: 0px;
+            }
+        }
+        
+        &--33{
+            margin-bottom: 0;
+            display: inline-block;
+            width:calc(33% - 10px); 
+            margin-#{$right}: 10px;
+            
+        }
+        &--15{
+            margin-bottom: 0;
+            display: inline-block;
+            width:calc(15% - 10px); 
+            margin-#{$right}: 10px;
+        }
+        &--66{
+            margin-bottom: 0;
+            display: inline-block;
+            width:calc(66% - 10px); 
+            margin-#{$right}: 10px;
+        }
     }
-  }
- 
-  &--33{
-    margin-bottom: 0;
-    display: inline-block;
-    width:calc(33% - 10px); 
-    margin-#{$right}: 10px;
-    
-  }
-   &--15{
-    margin-bottom: 0;
-    display: inline-block;
-    width:calc(15% - 10px); 
-    margin-#{$right}: 10px;
-  }
-   &--66{
-    margin-bottom: 0;
-    display: inline-block;
-    width:calc(66% - 10px); 
-    margin-#{$right}: 10px;
-  }
-}

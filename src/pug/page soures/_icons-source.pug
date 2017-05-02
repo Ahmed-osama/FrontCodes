@@ -4,6 +4,7 @@
 section.icons-lib
   -for(var i = 0 ; i < data.icons.length-1; i++)
    .icons-lib__item.col-lg-2.col-md-3.col-sm-4.col-xs-6
-      -var icon = {case:data.icons[i], addClass:"icons-lib__itemIcon"}
-      include ../shared/_icon.pug
-      h4.icons-lib__itemTitle #{data.icons[i]}
+      div
+        -var icon = {case:data.icons[i], addClass:"icons-lib__itemIcon"}
+        include ../shared/_icon.pug
+        h4.icons-lib__itemTitle #{data.icons[i]}
