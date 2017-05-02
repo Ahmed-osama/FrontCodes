@@ -49,8 +49,9 @@
         -for(i =0; i <= 2; i++)
           li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
     .row  
-      -for(i =6; i <= 8; i++)
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,video:true, card:true,cardBounded:true, horizontal:false,date:true,card:true}
+      -var iconType = ["sound","image","play"]
+      -for(i =0; i <= 2; i++)
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:{state:true, name:iconType[i]}, card:true,cardBounded:true, horizontal:false,date:true,card:true}
         .col-sm-6.col-md-4
           include ../components/_basic-post-view.pug
       .clearfix
@@ -64,7 +65,7 @@
     .row
       -for(i =0; i <= 2; i++)
         .col-sm-12
-          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,video:false, card:false, horizontal:true,date:true}
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
           include ../components/_basic-post-view.pug    
       .clearfix
   section
@@ -76,6 +77,6 @@
     .row
       -for(i =3; i <= 5; i++)
         .col-sm-12
-          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,video:false, card:false, horizontal:true,date:true,horizontalSm:true}
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,icon:false, card:false, horizontal:true,date:true,horizontalSm:true}
           include ../components/_basic-post-view.pug
       .clearfix

@@ -1,5 +1,6 @@
 -var modifierClass= ""
 -if(!post.img) post.img = 'img/content/1.jpg'
+-if(!post.icon){ post.icon= {state : false,name: ""}}
 -if(!post.caption) post.caption = 'نص جريبي'
 -if(!post.abstract) post.abstract = false
 -if(!post.link) post.link = 'single.html'
@@ -30,10 +31,10 @@
           include ../shared/_icon.pug
 
     //- [2.3] - ICONS
-    span.post-view__icon
-      -if(post.video)
-        -var icon = {case:"play", addClass:"post-view__icon-inner"}
-        include ../shared/_icon.pug
+    -if(post.icon.state)
+      span.post-view__icon
+          -var icon = {case:post.icon.name, addClass:"post-view__icon-inner"}
+          include ../shared/_icon.pug
     img.lazy( alt=post.caption, src=post.img)
   //- [3] - TEXTAREA
   .post-view__caption(alt=post.caption )
