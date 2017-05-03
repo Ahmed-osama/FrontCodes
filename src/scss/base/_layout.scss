@@ -1,13 +1,52 @@
 .layout{
     display: flex;
-    flex-direction:column;
+     flex-direction: column;
     @include mediaMin(1024px){
         flex-direction: row;
-        &__content{
-            flex-grow:1;
+        &--column{
+            flex-direction:column;
         }
-        &__aside{
-            flex-basis:330px;
+        &--vh{
+            height:calc(100vh - 80px);
+        }
+        &--wrap{
+            flex-wrap: wrap;
+        }
+        &__item{
+
+            &--grow{
+                flex-grow:1;
+            }
+            &--content{
+                flex-grow:1;
+                padding:0 15px;
+            }
+            &--nav{
+                flex-basis:200px;
+                background: $gryBg;
+                padding:0 15px;
+                & + .layout__item{
+                    box-shadow: 3px 0px 20px -3px rgba(0,0,0,0.10);
+                }
+              
+            }
+
+            &--aside{
+                flex-basis:430px;
+                background: $gryBg;
+                padding:0 15px;
+               
+            }
+            &--panel,  &--panelInner{
+                overflow: hidden;
+                overflow-y: visible;
+            }
+            &--panel{
+                height:calc(100vh - 80px);
+            }
+            &--panelInner{
+                height:calc(100vh - 220px);
+            }
         }
     }
 }

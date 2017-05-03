@@ -549,4 +549,17 @@ template, [hidden] {
   padding-start         : 0;
   //-webkit-backface-visibility: hidden;
   //-webkit-transform: translateZ(0) scale(1.0, 1.0);
+  &::-webkit-scrollbar-track{
+    -webkit-box-shadow: none;
+    background-color: $ts;
+  }
+
+  &::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.2);
+    border-radius:2.5px;  
+  }
 }
