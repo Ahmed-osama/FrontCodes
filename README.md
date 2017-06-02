@@ -1,17 +1,4 @@
-# Front codes
 
-> ui Componenets liberary
-## Build Setup
+# FrontCodes
+just another CSS liberary &amp; a play ground for code good parts
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
