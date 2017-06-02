@@ -70,7 +70,7 @@
             height:40px;
             width:40px;
             padding:0;
-              @mediaMin(1024px){
+              @include mediaMin(1024px){
                 height: 44px;
                 width: 44px;
               }

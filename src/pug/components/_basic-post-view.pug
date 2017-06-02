@@ -1,14 +1,15 @@
--var modifierClass= ""
--if(!post.img) post.img = 'img/content/1.jpg'
--if(!post.icon){ post.icon= {state : false,name: ""}}
--if(!post.caption) post.caption = 'نص جريبي'
--if(!post.abstract) post.abstract = false
--if(!post.link) post.link = 'single.html'
--if(post.horizontal) modifierClass += 'post-view--horizontal '
--if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
--if(post.over) modifierClass += 'post-view--over '
--if(post.card) modifierClass += 'post-view--card '
--if(post.cardBounded) modifierClass += 'post-view--cardBounded '
+-
+  var modifierClass= ""
+  if(!post.img) post.img = 'img/content/1.jpg'
+  if(!post.icon){ post.icon= {state : false,name: ""}}
+  if(!post.caption) post.caption = 'نص جريبي'
+  if(!post.abstract) post.abstract = false
+  if(!post.link) post.link = 'single.html'
+  if(post.horizontal) modifierClass += 'post-view--horizontal '
+  if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
+  if(post.over) modifierClass += 'post-view--over '
+  if(post.card) modifierClass += 'post-view--card '
+  if(post.cardBounded) modifierClass += 'post-view--cardBounded '
 
 .post-view(class=modifierClass)
   //- [1] - OVERALL LINK
