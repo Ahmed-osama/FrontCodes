@@ -1,6 +1,6 @@
 .main-footer{
-	background:lighten($borderColor,5%);
-	border-top:1px solid $borderColor;
+	background:lighten($dviderColor,5%);
+	border-top:1px solid $dviderColor;
 	color:rgba(255,255,255,0.8);
 	padding:15px 30px;
 	flex-direction:column;
@@ -24,7 +24,7 @@
 		margin-top:20px;
 		margin-bottom:20px;
 		a{
-			color:$genericFontColor;
+			color:$primaryText;
 			font-family:$titleFont;
 			vertical-align: middle	;
 			display: block;
@@ -35,7 +35,7 @@
 			}
 			
 			&:hover{
-				color:$mainColor;
+				color:$primaryColor;
 			}
 		}
 		@include mediaMin(768px) {

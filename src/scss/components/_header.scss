@@ -22,7 +22,7 @@ body {
         z-index: 0;
         content: "";
         display: block;
-        background:$mainColor;
+        background:$primaryColor;
         box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1);
     }
     ul {
@@ -33,7 +33,7 @@ body {
         text-decoration: none;
     }
      .language{
-        color:$genericFontColor;
+        color:$primaryText;
         text-transform: uppercase   ;
         font-weight: bold;
      }
@@ -130,7 +130,7 @@ body {
                 font-family: $titleFont;
                 color: $wh;
                 &:hover {
-                    color: $mainColor;
+                    color: $primaryColor;
                 }
             }
         }
@@ -204,9 +204,9 @@ body {
         &__nav {
             li {
                 display: block;
-                border-bottom: 1px solid $borderColor;
+                border-bottom: 1px solid $dviderColor;
                 a {
-                    color: $genericFontColor;
+                    color: $primaryText;
                     font-weight: 400;
                     padding: 10px 0;
                     display: block;
@@ -224,8 +224,8 @@ body {
             margin-#{$right}: -15px;
             margin-#{$left}: -15px;
             margin-bottom: -15px;
-            background: $borderColor;
-            color: $genericFontColor;
+            background: $dviderColor;
+            color: $primaryText;
         }
         .language{
             display: inline-block   ;
@@ -237,7 +237,7 @@ body {
     @include mediaMin(1024px) {
         height: 80px;
         padding: 0 30px;
-        background: $mainColor;
+        background: $primaryColor;
         box-shadow: none;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         &:after {

@@ -1,13 +1,15 @@
 //[1] Container
+  
+
   .container {
     margin-#{$right}: auto;
     margin-#{$left}: auto;
-    padding-#{$left}: $space;
-    padding-#{$right}: $space;
-    &.main-container{
-      padding-top: 15px;
+    padding-#{$left}: $grid-space;
+    padding-#{$right}: $grid-space;
+    &--main{
+      padding-top: $grid-space-sm;
       @include mediaMin(768px){
-        padding-top: 20px;
+        padding-top: $grid-space;
       }
     }
   }
@@ -28,17 +30,17 @@
   }
 //[2] Rows
   .row {
-    margin-#{$left}: -1*$space ;
-    margin-#{$right}: -1*$space ;
+    margin-#{$left}: -1*$grid-space-sm ;
+    margin-#{$right}: -1*$grid-space-sm ;
     @include mediaMin(768px){
-      margin-#{$left}: -1*$space-sm ;
-      margin-#{$right}: -1*$space-sm ;
+      margin-#{$left}: -1*$grid-space ;
+      margin-#{$right}: -1*$grid-space ;
     }
   }
   .row-xs{
     @media (max-width: 767px) {
-      margin-#{$left}: -1*$space-sm;
-      margin-#{$right}: -1*$space-sm;
+      margin-#{$left}: -1*$grid-space-sm;
+      margin-#{$right}: -1*$grid-space-sm;
     }
   }
 
@@ -49,11 +51,11 @@
     %col-basic-setting{
       position: relative;
         min-height: 1px;
-        padding-#{$left}: $space;
-        padding-#{$right}: $space;
+        padding-#{$left}: $grid-space-sm;
+        padding-#{$right}: $grid-space-sm;
         @include mediaMin(768px){
-          padding-#{$left}: $space-sm;
-          padding-#{$right}: $space-sm;
+          padding-#{$left}: $grid-space;
+          padding-#{$right}: $grid-space;
         }
     }
     @for $i from 1 through 12 {
@@ -74,7 +76,6 @@
   
   //[3.3] - Phablet
     @include mediaMin(480px) {
-
       @include groupSelectors(12, "ls"){
         float: $left;
       }

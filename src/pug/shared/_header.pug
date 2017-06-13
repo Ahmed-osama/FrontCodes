@@ -13,13 +13,13 @@ header.main-header
             -continue
           li
             a(href=data.nav[key].link) #{data.nav[key].name}
-      .btn.yellow_bg.round.main-header__cta 
+      .btn.btn--round.yellow_bg.main-header__cta 
         -if(rtl)
           span أضف مشاركتك
         -else
-          span add your story
           -var icon = {case:"plus"}
           include ../shared/_icon.pug
+          span add your story
 
       .main-header__social
         a.language(href=data.nav.lang.link) #{data.nav.lang.name}

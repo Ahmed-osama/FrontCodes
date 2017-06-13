@@ -18,14 +18,14 @@
 }@else{
     
     @font-face {
-        font-family: 'JosefinSans';
-        src: url(fonts/Josefin_Sans/JosefinSans-Bold.ttf);
-        font-weight:500;
+        font-family: 'roboto';
+        src: url(fonts/Roboto/Roboto-Light.ttf);
+        font-weight:300;
     }    
     @font-face {
-        font-family: 'Francois_One';
-        src: url(fonts/Francois_One/FrancoisOne-Regular.ttf);
-        font-weight:300;
+        font-family: 'roboto';
+        src: url(fonts/Roboto/Roboto-Regular.ttf);
+        font-weight:400;
     }
 }
 
@@ -33,17 +33,16 @@ body{
     font-size:1rem;
     font-family:$bodyFont;
     line-height:1.5em;
-    font-weight: 300;
+    font-weight: 400;
 
 }
 @each $num in 1,2,3,4,5,6{
     h#{$num}{
         font-family: $titleFont;        
-        font-weight: 500;
+        font-weight: 300;
         -webkit-margin-before: 0px;
         -webkit-margin-after: 0px;
         -webkit-margin-start: 0px;
         -webkit-margin-end: 0px;
-        margin: 0.67em 0;
     }
 }

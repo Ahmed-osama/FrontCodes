@@ -1,23 +1,26 @@
 .layout
-  aside.layout__aside.guideList
+  aside.layout__item.guideList
     ul
-      -for(var i =0; i<9;i++)
         li: a.guideList__item(href="#buttons") buttons
-  main.layout__content
-    -for(var i =0; i<9;i++)
+        li: a.guideList__item(href="#feature-item") Feature item
+  main.layout__item--grow
       section.guideSection#buttons
         .section-title.guideSection__title
           h2.section-title__title Buttons
-        div.btnHolder
+        div
           a.btn.violet_bg(href="#") Default btn
+          br
           a.btn.green_bg(href="#") 
             span Button with icon
             -var icon = {case:"download"}
             include ../shared/_icon.pug
+          br
           a.btn.square.red_bg(href="#")
             -var icon = {case:"facebook"}
             include ../shared/_icon.pug
+          br
           a.btn.round.blue_bg(href="#") Round button
+          br
           a.btn.yellow_bg.cta(href="#") Call to Action
         a.btn.gry_bg.block(href="#") block button
         div.btnHolder
@@ -25,3 +28,7 @@
           a.btn.red_bg.left(href="#") floated left
           .clearfix
 
+      section.guideSection#buttons
+        .section-title.guideSection__title
+          h2.section-title__title Feature item
+        div

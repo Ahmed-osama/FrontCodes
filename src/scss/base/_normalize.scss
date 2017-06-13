@@ -12,13 +12,12 @@
 
 html {
   font-family: sans-serif;
-  /* 1 */
-  line-height: 1.15;
   /* 2 */
   -ms-text-size-adjust: 100%;
   /* 3 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
+  @include lineHeight(1);
 }
 
 /* Sections
@@ -31,6 +30,7 @@ html {
 body {
   margin: 0;
   padding-top: 80px;
+  
 }
 
 /**
@@ -45,81 +45,47 @@ article, aside, footer, header, nav, section {
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */
-@if( $direction == 'rtl' ){
-    h1 {
-      @include rem(20);
-      margin: 0.67em 0;
-    }
-    h2 {
-      @include rem(18);
-      margin: 0.67em 0;
-    }
-    h3,h4,h5, {
-      @include rem(14);
-      margin: 0.67em 0;
-    }
-    h6 {
-      @include rem(13);
-      margin: 0.67em 0;
-    }
 
-    @include mediaMin(768px) {
-      h1 {
-        @include rem(24);
-        margin: 0.67em 0;
-      }
-      h2 {
-        @include rem(22);
-        margin: 0.67em 0;
-      }
-      h3{
-        @include rem(20);
-      }
-      h4,h5, {
-        @include rem(16);
-        margin: 0.67em 0;
-      }
-      h6 {
-        @include rem(14);
-        margin: 0.67em 0;
-      }
-    }
-}@else{
 
   h1 {
-    @include rem(20);
-    margin: 0.67em 0;
+     @include rem(28);
+     @include lineHeight(2)
   }
   h2 {
-    @include rem(18);
-    margin: 0.67em 0;
+    @include rem(21);
+    @include lineHeight(1)
   }
   h3,h4,h5, {
-    @include rem(16);
-    margin: 0.67em 0;
+    @include rem(18);
+    @include lineHeight(1)
   }
   h6 {
-    @include rem(14);
-    margin: 0.67em 0;
+    @include rem(16);
+    @include lineHeight(1)
   }
   @include mediaMin(768px) {
     h1 {
-      @include rem(22);
+      @include rem(56);
+      @include lineHeight(3)
     }
     h2 {
-      @include rem(20);
+      @include rem(42);
+      @include lineHeight(2)
     }
     h3{
-      @include rem(18);
+      @include rem(28);
+      @include lineHeight(1.5)
     }
     h4,h5, {
-      @include rem(16);
+      @include rem(21);
+      @include lineHeight(1)
     }
     h6 {
-      @include rem(14);
+      @include rem(18);
+      @include lineHeight(1)
     }
   }
-}
+
 
 /* Grouping content
    ========================================================================== */
@@ -155,6 +121,10 @@ hr {
   overflow: visible;
   /* 2 */
 }
+br{
+  display: block;
+  margin-bottom: 10px;
+}
 
 /**
  * 1. Correct the inheritance and scaling of font size in all browsers.
@@ -184,7 +154,7 @@ a {
 
     &:active, &:hover {
       outline-width: 0;
-      color:$mainColor;
+      color:$primaryColor;
     }
   }
 }

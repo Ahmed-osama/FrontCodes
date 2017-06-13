@@ -1,24 +1,22 @@
 //colors
 		
 	//pallet
-		$blue            : #017EC9;
-		$bk              : #000000;
-		$darkGry         : #3c3d54;
-		$green           : #00CA5B;
-		$lightGry        : #f4f3f6;
-		$page            : #f5e9ec;
-		$violet          : #A001C9;
-		$red             : #C9010D;
-		$ts              : transparent;
-		$ts-bk           : rgba(0,0,0,0.5);
+		$blue            : #2095f2;
+		$green           : #4bae4f;
+		$purple          : #9b26af;
+		$red             : #f34235;
+		$yellow          : #feea3a;
 		$wh              : #fff;
-		$yellow          : #ffef30;
-	//GRY COLORS
-		$gryBg           : #f6f6f6;
-		$borderColor     : #e4e4e4;
-		$footerTxt       : #cccccc;
-		$inputColor      : #666666;
-		$detailColor     : #9b9b9b;
+		$bk              : #000000;
+		$ts-bk-50           : rgba(0,0,0,0.5);
+		$ts-bk-15        : rgba(0,0,0,0.15);
+		$ts              : transparent;
+
+		//Grys
+			$darkGry : #212121;
+			$gry     : #757575;
+			$lightGry: #BDBDBD;
+
 	//Socials
 		$facebook        : #3b5998;
 		$googlePlus      : #e02f2f;
@@ -27,15 +25,12 @@
 		$instagram       : #405de6;
 
 	//theme
-		$mainColor       : $blue;
-		$sacColor        : $bk;
-		$titleColor      : $darkGry;
-		$genericFontColor: #212121;
-		$abstractColor   : lighten($genericFontColor,10%);
+		$primaryColor   : $blue;
+		$accentColor    : $bk;
+		$primaryText	: $darkGry;
+		$secondaryText	: $gry;
+		$dviderColor    : $lightGry;
 
-//fonts
-	$titleFont : "";
-	$bodyFont  : "";
 
 //screens
 	$mobile    : 321px;
@@ -45,12 +40,19 @@
 	$desktop   : 1281px;
 
 //spaces
-	$space     : 15px;
-	$space-sm  : 10px;
+	$fontSize  		:	 18;
+	$lineHeight		:	1.5555556;
+	$space     		:	($fontSize * $lineHeight) *1px ;
+	$space-sm  		:	($fontSize * $lineHeight * 0.75) *1px ;
+	$grid-space		:	$space/2;
+	$grid-space-sm  :	$space-sm/2 ;
 
 //valueCapture
 	$shadow    : 0 5px 40px -3px rgba(0,0,0,0.2);
 
+//fonts
+	$titleFont : "";
+	$bodyFont  : "";
 //direction
 	$left      : "";
 	$right     : "";
@@ -64,8 +66,8 @@
 		$reverse  : -1;
 	}
 	@else{
-		$titleFont: 'Francois_One';
-		$bodyFont : 'JosefinSans';
+		$titleFont: 'roboto';
+		$bodyFont : 'roboto';
 		$left     : left;
 		$right    : right;
 		$reverse  : 1;

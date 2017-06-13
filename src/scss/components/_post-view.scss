@@ -5,11 +5,11 @@
 }
 
 img.lazy {
-    background-color: $borderColor;
+    background-color: $dviderColor;
     background-image: url(../img/loading.gif);
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    background-size: 26px 26px;
+    background-size: $space $space;
 }
 
 @keyframes fitIn {
@@ -26,10 +26,11 @@ img.lazy {
 .post-view {
     transition: 0.2s;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: $space;
+    
     &:not(.post-view--over):hover {
         .post-view__maxTitle{
-            color:$mainColor;
+            color:$primaryColor;
         }
     }
     &:hover {
@@ -221,7 +222,7 @@ img.lazy {
             width:100%;
             color: $wh;
             background: $ts;
-            text-shadow: 1px 1px 2px $ts-bk;
+            text-shadow: 1px 1px 2px $ts-bk-50;
             .post-view__maxTitle {
                 height: auto;
                 max-height: 78px;
@@ -243,7 +244,7 @@ img.lazy {
             padding-top: 0;
             padding-#{$left}: 10px;
             height: 85px;
-            border-bottom: 1px solid $borderColor;
+            border-bottom: 1px solid $dviderColor;
         }
 
         @include mediaMin(768px) {
@@ -279,7 +280,7 @@ img.lazy {
     }
     &__abstract{
         overflow: hidden;
-        color:$abstractColor;
+        color:$secondaryText;
         display: none;
         .post-view__maxTitle + &{
             margin-top: 10px;

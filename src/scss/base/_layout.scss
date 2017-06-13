@@ -6,9 +6,6 @@
         &--column{
             flex-direction:column;
         }
-        &--vh{
-            height:calc(100vh - 80px);
-        }
         &--wrap{
             flex-wrap: wrap;
         }
@@ -24,10 +21,6 @@
             &--aside{
                 padding:0 15px;
                 flex-basis:330px;
-            }
-            &--panel,  &--panelInner{
-                overflow: hidden;
-                overflow-y: visible;
             }
         }
     }

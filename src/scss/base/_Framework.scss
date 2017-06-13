@@ -3,7 +3,7 @@
         text-align: center;
         margin-top: -30px;
         &__item{
-            border:1px solid $borderColor;
+            border:1px solid $dviderColor;
             height: 33vh;
             min-height:200px;
             border-left:none;
@@ -12,7 +12,7 @@
             justify-content: center; /* align horizontal */
             align-items: center; /* align vertical */
             &:hover{
-                background: $borderColor;
+                background: $dviderColor;
             }
         }
         &__itemIcon{
@@ -26,9 +26,9 @@
 
 //[2] GUIDE LIST
     .guideList{
-        background: $gryBg;
+        background: $lightGry;
         padding:30px 0;
-        border-#{$right}:1px solid $borderColor;
+        border-#{$right}:1px solid $dviderColor;
         ul{
             list-style-type: none;
         }
@@ -39,7 +39,7 @@
         &__item{
             display: block;
             padding:15px 30px;
-            border-bottom: 1px solid $borderColor;
+            border-bottom: 1px solid $dviderColor;
         }
     }    
     .guideSection{

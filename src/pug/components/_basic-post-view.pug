@@ -1,49 +1,51 @@
--
-  var modifierClass= ""
-  if(!post.img) post.img = 'img/content/1.jpg'
-  if(!post.icon){ post.icon= {state : false,name: ""}}
-  if(!post.caption) post.caption = 'نص جريبي'
-  if(!post.abstract) post.abstract = false
-  if(!post.link) post.link = 'single.html'
-  if(post.horizontal) modifierClass += 'post-view--horizontal '
-  if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
-  if(post.over) modifierClass += 'post-view--over '
-  if(post.card) modifierClass += 'post-view--card '
-  if(post.cardBounded) modifierClass += 'post-view--cardBounded '
+-var modifierClass= ""
+-if(!post.img) post.img = 'img/content/1.jpg'
+-if(!post.abstract) post.abstract = false
+-if(post.fav == undefined) post.fav = true
+-if(post.share == undefined) post.share = true
+-if(post.iframe == undefined) post.iframe = false
+-if(post.link == undefined) post.link = 'single'+ext+'.html'
+-if(post.horizontal) modifierClass += 'post-view--horizontal '
+-if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
+-if(post.over) modifierClass += 'post-view--over '
+-if(post.card) modifierClass += 'post-view--card '
+-if(post.cardBounded) modifierClass += 'post-view--cardBounded '
 
 .post-view(class=modifierClass)
   //- [1] - OVERALL LINK
-  a.post-view__link(href=post.link alt=post.caption)
+  -if(post.link)
+    a.post-view__link(href=post.link alt=post.caption)
 
   //- [2] - IMG HOLDER
   .post-view__img
     //- [2.1] - FAVOURITE
-    span.post-view__fav
-      input(type="checkbox" id="fav_"+i)
-      label(for="fav_"+i)
-        -var icon = {case:"star"}
-        include ../shared/_icon.pug
-        -var icon = {case:"star-filled"}
-        include ../shared/_icon.pug
+    -if(false)
+      span.post-view__fav
+        input(type="checkbox" id="fav_"+i)
+        label(for="fav_"+i)
+          i.mdi-star-outline
+          i.mdi-star
     //- [2.2] - SHARE
-    span.post-view__share
-       a.socialItem(href="#" class=data.social[0].class)
-          -var icon = {case:"facebook"}
-          include ../shared/_icon.pug
+    -if(post.share)
+      span.post-view__share
+        a.socialItem(href="#" class=data.social[0].class): i(class=data.social[0].icon)
 
     //- [2.3] - ICONS
-    -if(post.icon.state)
-      span.post-view__icon
-          -var icon = {case:post.icon.name, addClass:"post-view__icon-inner"}
-          include ../shared/_icon.pug
-    img.lazy( alt=post.caption, src=post.img)
+    span.post-view__icon
+      -if(post.video)
+        i.mdi-play
+    -if(!post.iframe)
+      img.lazy( alt=post.caption, data-original=post.img,  src='img/spacer.png')
+    -else
+      iframe(width="" height="" src="https://www.youtube.com/embed/2KvN1z76VWw" frameborder="0" allowfullscreen)
   //- [3] - TEXTAREA
   .post-view__caption(alt=post.caption )
     -if(post.date)
-      span.date
-        -var icon = {case:"date"}
-        include ../shared/_icon.pug
-        span October 19, 2017
-    h4.post-view__maxTitle #{post.caption}
+      span.date October 19, 2017
+    -if(post.caption && !post.iframe)
+      h4.post-view__maxTitle
+        -if(post.flag)
+          a.post-view__flag(class=post.flag, href="countery-index"+ext+".html")
+        |#{post.caption}
     -if(post.abstract)
       p.post-view__abstract #{post.abstract}

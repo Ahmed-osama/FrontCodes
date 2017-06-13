@@ -1,0 +1,6 @@
+.feature-item(class=featureModifierCLass)
+    .feature-item__img
+        i(class='#{icons[i]}')
+    h4.feature-item__title #{content[i].title}
+    p.feature-item__abstract
+        | #{content[i].abstract}
