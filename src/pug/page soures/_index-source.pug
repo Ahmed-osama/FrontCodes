@@ -12,70 +12,127 @@
     horizontal   : true,
     horizontalSm : true,
   }
+-
+  var intro= {
+    calltoAction:true
+  }
+include ../components/_intro.pug
 .category-title
   h1 Post Items
-.container.main-container
- 
-  section
-    .section-title.section-title--noborder
-      h4.section-title__title #{data.sections.titels[0]}
-      ul.section-title__list
+section.section
+  .container
+    h2.section__mainTitle Prosthetic & Orthotic Services
+    .sub-section-title
+      h4.sub-section-title__title #{data.sections.titels[2]}
+      .sub-section-title__list
         -for(i =0; i <= 2; i++)
-          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-    .row
-      -for(i =0; i <= 2; i++)
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false, over:true, horizontal:false,date:false}
-        .col-sm-6.col-md-4
-          include ../components/_basic-post-view.pug
-
-      .clearfix
-  section
-    .section-title
-      h4.section-title__title #{data.sections.titels[1]}
-      ul.section-title__list
-        -for(i =0; i <= 2; i++)
-          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-    .row
-      -for(i =3; i <= 5; i++)
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
-        .col-sm-6.col-md-4
-          include ../components/_basic-post-view.pug 
-      .clearfix
-  section
-    .section-title
-      h4.section-title__title #{data.sections.titels[2]}
-      ul.section-title__list
-        -for(i =0; i <= 2; i++)
-          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
     .row  
       -var iconType = ["sound","image","play"]
       -for(i =0; i <= 2; i++)
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:{state:true, name:iconType[i]}, card:true,cardBounded:true, horizontal:false,date:true,card:true}
+        -
+          var post = {
+            img:data.content[i].img,
+            caption:data.content[i].title,
+            abstract:data.content[i].abstract,
+            icon:{
+              state:true,
+              name:iconType[i]
+            },
+            card:true,
+            cardBounded:true,
+            horizontal:false,
+            date:false,
+            padge:true
+          }
         .col-sm-6.col-md-4
           include ../components/_basic-post-view.pug
       .clearfix
-    
-  section
-    .section-title
-      h4.section-title__title #{data.sections.titels[3]}
-      ul.section-title__list
-        -for(i =0; i <= 2; i++)
-          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-    .row
-      -for(i =0; i <= 2; i++)
-        .col-sm-12
-          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
-          include ../components/_basic-post-view.pug    
-      .clearfix
-  section
-    .section-title
-      h4.section-title__title #{data.sections.titels[0]}
-      ul.section-title__list
-        -for(i =0; i <= 2; i++)
-          li.section-title__listItem: a(href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-    .row
-      -for(i =3; i <= 5; i++)
-        .col-sm-12
-          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,icon:false, card:false, horizontal:true,date:true,horizontalSm:true}
-          include ../components/_basic-post-view.pug
-      .clearfix
+section.section
+  .container
+    h2.section__mainTitle Prosthetic & Orthotic Services
+    -for(var o=0;o<2;o++)
+      .sub-section-title
+        h4.sub-section-title__title #{data.sections.titels[2]}
+        .sub-section-title__list
+          -for(i =0; i <= 2; i++)
+              -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+              a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+      .row.sub-section-body 
+        
+        -var iconType = ["sound","image","play"]
+        -for(i =0+o; i <= 3+o; i++)
+          -
+            var post = {
+              img:data.content[i].img,
+              caption:data.content[i].title,
+              abstract:false,
+              icon:{
+                state:true,
+                name:iconType[i]
+              },
+              card:true,
+              cardBounded:true,
+              cardBoundedSimple:true,
+              horizontal:false,
+              date:false
+            }
+          .col-sm-6.col-md-3
+            include ../components/_basic-post-view.pug
+        .clearfix
+      
+section
+  .sub-section-title.sub-section-title--noborder
+    h4.sub-section-title__title #{data.sections.titels[0]}
+    .sub-section-title__list
+       -for(i =0; i <= 2; i++)
+          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+  .row
+    -for(i =0; i <= 2; i++)
+      -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false, over:true, horizontal:false,date:false}
+      .col-sm-6.col-md-4
+        include ../components/_basic-post-view.pug
+
+    .clearfix
+section
+  .sub-section-title
+    h4.sub-section-title__title #{data.sections.titels[1]}
+    .sub-section-title__list
+       -for(i =0; i <= 2; i++)
+          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+  .row
+    -for(i =3; i <= 5; i++)
+      -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
+      .col-sm-6.col-md-4
+        include ../components/_basic-post-view.pug 
+    .clearfix
+
+section
+  .sub-section-title
+    h4.sub-section-title__title #{data.sections.titels[3]}
+    .sub-section-title__list
+       -for(i =0; i <= 2; i++)
+          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+  .row
+    -for(i =0; i <= 2; i++)
+      .col-sm-12
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
+        include ../components/_basic-post-view.pug    
+    .clearfix
+section
+  .sub-section-title
+    h4.sub-section-title__title #{data.sections.titels[0]}
+    .sub-section-title__list
+       -for(i =0; i <= 2; i++)
+          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+  .row
+    -for(i =3; i <= 5; i++)
+      .col-sm-12
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,icon:false, card:false, horizontal:true,date:true,horizontalSm:true}
+        include ../components/_basic-post-view.pug
+    .clearfix

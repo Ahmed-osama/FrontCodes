@@ -1,0 +1,171 @@
+.intro{
+	position: relative;
+	max-height:21*$space;
+	height: auto;
+	overflow: hidden;
+	z-index: 0;
+    min-height:auto;
+	flex-grow: 1;
+	min-height:200px;
+	background: $bk;
+	text-align: center;
+	height: 50vh;
+    & + & {
+    	margin-top: 0;
+    }
+    @include mediaMin(768px) {
+		text-align: $left;
+		min-height: 300px;
+		height: 100vh;
+        margin-top: 0
+    }
+    @include mediaMin(1024px) {
+        min-height: 400px;
+        &--countery{
+        	min-height: 300px;
+        }
+    }
+	&__cover{
+		position: absolute;
+		left: 0;
+		min-height:100%;
+		min-width:100%;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		margin:auto;
+		z-index:1;
+		opacity: 1;
+		background: $primaryColor;
+	}
+	&:after{
+		position: absolute;
+		display: block;
+		content:"";
+		z-index: 2;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		margin:auto;
+		width: 100%;
+		height:100%;
+		opacity: 0.9;
+		background: $primaryColor;
+		
+	}
+	&__countery{
+		position: relative;
+		z-index: 3;
+		top:38%;
+		transform:translateY(-50%);
+		text-align: center;
+		@include mediaMin(768px) {
+			top: 50%;
+			transform:translateY(-50%);
+		}
+	}
+	&__countery-tagline{
+		color:$wh;
+	}
+	&__countery-name{
+		color:$yellow;
+		vertical-align: middle;
+		@include rem(22);
+		@include mediaMin(768px) {
+			@include rem(32);
+
+		}
+	}
+	&__countery-flag{
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		border-radius:50%;
+		display: inline-block;
+		background-size:cover;
+		background-position: 50% 50%;
+		vertical-align: middle;
+		margin-#{$right}:10px;
+		@include mediaMin(768px) {
+			width: 60px;
+			height: 60px;
+    	}
+
+	}
+	&__callToAction{
+		@extend .container;
+		position: relative;
+		z-index:3;
+		text-align: $right;
+		top: 0;
+		color:$wh;
+		overflow: hidden;
+		padding:0 30px;
+		&-inner{
+			float:$right;
+			text-align: center;
+    		padding: 30px 0;
+		}
+		&-title{
+			margin-top: 0;
+			@include rem(22);
+			@include mediaMin(768px) {
+				@include rem(34);
+			}
+		}
+		&-abstract{
+			margin-bottom: 15px;
+			line-height: 1.5em;
+			@include rem(16);
+		}
+		@include mediaMin(768px) {
+			top: calc(50% + 25px);
+			transform:translateY(-50%);
+			&-abstract{
+				@include rem(20);
+			}
+			&-inner{
+				max-width: 50%;
+				text-align: $right;
+    			padding: 0;
+			}
+
+		}
+		@include mediaMin(1024px) {
+			top: calc(50% + 30px);
+			padding:0 50px;
+			
+
+		}
+	}
+	&__icon{
+		width:35px;
+		height:35px;
+		border-radius:2px;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		z-index: 3;
+		left: 15px;
+		bottom: 15px;
+		text-align: center;
+		@include rem(20);
+		color:$wh;
+		i{
+			line-height: 34px;
+		}
+		@include mediaMin(768px) {
+			width:45px;
+			height:45px;
+			i{
+				line-height: 44px;
+			}
+    	}
+	}
+
+	&--bounded{
+		.intro__callToAction{
+			padding:0 40px;
+		}
+	}
+}

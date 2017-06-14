@@ -49,7 +49,8 @@ img.lazy {
 
     //Elements
     &__link,
-    &__img img {
+    &__img img,
+    &__img iframe{
         width: 100%;
         min-height: 100%;
         position: absolute;
@@ -60,6 +61,9 @@ img.lazy {
         background: $ts;
         margin: auto;
         transition: 1s;
+    }
+    &__img iframe{
+        z-index: 2;
     }
     &__link {
         z-index: 3;
@@ -165,9 +169,25 @@ img.lazy {
             fill:$wh;
         }
     }
+    &__padge{
+        display: inline-block;
+        position: absolute;
+        #{$left}:$space;
+        bottom:$space;
+        z-index: 3;
+        padding:0 $space/2;
+        background: $primaryColor;
+        color:$wh;
+        height: $space;
+        line-height: 1+$space;
+        border-radius: 2px;
+
+        @include rem(14);
+
+    }
     &__img {
         position: relative;
-        padding-top: 65%;
+        padding-top: 8*$space;
         overflow: hidden;
         &:after {
             content: "";
@@ -178,7 +198,8 @@ img.lazy {
             width: 100%;
             height: 100%;
             display: block;
-            @extend %postGradient;
+            background: $primaryColor;
+            opacity: 0.2;
         }
         img {
             z-index: 0;
@@ -186,8 +207,8 @@ img.lazy {
 
         .post-view--horizontal &{
             padding: 0;
-            width: 110px;
-            height:65px;
+            width: 4*$space;
+            height:3*$space;
             position:absolute;
             #{$left}: 0;
             top: 0;
@@ -196,18 +217,18 @@ img.lazy {
                 height:75px;
             }
             @include mediaMin(768px) {
-                width: 300px;
-                height:195px; 
+                width: 10*$space;
+                height:7*$space;
             }
         }
         .post-view--horizontal-sm &{
-            width: 130px;
-            height:85px;
+            width: 4.5*$space;
+            height:3*$space;
         }
     }
     &__caption {
         margin: 0;
-        @include rem(16);
+        @include rem(18);
         min-height:50px;
         
         .post-view--over & {
@@ -238,23 +259,30 @@ img.lazy {
             padding-top: 10px;
         }
         .post-view--cardBounded &{
-            padding: 15px;
+            padding: $space;
+            
+        }
+        .post-view--cardBoundedSimple &{
+            padding:0  $space ;
         }
         .post-view--horizontal-sm &{
             padding-top: 0;
-            padding-#{$left}: 10px;
-            height: 85px;
+            padding-#{$left}: $space;
+            height:3*$space;
             border-bottom: 1px solid $dviderColor;
         }
 
         @include mediaMin(768px) {
-            padding: 10px 0 0 0;
+            padding: $space 0 0 0;
             .post-view--card &{
-                height:140px;
+                height:170px;
             }
+
             .post-view--cardBounded &{
-                height:180px;
-                padding: 20px;
+                height:8*$space;
+            }
+            .post-view--cardBoundedSimple &{
+                 height:2*$space;
             }
         }
     }
@@ -264,35 +292,51 @@ img.lazy {
         overflow: hidden;
         vertical-align: middle;
         margin: 0;
-        line-height: 1.7em;
-        @include mediaMin(768px) {
-           line-height: 1.6em;
-           max-height: 55px;
-        }
+        font-weight: 400;
+        @include rem(22);
 
-        .post-view--cardBounded .date + &{
-            margin-top: 5px;
+        @include mediaMin(768px) {
+           @include lineHeight(1.2);
+           @include rem(26);
+           max-height: 3*$space;
         }
         .post-view--horizontal &{
-            max-height:50px;
+            max-height:2*$space;
             height: auto;
+        }
+        .post-view--cardBoundedSimple & {
+             max-height:2*$space;
+             @include rem(18);
+             font-weight: 300;
+             text-align: center;
+             overflow: hidden;
+             max-width: 100%;
+             text-overflow: ellipsis;
+             white-space: nowrap;
+             @include lineHeight(2);
+
         }
     }
     &__abstract{
         overflow: hidden;
         color:$secondaryText;
         display: none;
+        max-height: 2*$space;
+        @include lineHeight(1);
         .post-view__maxTitle + &{
-            margin-top: 10px;
-            
+            margin-top: $space;
         }
         .post-view--card &{
-            height: 50px;
+            height: 2*$space;
         }        
         .post-view--cardBounded &{
+            color:$primaryText;
             .post-view__maxTitle + &{
-                margin-top: 15px;
+                margin-top: $space;
             }
+        }
+        .post-view--cardBoundedSimple{
+            display: none;
         }
 
         @include mediaMin(768px) {
@@ -304,23 +348,23 @@ img.lazy {
     }
     // Modifiers
     &--horizontal{
-        padding-#{$left}:120px;
-        height:65px;
+        padding-#{$left}:5*$space;
+        height:3$space;
         &.post-view--horizontal-sm{
-            padding-#{$left}:130px;
-            height:85px;
+            padding-#{$left}:4.5*$space;;
+            height:3*$space;
         }
         @include mediaMin(375px) {
             padding-#{$left}:140px;
             height:75px;
         }
         @include mediaMin(768px) {
-            padding-#{$left}:320px;
-            height:195px; 
+            padding-#{$left}:11*$space;
+            height:7*$space; 
         }
     }
     &--cardBounded{
-        box-shadow:0 3px 20px -3px rgba(0,0,0,0.1);
+        @include shadow(3);
     }
     @include mediaMin(375px) {
         .date{

@@ -166,6 +166,9 @@
     .gry{
         @include colorSet($dviderColor, $primaryText);
     }
+    .white{//
+        @include colorSet($wh, $primaryText);
+    }
 
 //[4] - hidden xxs
     .hide-xs{
@@ -226,24 +229,36 @@
     }
 
 //[7] Title
-    .section-title{
+    .section{
+        padding:2*$space 0 $space;
+
+        &__mainTitle{
+            @include lineHeight(2);
+            margin-bottom:$space;;
+            &--center{
+                text-align: center;
+            }
+        }
+    }
+    
+    .sub-section-title{
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
         flex-direction: column;
-        padding-bottom: 15px;
-        padding-top: 15px;
-        border-top: 1px solid $dviderColor;
+        margin-bottom:$space;
+       
         &--noborder{
             padding-top: 0;
             border-top: none;
         }
         &__title{
-            color:$secondaryText;
+            color:$primaryText;
             flex-grow: 1;
-            text-transform: uppercase;
+            text-transform: capitalize;
+            @include rem(28);
         }
         &__list{
             flex-grow: 1;
@@ -264,18 +279,26 @@
         }
         &__listItem{
             display: inline-block;
-            @include mediaMax(768px){
-                background: $secondaryText;
+           
+            color:$wh;
+            padding:2px $space/2;
+            border-radius:3px;
+            color:$secondaryText;
+            &--active{
+                background: $primaryColor;
                 color:$wh;
-                padding:2px 7px;
-                border-radius:3px;
             }
-
+            &:hover{
+                background: lighten($dviderColor,10%);
+            }
             & + & {
                 margin-#{$left}: 10px;
             }
         }
 
+        .sub-section-body + &{
+            margin-top: $space;
+        }
         @include mediaMin(768px){
             flex-direction: row;
              &__list{
@@ -283,6 +306,7 @@
             }
         }
     }
+
 
 //[8] category title
     .category-title{
