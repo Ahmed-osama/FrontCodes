@@ -231,12 +231,27 @@
 //[7] Title
     .section{
         padding:2*$space 0 $space;
-
+        &--offWhite{
+            background: $offWhite;
+        }
         &__mainTitle{
             @include lineHeight(2);
             margin-bottom:$space;;
             &--center{
                 text-align: center;
+            }
+        }
+        &__abstract{
+            color: $secondaryText;
+            margin-bottom: 2*$space;
+        }
+        @include mediaMin(1024px){
+            &__TextArea{
+                padding-#{$right}:2*$space;
+            }
+            &__TextAreaSibling{
+                padding-#{$left}:3*$space;
+
             }
         }
     }
@@ -310,8 +325,7 @@
 
 //[8] category title
     .category-title{
-        padding: 30px;
-        margin-bottom: 30px;
+        padding: $space;
         color:$wh;
         @extend %mainGradient;
     }

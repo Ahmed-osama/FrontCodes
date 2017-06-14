@@ -101,42 +101,42 @@
 		top: 0;
 		color:$wh;
 		overflow: hidden;
-		padding:0 30px;
 		&-inner{
 			float:$right;
 			text-align: center;
-    		padding: 30px 0;
+    		padding: $space 0;
+			align-self: center;
+		}
+		&-video{
+			margin-bottom: 0;
 		}
 		&-title{
 			margin-top: 0;
+			margin-bottom: $space;
 			@include rem(22);
 			@include mediaMin(768px) {
-				@include rem(34);
+				@include rem(41);
+				@include lineHeight(2);
+
 			}
 		}
 		&-abstract{
-			margin-bottom: 15px;
-			line-height: 1.5em;
-			@include rem(16);
+			margin-bottom: $space;
+			@include rem(18);
 		}
 		@include mediaMin(768px) {
-			top: calc(50% + 25px);
+			top: 50%;
 			transform:translateY(-50%);
 			&-abstract{
 				@include rem(20);
 			}
 			&-inner{
-				max-width: 50%;
-				text-align: $right;
-    			padding: 0;
+				text-align: $left;
 			}
 
 		}
 		@include mediaMin(1024px) {
 			top: calc(50% + 30px);
-			padding:0 50px;
-			
-
 		}
 	}
 	&__icon{

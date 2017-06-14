@@ -204,7 +204,16 @@ img.lazy {
         img {
             z-index: 0;
         }
-
+        .post-view--card &{
+            height:7*$space;
+            @include shadow(3);
+        }
+        .post-view--cardSimple &{
+            @include shadow(3);
+        }
+        .post-view--iframe &{
+            padding-top: 60%;
+        }
         .post-view--horizontal &{
             padding: 0;
             width: 4*$space;
@@ -256,10 +265,11 @@ img.lazy {
             }
         }
         .post-view--card &{
-            padding-top: 10px;
+            padding-top: 0;
         }
         .post-view--cardBounded &{
             padding: $space;
+            background: $wh;
             
         }
         .post-view--cardBoundedSimple &{
@@ -293,16 +303,24 @@ img.lazy {
         vertical-align: middle;
         margin: 0;
         font-weight: 400;
-        @include rem(22);
-
         @include mediaMin(768px) {
-           @include lineHeight(1.2);
-           @include rem(26);
+           
            max-height: 3*$space;
         }
         .post-view--horizontal &{
             max-height:2*$space;
             height: auto;
+        }
+        .post-view--card &{
+             @include rem(18);
+             margin-top: $space;
+        }
+        .post-view--cardBounded &{
+             @include rem(22);
+             @include mediaMin(768px) {
+                 @include lineHeight(1.2);
+                 @include rem(26);
+             }
         }
         .post-view--cardBoundedSimple & {
              max-height:2*$space;
@@ -314,7 +332,10 @@ img.lazy {
              text-overflow: ellipsis;
              white-space: nowrap;
              @include lineHeight(2);
-
+        }
+        .post-view--cardSimple &{
+            max-height:1.5*$space;
+            @include lineHeight(1.5);
         }
     }
     &__abstract{
@@ -328,6 +349,7 @@ img.lazy {
         }
         .post-view--card &{
             height: 2*$space;
+            margin-top: 0;
         }        
         .post-view--cardBounded &{
             color:$primaryText;
@@ -365,6 +387,13 @@ img.lazy {
     }
     &--cardBounded{
         @include shadow(3);
+    }
+    &--iframe{
+        background: $ts-bk-15;
+        @include shadow(7);
+    }
+    &--cardSimple{
+        margin-bottom: 0;
     }
     @include mediaMin(375px) {
         .date{

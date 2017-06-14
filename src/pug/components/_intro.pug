@@ -1,21 +1,39 @@
 -
-	var introAddClass=""
-	if(intro.countery) introAddClass += " intro--countery"
-	if(intro.bounded) introAddClass += " intro--bounded"
+  var introAddClass=""
+  if(intro.countery) introAddClass += " intro--countery"
+  if(intro.bounded) introAddClass += " intro--bounded"
 section.intro(class=introAddClass)
-	img.intro__cover(src=intro.img)
-	-if(intro.countery)
-		.intro__countery
-			//p.intro__countery-tagline Travel guide to
-			h1.intro__countery-name
-				span.intro__countery-flag(class=intro.flag)
-				|Travel guide to Egypt
-	-if(intro.calltoAction)
-		.intro__callToAction
-			.intro__callToAction-inner
-				h1.intro__callToAction-title #{data.cta.title}
-				p.intro__callToAction-abstract #{data.content[1].abstract}
-				a.intro__callToAction-cta.btn.btn--cta.white_bg(href="#") #{data.cta.btn}
-	-if(intro.icon)
-		span.intro__icon
-			i(class=intro.icon)
+  img.intro__cover(src='img/content/intro.png')
+  -if(intro.countery)
+    .intro__countery
+      //p.intro__countery-tagline Travel guide to
+      h1.intro__countery-name
+        span.intro__countery-flag(class=intro.flag)
+        |Travel guide to Egypt
+  -if(intro.calltoAction)
+    .intro__callToAction.layout
+      .col-sm-7
+        -
+          var post = {
+            img:false,
+            caption:false,
+            abstract:false,
+            icon:false,
+            card:false,
+            cardBounded:false,
+            horizontal:false,
+            date:false,
+            padge:false,
+            over:true,
+            iframe:true
+          }
+          modifierClass = 'intro__callToAction-video '
+        include _basic-post-view.pug
+      .col-sm-5.layout
+        .intro__callToAction-inner
+          h1.intro__callToAction-title #{data.cta.title}
+          p.intro__callToAction-abstract #{data.content[1].abstract}
+          a.intro__callToAction-cta.btn.btn--cta.white_bg(href="#") #{data.cta.btn}
+  -if(intro.icon)
+    span.intro__icon
+      i(class=intro.icon)

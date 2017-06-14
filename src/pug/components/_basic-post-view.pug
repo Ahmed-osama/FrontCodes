@@ -1,15 +1,18 @@
 -
-  var modifierClass= ""
+  var modifierClass= modifierClass || ""
   if(!post.img) post.img = 'img/content/1.jpg'
   if(!post.abstract) post.abstract = false
   if(post.fav == undefined) post.fav = true
   if(post.share == undefined) post.share = true
   if(post.iframe == undefined) post.iframe = false
   if(post.link == undefined) post.link = 'single'+ext+'.html'
+
+  if(post.iframe) modifierClass += 'post-view--iframe '
   if(post.horizontal) modifierClass += 'post-view--horizontal '
   if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
   if(post.over) modifierClass += 'post-view--over '
   if(post.card) modifierClass += 'post-view--card '
+  if(post.cardSimple) modifierClass += 'post-view--cardSimple '
   if(post.cardBounded) modifierClass += 'post-view--cardBounded '
   if(post.cardBoundedSimple) modifierClass += 'post-view--cardBoundedSimple '
 
@@ -17,7 +20,7 @@
   -if(post.link)
     //- [1] - OVERALL LINK
     a.post-view__link(href=post.link alt=post.caption)
-
+  
   //- [2] - IMG HOLDER
   .post-view__img
     //- [2.1] - FAVOURITE
@@ -61,3 +64,6 @@
         |#{post.caption}
     -if(post.abstract)
       p.post-view__abstract #{post.abstract}
+-
+  post={}
+  modifierClass=" "

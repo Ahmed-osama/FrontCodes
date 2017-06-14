@@ -43,12 +43,45 @@ section.section
             card:true,
             cardBounded:true,
             horizontal:false,
+            over:false,
             date:false,
             padge:true
           }
         .col-sm-6.col-md-4
           include ../components/_basic-post-view.pug
       .clearfix
+section.section.section--offWhite
+  .container
+    .row
+      .col-sm-6.section__TextArea
+        h2.section__mainTitle Explore ABC
+        p.section__abstract In collaboration with our Medical Advisors & International Companies/Partners we are providing innovative products that targeting Chronic/Genetic Diseases .
+        img.section__Img(src="img/content/hand.png")
+      .col-sm-6.section__TextAreaSibling
+        .row
+          -var iconType = ["sound","image","play"]
+          -for(p =0; p <= 3; p++)
+            -
+              var post = {
+                img:data.content[p].img,
+                caption:data.content[p].title,
+                abstract:false,
+                icon:{
+                  state:true,
+                  name:iconType[i]
+                },
+                card:true,
+                cardSimple:true,
+                cardBounded:false,
+                cardBoundedSimple:true,
+                horizontal:false,
+                date:false
+              }
+            .col-sm-6.col-md-6
+              include ../components/_basic-post-view.pug
+          .clearfix
+      .clearfix
+      
 section.section
   .container
     h2.section__mainTitle Prosthetic & Orthotic Services
@@ -81,21 +114,29 @@ section.section
           .col-sm-6.col-md-3
             include ../components/_basic-post-view.pug
         .clearfix
-      
-section
-  .sub-section-title.sub-section-title--noborder
-    h4.sub-section-title__title #{data.sections.titels[0]}
-    .sub-section-title__list
-       -for(i =0; i <= 2; i++)
-          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
-          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-  .row
-    -for(i =0; i <= 2; i++)
-      -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false, over:true, horizontal:false,date:false}
-      .col-sm-6.col-md-4
-        include ../components/_basic-post-view.pug
 
-    .clearfix
+
+
+section.section.section--offWhite
+  .container
+    h2.section__mainTitle.section__mainTitle--center Prosthetic & Orthotic Services
+ 
+    .row
+      -for(i =0; i <= 2; i++)
+        -
+          var post = {
+              img:data.content[i].img,
+              caption:data.content[i].title,
+              abstract:data.content[i].abstract,
+              over:false,
+              horizontal:false,
+              date:false,
+              card:true
+            }
+        .col-sm-6.col-md-4
+          include ../components/_basic-post-view.pug
+
+      .clearfix
 section
   .sub-section-title
     h4.sub-section-title__title #{data.sections.titels[1]}
