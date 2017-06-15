@@ -1,6 +1,7 @@
 .layout{
     display: flex;
-     flex-direction: column;
+    flex-direction: column;
+     
     @include mediaMin(1024px){
         flex-direction: row;
         &--column{
