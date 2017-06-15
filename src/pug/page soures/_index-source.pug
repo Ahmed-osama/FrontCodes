@@ -137,7 +137,7 @@ section.section.section--offWhite
           include ../components/_basic-post-view.pug
 
       .clearfix
-section
+section.container
   .sub-section-title
     h4.sub-section-title__title #{data.sections.titels[1]}
     .sub-section-title__list
@@ -151,7 +151,7 @@ section
         include ../components/_basic-post-view.pug 
     .clearfix
 
-section
+section.container
   .sub-section-title
     h4.sub-section-title__title #{data.sections.titels[3]}
     .sub-section-title__list
@@ -164,7 +164,7 @@ section
         -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
         include ../components/_basic-post-view.pug    
     .clearfix
-section
+section.container
   .sub-section-title
     h4.sub-section-title__title #{data.sections.titels[0]}
     .sub-section-title__list

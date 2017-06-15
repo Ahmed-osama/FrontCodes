@@ -48,11 +48,17 @@
     "social": [{
         "class": "facebook",
         "icon": "mdi-facebook"
-    }, {
+    },{
         "class": "twitter",
         "icon": "mdi-twitter"
-    }, {
+    },{
         "class": "youtube",
+        "icon": "mdi-youtube-play"
+    },{
+        "class": "googlePlus",
+        "icon": "mdi-youtube-play"
+    },{
+        "class": "Instagram",
         "icon": "mdi-youtube-play"
     }],
     "guidelist":[
@@ -134,6 +140,10 @@
         "arrow-down",
         "arrow-right",
         "arrow-left",
+        "home",
+        "phone",
+        "pin",
+        "envelope",
         "date",
         "search",
         "share",
@@ -156,6 +166,7 @@
         "twitter",
         "googlePlus",
         "plus",
-        "youtube"
+        "youtube",
+        "Instagram"
         ]
 }

@@ -1,7 +1,6 @@
 //[1] ICON LIB
     .icons-lib{
         text-align: center;
-        margin-top: -30px;
         &__item{
             border:1px solid $dviderColor;
             height: 33vh;
@@ -12,7 +11,7 @@
             justify-content: center; /* align horizontal */
             align-items: center; /* align vertical */
             &:hover{
-                background: $dviderColor;
+                background: $offWhite;
             }
         }
         &__itemIcon{
@@ -20,14 +19,15 @@
             height:5em;
         }
         &__itemTitle{
-
+            margin-top: $space;
+            color: $secondaryText
         }
     }
 
 //[2] GUIDE LIST
     .guideList{
         background: $lightGry;
-        padding:30px 0;
+        padding:$space 0;
         border-#{$right}:1px solid $dviderColor;
         ul{
             list-style-type: none;
@@ -38,16 +38,16 @@
         }
         &__item{
             display: block;
-            padding:15px 30px;
+            padding:$space/2 $space;
             border-bottom: 1px solid $dviderColor;
         }
     }    
     .guideSection{
-        padding:30px;
+        padding:$space;
         &__title{
-            margin-left:-30px;
-            margin-right:-30px;
-            padding-left:30px;
-            padding-right:30px;
+            margin-left:-$space;
+            margin-right:-$space;
+            padding-left:$space;
+            padding-right:$space;
         }
     }

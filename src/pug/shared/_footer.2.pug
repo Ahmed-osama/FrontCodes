@@ -1,0 +1,47 @@
+footer.Mappedfooter.layout
+    iframe.col-sm-6.Mappedfooter__Map(src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25097.766296406855!2d46.662472998834716!3d24.70639301659339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2seg!4v1497497746028',frameborder='0', style='border:0', allowfullscreen='')
+    .col-sm-6.Mappedfooter__data
+      .row
+        .col-sm-6.Mappedfooter__block
+          h4.Mappedfooter__blockTitle Our service
+          .row
+            -for(var k=0;k<2;k++)
+              .Mappedfooter__blockList.col-xs-6
+                -for(var i=0;i<3;i++)
+                  -for(var key in data.nav)
+                    a.Mappedfooter__blockListItem(href=data.nav[key].link) #{data.nav[key].name}
+        .col-sm-6
+          h4.Mappedfooter__blockTitle Contacts
+          .Mappedfooter__blockContacts
+            p.Mappedfooter__blockContactsItem
+              -var icon = {case:'home', addClass:'Mappedfooter__blockContactsItemIcon'}
+              include ../shared/_icon.pug
+              | www.medicare-alliance.com
+
+            p.Mappedfooter__blockContactsItem
+              -var icon = {case:'envelope', addClass:'Mappedfooter__blockContactsItemIcon'}
+              include ../shared/_icon.pug
+              | info@medicare-alliance.com
+            p.Mappedfooter__blockContactsItem
+              -var icon = {case:'pin', addClass:'Mappedfooter__blockContactsItemIcon'}
+              include ../shared/_icon.pug
+              | 24 king abdu-allah road, al kharj gov,  alryadah, kingdome of saudi arabia
+            p.Mappedfooter__blockContactsItem
+              -var icon = {case:'phone', addClass:'Mappedfooter__blockContactsItemIcon'}
+              include ../shared/_icon.pug
+              | +1 (000) 000-0000
+
+          .Mappedfooter__blockSocials
+            -for(var i=0; i<= data.social.length-1; i++)
+              a.socialItem(data-wave href="" class=data.social[i].class)
+                -var icon = {case:data.social[i].class}
+                include ../shared/_icon.pug
+
+          
+          
+
+
+//JS FILES
+//https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js
+script(src="js/vendor/jquery.min.js" async)
+script(src="js/vendor/axios.min.js" async)

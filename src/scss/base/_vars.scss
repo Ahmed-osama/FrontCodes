@@ -1,16 +1,16 @@
 //colors
 		
 	//pallet
-		$blue            : #2095f2;
-		$green           : #4bae4f;
-		$purple          : #9b26af;
-		$red             : #f34235;
-		$yellow          : #feea3a;
-		$wh              : #fff;
-		$bk              : #000000;
-		$ts-bk-50           : rgba(0,0,0,0.5);
-		$ts-bk-15        : rgba(0,0,0,0.15);
-		$ts              : transparent;
+		$bk      : #000000;
+		$blue    : #2095f2;
+		$green   : #4bae4f;
+		$purple  : #9b26af;
+		$red     : #f34235;
+		$ts      : transparent;
+		$ts-bk-15: rgba(0,0,0,0.15);
+		$ts-bk-50: rgba(0,0,0,0.5);
+		$wh      : #fff;
+		$yellow  : #feea3a;
 
 		//Grys
 			$darkGry : #212121;
@@ -21,16 +21,16 @@
 	//Socials
 		$facebook        : #3b5998;
 		$googlePlus      : #e02f2f;
-		$youtube         : #cd201f;
-		$twitter         : #55acee;
 		$instagram       : #405de6;
+		$twitter         : #55acee;
+		$youtube         : #cd201f;
 
 	//theme
-		$primaryColor   : $blue;
 		$accentColor    : $bk;
+		$dviderColor    : $lightGry;
+		$primaryColor   : $blue;
 		$primaryText	: $darkGry;
 		$secondaryText	: $gry;
-		$dviderColor    : $lightGry;
 
 
 //screens
@@ -43,8 +43,8 @@
 //spaces
 	$fontSize  		:	 18;
 	$lineHeight		:	1.5555556;
-	$space     		:	($fontSize * $lineHeight) *1px ;
-	$space-sm  		:	($fontSize * $lineHeight * 0.75) *1px ;
+	$space     		:	($lineHeight) *1rem ;
+	$space-sm  		:	($lineHeight * 0.75) *1rem ;
 	$grid-space		:	$space/2;
 	$grid-space-sm  :	$space-sm/2 ;
 

@@ -1,0 +1,57 @@
+.Mappedfooter{
+	background: $darkGry;
+	&__Map{
+		padding: 0;
+	}
+	&__data{
+		padding:$space/2;
+		@include mediaMin(768px){
+			padding:$space;
+		}
+		@include mediaMin(1024px){
+			padding:2*$space;
+		}
+	}
+	&__block{
+
+		&Title{
+			color: $primaryColor;
+			line-height: $space;
+			margin-bottom: $space;
+			@include rem(28);
+		}
+		&Contacts{
+			&Item{
+				line-height: $space;
+				color:$lightGry;
+				@include rem(14);
+				padding-#{$left}:$space-sm;
+				position: relative;
+				&Icon{
+					position: absolute;
+					top: $space/4;
+					left: 0;
+					margin:auto;
+					display: inline-block;
+					fill:$primaryColor; 
+					height: 1em;
+					vertical-align: middle;
+					width: 1em;
+				}
+			}
+		}
+		&Socials{
+			margin-top: $space;
+		}
+	}
+	&__blockList{
+		&Item{
+			display:block;
+			line-height: $space;
+			color: $lightGry;
+			&:hover{
+				color:$primaryColor;
+			}
+		}
+	}
+}
