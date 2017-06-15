@@ -27,25 +27,21 @@ img.lazy {
     transition: 0.2s;
     position: relative;
     margin-bottom: $space;
-    
-    &:not(.post-view--over):hover {
-        .post-view__maxTitle{
+    //HOVER
+        &:not(&--over):hover &__maxTitle{
             color:$primaryColor;
         }
-    }
-    &:hover {
-        .post-view__img img {
+        &:hover &__img img{
             transition: 1s;
             transform: scale(1.2);
             -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
         }
-        .post-view__share,
-        .post-view__fav {
+        &:hover &__share,
+        &:hover &__fav {
             transform: scale(1);
             opacity: 1;
         }
-    }
 
     //Elements
     &__link,
@@ -62,28 +58,31 @@ img.lazy {
         margin: auto;
         transition: 1s;
     }
+
     &__img iframe{
         z-index: 2;
     }
     &__link {
         z-index: 3;
     }
-    &__share {
-        transform: scale(0);
-        opacity: 0;
-        transition: 0.3s;
-        position: absolute;
-        #{$right}: 15px;
-        top: 15px;
-        z-index: 4;
-        display: none;
-        .post-view--horizontal-sm &{
+    //SHARE
+        &__share {
+            transform: scale(0);
+            opacity: 0;
+            transition: 0.3s;
+            position: absolute;
+            #{$right}: 15px;
+            top: 15px;
+            z-index: 4;
+            display: none;
+            @include mediaMin(768px) {
+                display: block
+            }
+        }
+        &--horizontal-sm &__share{
             display: none;
         }
-        @include mediaMin(768px) {
-            display: block
-        }
-    }
+    
     &__fav {
         z-index: 4;
         position: absolute;
@@ -132,6 +131,7 @@ img.lazy {
                 transform:scale(1.2);
             }
         }
+
         .post-view--horizontal-sm &{
             #{$left}: 10px;
             top: 10px;
@@ -181,40 +181,40 @@ img.lazy {
         height: $space;
         line-height: 1+$space;
         border-radius: 2px;
-
         @include rem(14);
-
     }
-    &__img {
-        position: relative;
-        padding-top: 8*$space;
-        overflow: hidden;
-        &:after {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            #{$right}: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-            background: $primaryColor;
-            opacity: 0.2;
+    //IMG
+        &__img {
+            position: relative;
+            padding-top: 8*$space;
+            overflow: hidden;
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                #{$right}: 0;
+                width: 100%;
+                height: 100%;
+                display: block;
+                background: $primaryColor;
+                opacity: 0.2;
+            }
+            img {
+                z-index: 0;
+            }
         }
-        img {
-            z-index: 0;
-        }
-        .post-view--card &{
+        &--card &__img{
             height:7*$space;
             @include shadow(3);
         }
-        .post-view--cardSimple &{
+        &--cardSimple &__img{
             @include shadow(3);
         }
-        .post-view--iframe &{
+        &--iframe &__img{
             padding-top: 60%;
         }
-        .post-view--horizontal &{
+        &--horizontal &__img{
             padding: 0;
             width: 4*$space;
             height:3*$space;
@@ -230,17 +230,21 @@ img.lazy {
                 height:7*$space;
             }
         }
-        .post-view--horizontal-sm &{
+        &--horizontal-sm &__img{
             width: 4.5*$space;
             height:3*$space;
         }
-    }
-    &__caption {
-        margin: 0;
-        @include rem(18);
-        min-height:50px;
-        
-        .post-view--over & {
+
+
+
+
+    //CAPTION
+        &__caption {
+            margin: 0;
+            min-height:50px;
+            @include rem(18);
+        }
+        &--over &__caption {
             position: absolute;
             bottom: 20px;
             padding: 10px 15px;
@@ -253,10 +257,6 @@ img.lazy {
             color: $wh;
             background: $ts;
             text-shadow: 1px 1px 2px $ts-bk-50;
-            .post-view__maxTitle {
-                height: auto;
-                max-height: 78px;
-            }
             @include mediaMin(1024px) {
                 #{$left}: 10px;
                 bottom: 10px;
@@ -264,144 +264,161 @@ img.lazy {
                 width: calc(100% - 20px);
             }
         }
-        .post-view--card &{
+        &--card &__caption{
             padding-top: 0;
+            @include mediaMin(768px) {
+                height:170px;
+            }
         }
-        .post-view--cardBounded &{
+        &--cardBounded &__caption{
             padding: $space;
             background: $wh;
-            
+            @include mediaMin(768px) {
+                height:8*$space;
+            }
         }
-        .post-view--cardBoundedSimple &{
+        &--cardBoundedSimple &__caption{
             padding:0  $space ;
+            @include mediaMin(768px) {
+                height:2*$space;
+            }
         }
-        .post-view--horizontal-sm &{
+        &--horizontal &__caption{
+            @include mediaMin(768px) {
+                padding: $space 0 0 0;
+            }
+        }
+        &--horizontal-sm &__caption{
             padding-top: 0;
             padding-#{$left}: $space;
             height:3*$space;
             border-bottom: 1px solid $dviderColor;
-        }
 
-        @include mediaMin(768px) {
-            padding: $space 0 0 0;
-            .post-view--card &{
-                height:170px;
-            }
+        }
+        
 
-            .post-view--cardBounded &{
-                height:8*$space;
-            }
-            .post-view--cardBoundedSimple &{
-                 height:2*$space;
+
+
+    //MAXTITLE
+        &__maxTitle {
+            display: block;
+            max-height: 100%;
+            overflow: hidden;
+            vertical-align: middle;
+            margin: 0;
+            font-weight: 400;
+            @include mediaMin(768px) {
+                max-height: 3*$space;
             }
         }
-    }
-    &__maxTitle {
-        display: block;
-        max-height: 100%;
-        overflow: hidden;
-        vertical-align: middle;
-        margin: 0;
-        font-weight: 400;
-        @include mediaMin(768px) {
-           
-           max-height: 3*$space;
-        }
-        .post-view--horizontal &{
+        &--horizontal &__maxTitle{
             max-height:2*$space;
             height: auto;
         }
-        .post-view--card &{
-             @include rem(18);
-             margin-top: $space;
+        &--over &__maxTitle{
+            height: auto;
+            max-height: 78px;
         }
-        .post-view--cardBounded &{
-             @include rem(22);
-             @include mediaMin(768px) {
-                 @include lineHeight(1.2);
-                 @include rem(26);
-             }
+        &--card &__maxTitle{
+            margin-top: $space;
+            @include rem(18);
         }
-        .post-view--cardBoundedSimple & {
-             max-height:2*$space;
-             @include rem(18);
-             font-weight: 300;
-             text-align: center;
-             overflow: hidden;
-             max-width: 100%;
-             text-overflow: ellipsis;
-             white-space: nowrap;
-             @include lineHeight(2);
-        }
-        .post-view--cardSimple &{
+        &--cardSimple &__maxTitle{
             max-height:1.5*$space;
             @include lineHeight(1.5);
         }
-    }
-    &__abstract{
-        overflow: hidden;
-        color:$secondaryText;
-        display: none;
-        max-height: 2*$space;
-        @include lineHeight(1);
-        .post-view__maxTitle + &{
-            margin-top: $space;
-        }
-        .post-view--card &{
-            height: 2*$space;
+        &--cardBounded &__maxTitle{
             margin-top: 0;
-        }        
-        .post-view--cardBounded &{
-            color:$primaryText;
-            .post-view__maxTitle + &{
-                margin-top: $space;
+            @include rem(22);
+            @include mediaMin(768px) {
+                @include lineHeight(1.2);
+                @include rem(26);
             }
         }
-        .post-view--cardBoundedSimple{
+        &--cardBoundedSimple &__maxTitle{
+            max-height:2*$space;
+            margin-top: 0;
+            font-weight: 300;
+            text-align: center;
+            overflow: hidden;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            @include rem(18);
+            @include lineHeight(2);
+        }
+
+
+    //ABSTRACT
+        &__abstract{
+            overflow: hidden;
+            color:$secondaryText;
+            display: none;
+            max-height: 2*$space;
+            @include lineHeight(1);
+            @include mediaMin(768px) {
+                display: block;
+            }
+        }
+        &__maxTitle + &__abstract{
+            margin-top: $space;
+        }
+        &--card &__abstract{
+            height: 2*$space;
+        }
+        &--card &__maxTitle + &__abstract{
+            margin-top: 0;
+        }
+        &--cardBounded  &__maxTitle + &__abstract{
+            color:$primaryText;
+            margin-top: $space;
+        }
+        &--cardBoundedSimple &__abstract{
             display: none;
         }
 
-        @include mediaMin(768px) {
-            display: block;
-        }
-    }
-    .date{
-        display: none
-    }
+    
+
     // Modifiers
-    &--horizontal{
-        padding-#{$left}:5*$space;
-        height:3$space;
-        &.post-view--horizontal-sm{
+        &--horizontal{
+            padding-#{$left}:5*$space;
+            height:3$space;
+            
+            @include mediaMin(375px) {
+                padding-#{$left}:140px;
+                height:75px;
+            }
+            @include mediaMin(768px) {
+                padding-#{$left}:11*$space;
+                height:7*$space; 
+            }
+        }
+        &--horizontal-sm{
             padding-#{$left}:4.5*$space;;
             height:3*$space;
         }
+
+        &--cardBounded{
+            @include shadow(3);
+        }
+        &--iframe{
+            background: $ts-bk-15;
+            @include shadow(7);
+        }
+        &--cardSimple{
+            margin-bottom: 0;
+        }
         @include mediaMin(375px) {
-            padding-#{$left}:140px;
-            height:75px;
+            .date{
+                display: inline-block;
+            }
         }
         @include mediaMin(768px) {
-            padding-#{$left}:11*$space;
-            height:7*$space; 
+            margin-#{$left}: 0;
+            margin-#{$right}: 0;
         }
-    }
-    &--cardBounded{
-        @include shadow(3);
-    }
-    &--iframe{
-        background: $ts-bk-15;
-        @include shadow(7);
-    }
-    &--cardSimple{
-        margin-bottom: 0;
-    }
-    @include mediaMin(375px) {
-        .date{
-            display: inline-block;
-        }
-    }
-    @include mediaMin(768px) {
-        margin-#{$left}: 0;
-        margin-#{$right}: 0;
+    
+    .date{
+        display: none
     }
 }
