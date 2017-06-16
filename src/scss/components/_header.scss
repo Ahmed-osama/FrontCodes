@@ -1,333 +1,357 @@
 body {
-    padding-top: 55px;
-    @include mediaMin(768px) {
-        padding-top: 65px;
+    padding-top: 2*$space;
+    @include mediaMin(769px) {
+        padding-top: 2.5*$space;
     }
     @include mediaMin(1024px) {
-        padding-top: 80px;
+        padding-top: 3*$space;
     }
 }
 
 .main-header {
-    &,
-    &:after {
-        height: 55px;
-        width: 100%;
-        top: 0;
-        #{$right}: 0;
-        position: fixed;
-        z-index: 5;
-    }
-    &:after {
-        z-index: 0;
-        content: "";
-        display: block;
-        background:$primaryColor;
-        box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.1);
-    }
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    a {
-        text-decoration: none;
-    }
-     .language{
-        color:$primaryText;
-        text-transform: uppercase   ;
-        font-weight: bold;
-     }
-    &__logo {
-        display: block;
-        width: 26px;
-        height: 30px;
-        margin: auto;
-        margin-top: 10px;
-        border-radius: 2px;
-        background-size: 100% 100%;
-        z-index: 2;
-        img{
-            max-height:35px;
+    // BASICS
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        @include mediaMax(1023px) {
-            position: absolute;
+        a {
+            text-decoration: none;
+        }
+        .language{
+            color:$primaryText;
+            text-transform: uppercase   ;
+            font-weight: bold;
+            @include mediaMin(769px) {
+                 color:$wh;
+            }
+            @include mediaMax(1023px) {
+                display: inline-block;
+                padding:10px;
+                border-radius:5px;
+                font-weight: bold ;
+            }
+        }
+        &,
+        &:after {
             #{$right}: 0;
-            #{$left}: 0;
-            margin: auto;
+            height: 2*$space;
+            position: fixed;
             top: 0;
-            bottom: 0;
+            width: 100%;
+            z-index: 5;
         }
-    }
-    &__menuToggler {
-        cursor: pointer;
-        width: 30px;
-        height: 35px;
-        position: relative;
-        display: block;
-        float:$left;
-        margin-top: 10px;
-        margin-#{$left}: 10px;
-        z-index: 2;
-        span {
-            position: absolute;
-            height: 3px;
-            background:rgba(255,255,255,0.8);
-            width: 30px;
-            top: 0;
-            #{$right}: 0;
-            bottom: 0;
-            #{$left}: 0;
-            margin: auto;
-            transition: 0.5s;
-            border-radius: 1.5px;
-            &:first-child {
-                top: 8px;
-                bottom: auto;
-            }
-            &:last-child {
-                bottom: 8px;
-                top: auto;
+        &:after {
+            background:$primaryColor;
+            @include shadow(2);
+            content: "";
+            display: block;
+            z-index: 0;
+        }
+        @include mediaMin(1024px) {
+            &:after {
+                display: none
             }
         }
-        &:hover {
-            span {
-                &:nth-child(1) {
-                    margin-#{$right}: -3px;
-                }
-                &:nth-child(2) {
-                    margin-#{$right}: 0px;
-                }
-                &:nth-child(3) {
-                    margin-#{$right}: 3px;
-                }
+        @include mediaMin(769px) {
+            &,
+            &:after {
+                padding-top: 2*$space;
             }
         }
-        input:checked + & {
-            span {
-                top: 0;
-                bottom: 0;
-                width: 70%;
-                &:nth-child(2) {
-                    opacity: 0;
-                }
-                &:first-child {
-                    transform: rotate(45deg);
-                }
-                &:last-child {
-                    transform: rotate(-45deg);
-                }
-            }
-            &:hover span {
+    // CONTAINER
+        &__container {
+            @include mediaMin(1024px) {
+                max-width: 1200px;
                 margin: auto;
             }
         }
-    }
-    &__sideMenu {}
-    &__nav {
-        li {
-            a {
-                font-size: 1rem;
-                font-family: $titleFont;
-                color: $wh;
+    // LOGO
+        &__logo {
+            display: block;
+            width: $space;
+            height: $space;
+            margin: auto;
+            margin-top: $space/2;
+            background-size: 100% 100%;
+            z-index: 2;
+            text-align: center; 
+            img{
+                max-height:100%;
+                max-width:100%;
+            }
+            @include mediaMin(769px) {
+                margin-top: $space;
+                width: 2*$space;
+            }
+             @include mediaMin(1024px) {
+                margin-top: 12px;
+                float: $left;
+                margin-#{$right}: $space*3;
+                width: 2*$space;
+                img{
+                    max-height: 2*$space;
+                }
+            }
+
+            @include mediaMax(1023px) {
+                #{$left}: 0;
+                #{$right}: 0;
+                bottom: 0;
+                margin: auto;
+                position: absolute;
+                top: 0;
+            }
+        }
+    //TOGGLER
+        &__menuToggler {
+            cursor: pointer;
+            width: $space;
+            height: 17px;
+            position: relative;
+            display: block;
+            float:$left;
+            margin-top: $space/3*2;
+            margin-#{$left}: $space/3*2;
+            z-index: 2;
+            span {
+                position: absolute;
+                height: 3px;
+                background:rgba(255,255,255,0.8);
+                width: $space;
+                top: 0;
+                #{$right}: 0;
+                bottom: 0;
+                #{$left}: 0;
+                margin: auto;
+                transition: 0.5s;
+                &:first-child {
+                    top: 0px;
+                    bottom: auto;
+                }
+                &:last-child {
+                    bottom: 0px;
+                    top: auto;
+                }
+            }
+            &:hover {
+                span {
+                    &:nth-child(1) {
+                        margin-#{$right}: -3px;
+                    }
+                    &:nth-child(2) {
+                        margin-#{$right}: 0px;
+                    }
+                    &:nth-child(3) {
+                        margin-#{$right}: 3px;
+                    }
+                }
+            }
+            input:checked + & {
+                span {
+                    top: 0;
+                    bottom: 0;
+                    width: 70%;
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:first-child {
+                        transform: rotate(45deg);
+                    }
+                    &:last-child {
+                        transform: rotate(-45deg);
+                    }
+                }
+                &:hover span {
+                    margin: auto;
+                }
+            }
+            
+            @include mediaMin(769px) {
+                margin-top: $space;
+                margin-#{$left}: $space;
+            }
+            @include mediaMax(1023px) {
+                &Over{
+                    background: rgba(0, 0, 0, 0.5);
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -2;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: 0.2s;
+                    #{$left}: 0;
+                    top: 0;
+                    display: block;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    //SIDE MENUE
+        &__sideMenu {
+            @include mediaMin(1024px) {
+                display: flex;
+            }
+            @include mediaMax(1023px) {
+                #{$left}: 0;
+                background: $wh;
+                height: 100%;
+                overflow-x: hidden;
+                padding-#{$left}: $space;
+                padding-#{$right}: $space;
+                padding-top:  2*$space;
+                position: fixed;
+                top: 0;
+                transform: translateX($reverse*-300px);
+                transition: 0.2s;
+                width: 10*$space;
+                z-index: -1;
+                .touch &,
                 &:hover {
-                    color: $primaryColor;
+                    overflow-y: scroll;
                 }
             }
         }
-    }
-
-    @include mediaMin(768px) {
-        &,
-        &:after {
-            height: 65px;
-        }
-        &__logo {
-            margin-top: $space;
-            width: 101px;
-        }
-        &__menuToggler {
-            margin-top: $space;
-            margin-#{$left}: $space;
-        }
-        .language{
-             color:$wh;
-        }
-    }
-    @include mediaMin(769px) {
-        &__logo {
-            margin-top: 10px;
-            width: 70px;
-        }
-    }
-    @include mediaMax(1023px) {
-        &__sideMenu {
-            position: fixed;
-            #{$left}: 0;
-            top: 0;
-            width: 300px;
-            height: 100%;
-            background: $wh;
-            padding-top: 55px;
-            z-index: -1;
-            transition: 0.2s;
-            transform: translateX($reverse*-300px);
-            padding-#{$left}: 15px;
-            padding-#{$right}: 15px;
-            overflow-x: hidden;
-            .touch &,
-            &:hover {
-                overflow-y: scroll;
-            }
-        }
-        &__menuTogglerOver {
-            background: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.2s;
-            #{$left}: 0;
-            top: 0;
-            display: block;
-            cursor: pointer;
-        }
-        input:checked + &__menuToggler + &__sideMenu {
-            box-shadow: -3px 0 10px -2px rgba(0, 0, 0, 0.1);
-            transform: translateX(0);
-            & + .main-header__menuTogglerOver {
-                visibility: visible;
-                opacity: 1;
-            }
-        }
+    //NAVIGATION
         &__nav {
             li {
-                display: block;
-                border-bottom: 1px solid $dviderColor;
                 a {
-                    color: $primaryText;
-                    font-weight: 400;
-                    padding: 10px 0;
-                    display: block;
+                    font-size: 1rem;
+                    font-family: $titleFont;
+                    color: $wh;
+                    &:hover {
+                        color: $primaryColor;
+                    }
                 }
-                & + li {
+            }
+            @include mediaMin(1024px) {
+                float: $left;
+                order: 1;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+                li {
+                    display: inline-block;
+                    padding: 10px;
+                    height: 80px;
+                    vertical-align: top;
+                    position: relative;
+                    &:after {
+                        content:"";
+                        display: block;
+                        position: absolute;
+                        bottom: 0;
+                        #{$left}: 0;
+                        height: 3px;
+                        width: 100%;
+                        background: $ts;
+                        transition: 0.2s;
+                    }
+                    &:hover {
+                        &:after {
+                            background: $yellow;
+                        }
+                    }
+                    > a {
+                        font-size: rem(20);
+                        font-weight: 400;
+                        line-height: 2*$space;
+                        &:hover {
+                            color: $wh;
+                        }
+                    }
+                    > .btn {
+                        margin-top: 9px;
+                        margin-#{$left}: -10px;
+                    }
+                }
+                ul:first-child {
+                    flex-grow: 1;
+                }
+            }
+            @include mediaMax(1023px) {
+                li {
+                    display: block;
+                    a {
+                        border-bottom: 1px solid $dviderColor;
+                        color: $primaryText;
+                        display: block;
+                        font-weight: 400;
+                        height: 2*$space;
+                        line-height: 2*$space;
+                        margin-#{$left}:-$space;
+                        margin-#{$right}:-$space;
+                        padding: 0 $space;
+                    }
                 }
             }
         }
-        &__cta{
-            display: block  ;
-            margin: 15px 0;
-        }
-        &__social {
-            padding: 15px;
-            margin-#{$right}: -15px;
-            margin-#{$left}: -15px;
-            margin-bottom: -15px;
-            background: $dviderColor;
-            color: $primaryText;
-        }
-        .language{
-            display: inline-block   ;
-            padding:10px;
-            border-radius:5px;
-            font-weight: bold    ;
-        }
-    }
-    @include mediaMin(1024px) {
-        height: 80px;
-        padding: 0 30px;
-        background: $primaryColor;
-        box-shadow: none;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        &:after {
-            display: none
-        }
-        &__container {
-            max-width: 1200px;
-            margin: auto;
-        }
+
+
+    //MENU TOGGLER
+        
         &__menuToggler,
         &__menuTogglerOver {
-            display: none;
-        }
-        &__logo {
-            margin-top: 12px;
-            float: $left;
-            margin-#{$right}: $space*3;
-            width: 45px;
-            img{
-                max-height:56px;
+            @include mediaMin(1024px) {
+                display: none;
             }
         }
-        &__sideMenu {
-            display: flex;
-        }
-        &__nav {
-            float: $left;
-            order: 1;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: row;
-            li {
-                display: inline-block;
-                padding: 10px;
-                height: 80px;
-                vertical-align: top;
-                position: relative;
-                &:after {
-                    content:"";
-                    display: block;
-                    position: absolute;
-                    bottom: 0;
-                    #{$left}: 0;
-                    height: 3px;
-                    width: 100%;
-                    background: $ts;
-                    transition: 0.2s;
-                }
-                &:hover {
-                    &:after {
-                        background: $yellow;
-                    }
-                }
-                > a {
-                    font-size: rem(20);
-                    font-weight: 400;
-                    line-height: 57px;
-                    &:hover {
-                        color: $wh;
-                    }
-                }
-                > .btn {
-                    margin-top: 9px;
-                    margin-#{$left}: -10px;
+        input:checked + &__menuToggler + &__sideMenu {
+            @include mediaMax(1023px) {
+                box-shadow: -3px 0 10px -2px rgba(0, 0, 0, 0.1);
+                transform: translateX(0);
+                & + .main-header__menuTogglerOver {
+                    visibility: visible;
+                    opacity: 1;
                 }
             }
-            ul:first-child {
-                flex-grow: 1;
-            }
         }
-        &__cta {
-            margin-top: 20px;
-            margin-#{$right}: 20px;
-            display: inline-block  ;
-            text-transform: capitalize   ;
-
+    
+    //CTA
+         &__cta{
+            @include mediaMin(1024px) {
+                margin-top: 20px;
+                margin-#{$right}: 20px;
+                display: inline-block  ;
+                text-transform: capitalize;
+            }
+            @include mediaMax(1023px) {
+                display: block  ;
+                margin: $space 0;
+             }
         }
 
+    //SOCIAL
         &__social {
-            padding-top: 22px;
-            .socialItem {
-                width: 30px;
-                height: 30px;
-                background: $ts;
-                &,
-                &+& {
-                    margin: 0;
-                    padding: 0;
+            @include mediaMin(1024px) {
+                padding-top: 22px;
+                .socialItem {
+                    width: $space;
+                    height: $space;
+                    background: $ts;
+                    &,
+                    &+& {
+                        margin: 0;
+                        padding: 0;
+                    }
                 }
             }
+            @include mediaMax(1023px) {
+                padding: $space;
+                margin-#{$right}: -$space;
+                margin-#{$left}: -$space;
+                margin-bottom: -$space;
+                background: $dviderColor;
+                color: $primaryText;
+            }
         }
+
+
+    @include mediaMin(1024px) {
+        height: 3*$space;
+        padding: 0 $space;
+        background: $primaryColor;
+        @include shadow(2);
     }
 }

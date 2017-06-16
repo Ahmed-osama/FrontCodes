@@ -32,7 +32,6 @@
 		$primaryText	: $darkGry;
 		$secondaryText	: $gry;
 
-
 //screens
 	$mobile    : 321px;
 	$phablet   : 481px;
@@ -49,17 +48,17 @@
 	$grid-space-sm  :	$space-sm/2 ;
 
 
-
 //fonts
 	$titleFont : "";
 	$bodyFont  : "";
+
 //direction
 	$left      : "";
 	$right     : "";
 	$reverse   : "";
 		
 	@if($direction == 'rtl'){
-		$titleFont: 'din';
+		$titleFont: 'nassim';
 		$bodyFont : 'bahej';
 		$left     : right;
 		$right    : left;

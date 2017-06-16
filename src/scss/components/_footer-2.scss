@@ -30,7 +30,7 @@
 				&Icon{
 					position: absolute;
 					top: $space/4;
-					left: 0;
+					#{$left}: 0;
 					margin:auto;
 					display: inline-block;
 					fill:$primaryColor; 

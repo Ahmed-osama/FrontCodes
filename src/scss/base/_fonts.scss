@@ -6,15 +6,10 @@
     }
 
     @font-face {
-        font-family: 'din';
-        src: url('fonts/din/DIN-REGULAR.otf');
-        font-weight:300;
+        font-family: 'nassim';
+        src: url('fonts/nassim/nassim.ttf');
     }
-    @font-face {
-        font-family: 'din';
-        src: url('fonts/din/DIN-BOLD.otf');
-        font-weight:500;
-    }
+ 
 }@else{
     
     @font-face {
