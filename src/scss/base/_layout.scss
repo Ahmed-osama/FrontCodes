@@ -1,3 +1,9 @@
+.flex{
+     display: flex;
+    &--wrap{
+        flex-wrap: wrap;
+    }
+}
 .layout{
     display: flex;
     flex-direction: column;

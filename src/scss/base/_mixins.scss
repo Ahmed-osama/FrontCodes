@@ -92,7 +92,8 @@
   @mixin initGrid($width, $pull, $push, $offset){
     @for $i from 12 through 1 {
       .col-#{$width}-#{$i}{
-        width:($i/12)*100%;
+        flex: 0 0 ($i/12)*100%;
+        max-width: ($i/12)*100%;
       }
       
       @if($pull){

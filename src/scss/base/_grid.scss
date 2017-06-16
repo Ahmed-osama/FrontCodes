@@ -25,11 +25,13 @@
   }
   @include mediaMin(1200px) {
     .container {
-    max-width: 1200px;
+      max-width: 1200px;
     }
   }
 //[2] Rows
   .row {
+    display: flex;
+    flex-wrap: wrap;
     margin-#{$left}: -1*$grid-space-sm ;
     margin-#{$right}: -1*$grid-space-sm ;
     @include mediaMin(768px){
@@ -49,7 +51,8 @@
 
   //[3.1] - column defaults
     %col-basic-setting{
-      position: relative;
+        position: relative;
+        width: 100%;
         min-height: 1px;
         padding-#{$left}: $grid-space-sm;
         padding-#{$right}: $grid-space-sm;
@@ -69,40 +72,30 @@
     }
 
   //[3.2] - Mobile
-    @include groupSelectors(12, "xs"){
-      float: $left;
-    }
+    @include groupSelectors(12, "xs");
     @include initGrid("xs", false, false, false);
   
   //[3.3] - Phablet
     @include mediaMin(480px) {
-      @include groupSelectors(12, "ls"){
-        float: $left;
-      }
+      @include groupSelectors(12, "ls");
       @include initGrid("ls", false, false, false);
     }
 
   //[3.4] - Tablet-portrait
     @include mediaMin(768px) {
-      @include groupSelectors(12, "sm"){
-        float: $left;
-      }
+      @include groupSelectors(12, "sm");
       @include initGrid("sm", false, false, false);
     }
   
   //[3.5] - Tablet-landscape
     @include mediaMin(992px) {
-      @include groupSelectors(12, "md"){
-        float: $left;
-      }
+      @include groupSelectors(12, "md");
       @include initGrid("md", false, false, false);
     }
   
   //[3.5] - Desktop
     @include mediaMin(1200px) {
-      @include groupSelectors(12, "lg"){
-        float: $left;
-      }
+      @include groupSelectors(12, "lg");
       @include initGrid("lg", false, false, false);
     }
 
