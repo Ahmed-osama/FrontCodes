@@ -3,7 +3,6 @@
 	flex-grow: 1;
 	height: auto;
 	height: auto;
-	max-height:21*$space;
 	min-height:200px;
 	overflow: hidden;
 	position: relative;
@@ -20,6 +19,7 @@
         margin-top: 0;
     }
     @include mediaMin(1024px) {
+		max-height:21*$space;
 		padding-top: 0;
 		height: 100vh;
         min-height: 400px;
@@ -127,7 +127,7 @@
 			margin-bottom: $space;
 			@include rem(18);
 		}
-		@include mediaMin(768px) {
+		@include mediaMin(1024px) {
 			top: 50%;
 			transform:translateY(-50%);
 			&-abstract{

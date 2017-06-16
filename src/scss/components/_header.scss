@@ -53,7 +53,10 @@ body {
             }
         }
         @include mediaMin(769px) {
-            padding-top: 2*$space;
+            height: 2.5*$space;
+            &:after {
+                height: 2.5*$space;
+            }
         }
     // CONTAINER
         &__container {
@@ -214,7 +217,7 @@ body {
                 overflow-x: hidden;
                 padding-#{$left}: $space;
                 padding-#{$right}: $space;
-                padding-top:  2*$space;
+                padding-top:  2.5*$space;
                 position: fixed;
                 top: 0;
                 transform: translateX($reverse*-300px);
@@ -225,6 +228,10 @@ body {
                 &:hover {
                     overflow-y: scroll;
                 }
+            }
+            @include mediaMax(769px) {
+                padding-top:  2*$space;
+
             }
         }
     //NAVIGATION
@@ -304,10 +311,7 @@ body {
         }
 
 
-    //MENU TOGGLER
-        
-        
-    
+ 
     //CTA
          &__cta{
             @include mediaMin(1024px) {
