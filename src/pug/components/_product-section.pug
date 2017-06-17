@@ -1,0 +1,33 @@
+section.section
+  .container
+    .row.product
+        .col-md-7.product__info
+            h1.product__name Product name goes here
+            p.product__description Medical Care Alliance Est. (MCA) is a combination of service provider for Prosthetics and Orthotics Services that target disabled persons & Sales/Marketing representative 
+            p.product__description Product Description: A plastic body jacket used for a variety of diagnoses including post-operative protection, scoliosis, and vertebral 
+            .product__row
+                h6.product__rowLabel Colors
+                .product__rowContent
+                    .colorLabel.colorLabel--round.green_bg
+                    .colorLabel.colorLabel--round.red_bg
+                    .colorLabel.colorLabel--round.yellow_bg
+            .product__row
+                h6.product__rowLabel Share
+                .product__rowContent
+                    -for(var i=0; i<= data.social.length-1; i++)
+                        a.socialItem.socialItem--gry(data-wave href="" class=data.social[i].class)
+                            -var icon = {case:data.social[i].class}
+                            include ../shared/_icon.pug
+            a.product__cta.btn.btn--cta.btn--primary.hide-sm(href="#") Order Now
+        .col-md-5.product__switcher
+            .product__switcherMain
+                img(src="img/content/product-1.png")
+            .product__switcherThumb
+                a.product__switcherThumbItem(href="#")
+                    img(src="img/content/product-2.png")
+                a.product__switcherThumbItem(href="#")
+                    img(src="img/content/product-3.png")
+                a.product__switcherThumbItem(href="#")
+                    img(src="img/content/product-4.png")
+        a.product__cta.btn.btn--cta.btn--primary.hide-lg(href="#") Order Now
+                    

@@ -1,0 +1,99 @@
+.product{
+    margin-bottom:$space;
+    &__switcher{
+        
+        @include mediaMin(1024px){
+            margin-bottom: 0;
+            order:1
+        }
+        &Main{
+            padding-top:12*$pPercent;
+            position: relative;
+            margin-bottom: $space;
+            img{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                max-width:100%;
+                max-height: 100%;
+                margin:auto;
+            }
+        }
+        &Thumb{
+            text-align: center;
+            &Item{
+                @include shadow(3);
+                background: $wh;
+                border-radius:1.5*$space;
+                display: inline-block;
+                height: 3*$space;
+                overflow: hidden; 
+                position: relative;
+                transition:0.2s;
+                width: 3*$space;
+                img{
+                    bottom: 0;
+                    left: 0;
+                    margin:auto;
+                    max-height: 2*$space;
+                    max-width:2*$space;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+                & + &{
+                    margin-#{$left}:$space/2;
+                }
+                &:hover{
+                    transform:scale(1.2);
+                }
+            }
+        }
+    }
+    &__info{
+        margin-bottom: $space;
+        @include mediaMin(1024px){
+            margin-bottom: 0;
+            order:2
+        }
+    }
+    &__name{
+        @include lineHeight(2);
+        margin-bottom: $space;
+    }
+    &__description{
+        margin-bottom: $space;
+        color:$secondaryText;
+    }
+    &__row{
+        display: flex;
+        flex-direction: row;
+        padding:$space 0;
+        border-top:1px solid $dviderColor;
+        border-bottom:1px solid $dviderColor;
+        & + &{
+            border-top: none;
+        }
+        &Label{
+            padding-#{$right}:$space ;
+            @include rem(28);
+            @include lineHeight(1);
+        }
+        &Content{
+            display: flex;
+            align-items: center;
+            @include lineHeight(1);
+        }
+    }
+
+    &__cta{
+        margin-top: $space;
+        display: block;
+        @include mediaMin(1024px){
+            display: inline-block;
+        }
+    }
+
+}

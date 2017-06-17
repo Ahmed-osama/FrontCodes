@@ -1,0 +1,25 @@
+.row.shareWidget
+  .col-xs-6
+    a.shareWidget__item.facebook(href="#")
+      .shareWidget__itemInner
+        -var icon = {case:'facebook', addClass:"shareWidget__itemIcon "}
+        include ../shared/_icon.pug
+        h6.shareWidget__itemNumber 2131
+  .col-xs-6
+    a.shareWidget__item.twitter(href="#")
+      .shareWidget__itemInner
+        -var icon = {case:'twitter', addClass:"shareWidget__itemIcon "}
+        include ../shared/_icon.pug
+        h6.shareWidget__itemNumber 6433
+  .col-xs-6
+    a.shareWidget__item.rss(href="#")
+      .shareWidget__itemInner
+        -var icon = {case:'rss', addClass:"shareWidget__itemIcon "}
+        include ../shared/_icon.pug
+        h6.shareWidget__itemNumber 86
+  .col-xs-6
+    a.shareWidget__item.youtube(href="#")
+      .shareWidget__itemInner
+        -var icon = {case:'youtube', addClass:"shareWidget__itemIcon "}
+        include ../shared/_icon.pug
+        h6.shareWidget__itemNumber 86

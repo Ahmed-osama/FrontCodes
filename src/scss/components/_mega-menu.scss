@@ -35,7 +35,6 @@
         display: block;
         color:$secondaryText;
         padding-#{$left}:1.5*$space; 
-        border-#{$left}:1px solid $dviderColor;
         @include mediaMin(1024px){
             padding-#{$left}:$space/2; 
 

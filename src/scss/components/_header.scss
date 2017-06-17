@@ -243,7 +243,7 @@ body {
                     color: $wh;
                     &:hover {
                         color: $primaryColor;
-                        background: $ts-bk-15;
+                        background: $offWhite;
                     }
                     &.active{
 
@@ -252,13 +252,14 @@ body {
                 }
                 &.hasDrop > a{
                     padding-#{$right}:$space*1.5;
+                    position: relative;
                     &:after{
                         content: "";
                         width: 0;
                         height: 0;
                         border-left: 5px solid $ts;
                         border-right: 5px solid $ts;
-                        border-top: 5px solid $wh;
+                        border-top: 5px solid $primaryText;
                         position: absolute;
                         top: 0;
                         bottom: 0;
@@ -270,6 +271,12 @@ body {
                     &.hasDrop{
                         > a{
                             position: relative;
+                            &:hover{
+                                background: $ts-bk-15;
+                            }
+                            &:after{
+                                border-top: 5px solid $wh;
+                            }
                         }
                         &:hover{
                             .dropMenu{

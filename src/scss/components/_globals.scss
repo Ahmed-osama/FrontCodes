@@ -37,7 +37,7 @@
         display: inline-block;
         font-size:1rem;
         height: 1.5*$space;
-        line-height: 1.7* $space;
+        line-height: 1.5* $space;
         padding:0 $space;
         text-align: center;
         text-decoration:none;
@@ -72,12 +72,26 @@
         }
         &--cta{
             font-weight:500;
-            height: 1.5*$space;
-            line-height: 1.5*$space;
+            height: 2*$space;
+            @include lineHeight(2.1);
             padding:0 $space;
             position: relative;
             text-transform: uppercase;
             
+        }
+        &--primary{
+             color: $wh;
+             @include btnBg($primaryColor,10%);
+             &:hover{
+                 color:$wh;
+             }
+        }
+        &--accent{
+             color: $wh;
+             @include btnBg($accentColor,10%);
+              &:hover{
+                 color:$wh;
+             }
         }
         &--block{
             display:block;
@@ -119,6 +133,12 @@
                 height: 36px;
             }
         }
+        &--gry{
+            filter: grayscale(100%);
+            &:hover{
+                filter: grayscale(0);
+            }
+        }
         & + &{
             margin-#{$left}: 10px;
         }
@@ -137,6 +157,9 @@
     }
     .instagram{
         @include btnBg($instagram,10%)
+    }
+    .rss{
+        @include btnBg($rss,10%)
     }
 
 //[3] - CATEGORYIS PALLET
@@ -163,20 +186,14 @@
     }
 
 //[4] - hidden xxs
-    .hide-xs{
+    .hide-sm{
         @include mediaMax(1023px){
-            display: none;
-        }
-        @include mediaMin(1024px){
-            display: block ;
+            display: none !important;
         }
     }
     .hide-lg{
-        @include mediaMax(1023px){
-            display: block;
-        }
         @include mediaMin(1024px){
-            display: none;
+            display: none !important;
         }
     }
 
@@ -352,7 +369,21 @@
         height: 1em;
         width: 1em;
     }
-//[10] - placeholders
+//[10] - color padge
+    .colorLabel{
+        width: $space;
+        height: $space;
+        display: inline-block;
+        @include shadow(1);
+        border-radius: 2px;
+        &--round{
+            border-radius: $space/2;
+        }
+        & + &{
+            margin-#{$left}:$space/3; 
+        }
+    }
+//[11] - placeholders
     .placeholder{ 
         @extend %mainGradient;
         background:rgba(0,0,0,0.05);

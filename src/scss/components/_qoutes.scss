@@ -1,0 +1,61 @@
+.quote-section{
+    background: $primaryColor;
+    &__Icon{
+        width: 3*$space;
+        height: 2*$space;
+        fill: $bk;
+        opacity: 0.2;
+        margin:auto;
+        display: block;
+        margin-bottom: $space;
+
+    }
+    &__inner{
+        max-width: 26*$space;
+        margin:0 auto;
+    }
+    &__quote{
+        color:$wh;
+        text-align: center;
+        &Text{
+
+            @include lineHeight(1);
+            @include rem(21);
+            margin-bottom: $space;
+        }
+        &Img{
+            width: 3*$space;
+            height: 3*$space;
+            border-radius: 1.5*$space;
+            overflow: hidden;
+            margin-bottom: $space/2;
+            @include shadow(1);
+        }
+        &Writer{
+            display: block;
+            text-align: center;
+            @include lineHeight(1);
+            margin-bottom: $space/2;
+            color:$wh;
+        }
+    }
+    &__bullets{
+        height: $space;
+        margin-bottom: $space;
+        text-align: center;
+        &Item{
+            & + & {
+                margin-#{$left}:$space/2; 
+            }
+            display: inline-block;
+            vertical-align: middle;
+            width: $space/2;
+            height: $space/2;
+            border-radius:$space/4; 
+            background:$ts-bk-15;
+            &--active{
+                background:$wh;
+            }
+        }
+    }
+}

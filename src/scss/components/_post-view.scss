@@ -214,11 +214,11 @@
     //[8] - IMG
         &__img {
             overflow: hidden;
-            padding-top: 8*7.6*1%;
+            padding-top: 8*$pPercent;
             position: relative;
             &:after {
                 #{$right}: 0;
-                background: $primaryColor;
+                background: $bk;
                 content: "";
                 display: block;
                 height: 100%;

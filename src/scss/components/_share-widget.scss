@@ -1,0 +1,35 @@
+.shareWidget{
+    &__item{
+        padding-top:  3*$pPercent;
+        position: relative;
+        margin-bottom: $space;
+        border-radius: 2px;
+        display: block;
+        min-height: 5*$space;
+        &Inner{
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin:auto;
+            height:2*$space;
+            text-align: center;
+        }
+        &icon{
+            fill: $wh;
+            width: $space;
+            height: $space;
+            margin:auto;
+            margin-bottom:$space/4;
+
+        }
+        &Number{
+            text-align: center;
+            color: $wh;
+            @include lineHeight(1);
+            @include rem(18);
+        }
+    }
+}
