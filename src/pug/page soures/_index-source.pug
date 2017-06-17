@@ -47,7 +47,7 @@ section.section
             date:false,
             padge:true
           }
-        .col-sm-6.col-md-4
+        .col-ls-6.col-md-4
           include ../components/_basic-post-view.pug
       .clearfix
 section.section.section--offWhite
@@ -62,6 +62,7 @@ section.section.section--offWhite
           -var iconType = ["sound","image","play"]
           -for(p =0; p <= 3; p++)
             -
+              var modifierClass= " section__noMarginItem "
               var post = {
                 img:data.content[p].img,
                 caption:data.content[p].title,
@@ -77,7 +78,7 @@ section.section.section--offWhite
                 horizontal:false,
                 date:false
               }
-            .col-sm-6.col-md-6
+            .col-ls-6.col-md-6
               include ../components/_basic-post-view.pug
           .clearfix
       .clearfix
@@ -111,7 +112,7 @@ section.section
               horizontal:false,
               date:false
             }
-          .col-sm-6.col-md-3
+          .col-ls-6.col-md-3
             include ../components/_basic-post-view.pug
         .clearfix
 
@@ -133,7 +134,7 @@ section.section.section--offWhite
               date:false,
               card:true
             }
-        .col-sm-6.col-md-4
+        .col-ls-6.col-md-4
           include ../components/_basic-post-view.pug
 
       .clearfix
@@ -142,6 +143,32 @@ section.section
     h2.section__mainTitle.section__mainTitle--center Partners
     
     include ../components/_clients-table.pug
+    .clearfix
+
+section.section
+  .container
+    h2.section__mainTitle.section__mainTitle--center Features
+    .row
+      -for(i =0; i <= 2; i++)
+        -
+          var feature = {
+            title :data.content[1].title,
+            abstract :data.content[1].abstract,
+            icon:data.icons[i],
+            modifier:'feature-item--side '
+          }
+        .col-ls-6.col-md-4
+          include ../components/_feature-item.pug
+      -for(i =0; i <= 2; i++)
+        -
+          var feature = {
+            title :data.content[1].title,
+            abstract :data.content[1].abstract,
+            icon:data.icons[i],
+            modifier:''
+          }
+        .col-ls-6.col-md-4
+          include ../components/_feature-item.pug
     .clearfix
 
 
@@ -157,7 +184,7 @@ section.container
   .row
     -for(i =3; i <= 5; i++)
       -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
-      .col-sm-6.col-md-4
+      .col-ls-6.col-md-4
         include ../components/_basic-post-view.pug 
     .clearfix
 

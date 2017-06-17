@@ -54,14 +54,22 @@ article, aside, footer, header, nav, section {
 
 
   h1 {
-     @include rem(28);
+     @include rem(32);
      @include lineHeight(2)
   }
   h2 {
-    @include rem(21);
+    @include rem(26);
     @include lineHeight(1)
   }
-  h3,h4,h5, {
+  h3{
+    @include rem(22);
+    @include lineHeight(1)
+  }
+  h4{
+    @include rem(20);
+    @include lineHeight(1)
+  }
+  h5 {
     @include rem(18);
     @include lineHeight(1)
   }

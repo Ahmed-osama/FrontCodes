@@ -1,6 +1,57 @@
-.feature-item(class=featureModifierCLass)
-    .feature-item__img
-        i(class='#{icons[i]}')
-    h4.feature-item__title #{content[i].title}
-    p.feature-item__abstract
-        | #{content[i].abstract}
+.feature-item{
+    margin-bottom: $space;
+    text-align: center;
+    // [1] - IMG
+        &__img{
+            width: 2*$space;
+            height: 2*$space;
+            margin: 0 auto ;
+            background:$dviderColor;
+            border-radius:  $space;
+            position: relative;
+
+            &Icon{
+                position: absolute;
+                width: $space/4*3;
+                height: $space/4*3;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin:auto;
+                color: $primaryColor;
+                fill: $primaryColor;
+            }
+            
+        }
+        &--side &__img{
+            position: absolute;
+            #{$left}:0;
+            #{$right}:auto;
+            top: 0;
+            bottom:auto;
+
+        }
+
+    // [2] - TITLE
+        &__title{
+            color:$primaryText;
+            height: 2*$space;
+            @include lineHeight(2);
+            overflow: hidden;
+        }
+    // [3] - ABSTRACT
+        &__abstract{
+            overflow: hidden;
+            height: 2*$space;
+            @include rem(18);
+            font-weight: 300;
+            color:$secondaryText;
+        }
+    // [3] - MODIFIERs
+        &--side{
+            text-align: $left;
+            padding-#{$left}:2.5*$space;
+            position: relative;
+        }
+}

@@ -1,0 +1,52 @@
+.megaMenu{
+    width: 100%;
+    background: $wh;
+    @include mediaMin(1024px){
+        padding:$space;
+        @include shadow(3);
+    }
+    &__Block{
+        margin-bottom: $space;
+        padding: 0;
+        @include mediaMin(1024px){
+            padding: 0 $space;
+        }
+    }
+    &__heading{
+        height: 2*$space;
+        @include lineHeight(2);
+        @include rem(26);
+        color: $primaryColor;
+        
+        &Sub{
+            @include rem(20);
+            height: $space;
+            margin-top: $space/2;
+            margin-bottom: $space/2;
+            padding-#{$left}:$space/2;
+            @include mediaMin(1024px){
+                padding-#{$left}:$space/2;
+            }
+        }
+    }
+    &__ListItem{
+        @include rem(16);
+        @include lineHeight(1);
+        display: block;
+        color:$secondaryText;
+        padding-#{$left}:1.5*$space; 
+        border-#{$left}:1px solid $dviderColor;
+        @include mediaMin(1024px){
+            padding-#{$left}:$space/2; 
+
+        }
+        &--sub{
+            padding-#{$left}:2.5*$space;
+            @include mediaMin(1024px){
+                border-#{$left}:none;
+                padding-#{$left}:$space; 
+            }
+        }
+    }
+   
+}

@@ -4,7 +4,7 @@
 		padding: 0;
 	}
 	&__data{
-		padding:$space/2;
+		padding:$space $space/2 ;
 		@include mediaMin(768px){
 			padding:$space;
 		}
@@ -13,11 +13,11 @@
 		}
 	}
 	&__block{
-
+		margin-bottom:$space;
 		&Title{
 			color: $primaryColor;
 			line-height: $space;
-			margin-bottom: $space;
+			margin-bottom: $space/2;
 			@include rem(28);
 		}
 		&Contacts{
@@ -42,6 +42,13 @@
 		}
 		&Socials{
 			margin-top: $space;
+		}
+		@include mediaMin(768px){
+			margin-bottom: 0;
+			padding:0;
+			&Title{
+				margin-bottom: $space;
+			}
 		}
 	}
 	&__blockList{

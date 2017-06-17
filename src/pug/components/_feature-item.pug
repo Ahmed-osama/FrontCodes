@@ -1,17 +1,17 @@
 -
     //Data
-    var feature = feature || {};
+    i = i || 0 
+    feature = feature || {};
     feature.title = feature.title || "Feature Title goes here";
-    feature.icon = feature.icon || '
-        <svg class="icon icons-lib__itemIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M11 5c-1.629 0-2.305-1.058-4-3h-7v20h24v-17h-13z"></path>
-          </svg>
-        '
-    //style
-    var featureModifierCLass = "";
-.feature-item(class=featureModifierCLass)
+    feature.abstract = feature.abstract || false;
+    feature.icon = feature.icon || false  
+    feature.modifier = feature.modifier || ""
+    
+.feature-item(class=feature.modifier)
     .feature-item__img
-        i(class='#{icons[i]}')
-    h4.feature-item__title #{content[i].title}
-    p.feature-item__abstract
-        | #{content[i].abstract}
+        -if(feature.icon)
+            -var icon = {case:feature.icon, addClass:"feature-item__imgIcon "}
+            include ../shared/_icon.pug
+    h4.feature-item__title #{feature.title}
+    -if(feature.abstract)
+        p.feature-item__abstract #{feature.abstract}

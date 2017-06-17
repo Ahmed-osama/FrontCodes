@@ -9,11 +9,12 @@
 	text-align: center;
 	z-index: 0;
     min-height:auto;
-	padding-top: $space;
+	
     & + & {
     	margin-top: 0;
     }
     @include mediaMin(768px) {
+		padding-top: $space;
 		min-height: 300px;
 		text-align: $left;
         margin-top: 0;
@@ -110,7 +111,13 @@
 			align-self: center;
 		}
 		&-video{
+			
 			margin-bottom: 0;
+			@include mediaMin(1024px) {
+				margin-#{$right}:0;
+				margin-#{$left}:0;
+				margin-bottom: 0;
+			}
 		}
 		&-title{
 			margin-top: 0;

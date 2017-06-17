@@ -13,6 +13,9 @@ header.main-header
             -continue
           li
             a(href=data.nav[key].link) #{data.nav[key].name}
+        li.hasDrop
+          a(href="#") DropDown
+          include ../components/_mega-menu.pug
       .btn.btn--round.yellow_bg.main-header__cta 
         -if(rtl)
           span أضف مشاركتك

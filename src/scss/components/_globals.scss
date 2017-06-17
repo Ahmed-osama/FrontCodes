@@ -37,7 +37,7 @@
         display: inline-block;
         font-size:1rem;
         height: 1.5*$space;
-        line-height: 1.5* $space;
+        line-height: 1.7* $space;
         padding:0 $space;
         text-align: center;
         text-decoration:none;
@@ -222,22 +222,42 @@
 
 //[7] - Title
     .section{
-        padding:2*$space 0 $space;
+        padding:$space 0;
         &--offWhite{
             background: $offWhite;
         }
         &__mainTitle{
-            @include lineHeight(2);
-            margin-bottom:$space;;
+            @include lineHeight(1);
+            margin-bottom:$space;
             &--center{
                 text-align: center;
             }
         }
         &__abstract{
             color: $secondaryText;
-            margin-bottom: 2*$space;
+            margin-bottom:$space;
+            @include mediaMin(1024px){
+                margin-bottom: 2*$space;
+            }
+        }
+        &__noMarginItem{
+            @include mediaMin(1024px){
+                &.post-view{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .section__Img{
+            margin-bottom:$space;
+            @include mediaMin(1024px){
+                margin-bottom:0;
+            }
         }
         @include mediaMin(1024px){
+            padding:2*$space 0 $space;
+            &__mainTitle{
+                @include lineHeight(2);
+            }
             &__TextArea{
                 padding-#{$right}:2*$space;
             }
@@ -249,14 +269,9 @@
     }
     
     .sub-section-title{
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
         display: flex;
         flex-direction: column;
-        margin-bottom:$space;
-       
+        margin-bottom:$space/2;
         &--noborder{
             padding-top: 0;
             border-top: none;
@@ -299,21 +314,23 @@
             &--active{
                 background: $primaryColor;
                 color:$wh;
+                @include shadow(1);
                 &:hover{
                     color:$wh;
                     background: darken($primaryColor,10%);
+                    @include shadow(2);
                 }
             }
             & + & {
                 margin-#{$left}: 10px;
             }
         }
-
         .sub-section-body + &{
             margin-top: $space;
         }
         @include mediaMin(768px){
             flex-direction: row;
+            margin-bottom:$space;
              &__list{
                  margin-top: 0;
                 text-align:$right;

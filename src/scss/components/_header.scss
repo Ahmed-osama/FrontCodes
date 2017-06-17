@@ -117,7 +117,7 @@ body {
                 position: absolute;
                 height: 3px;
                 background:rgba(255,255,255,0.8);
-                width: $space;
+                width: 1.1*$space;
                 top: 0;
                 #{$right}: 0;
                 bottom: 0;
@@ -150,7 +150,7 @@ body {
                 span {
                     top: 0;
                     bottom: 0;
-                    width: 70%;
+                    width: 76%;
                     &:nth-child(2) {
                         opacity: 0;
                     }
@@ -237,12 +237,52 @@ body {
     //NAVIGATION
         &__nav {
             li {
-                a {
+                >a {
                     font-size: 1rem;
                     font-family: $titleFont;
                     color: $wh;
                     &:hover {
                         color: $primaryColor;
+                        background: $ts-bk-15;
+                    }
+                    &.active{
+
+                        background: $ts-bk-15;
+                    }
+                }
+                &.hasDrop > a{
+                    padding-#{$right}:$space*1.5;
+                    &:after{
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        border-left: 5px solid $ts;
+                        border-right: 5px solid $ts;
+                        border-top: 5px solid $wh;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        #{$right}:$space/3*2;
+                        margin: auto;
+                    }
+                }
+                @include mediaMin(1024px) {
+                    &.hasDrop{
+                        > a{
+                            position: relative;
+                        }
+                        &:hover{
+                            .dropMenu{
+                                display: block;
+                            }
+                        }
+                    }
+                    .dropMenu{
+                        display: none;
+                        position: absolute;
+                        top:100%;
+                        #{$left}:0;
+                        
                     }
                 }
             }
@@ -255,11 +295,7 @@ body {
                 li {
                     display: inline-block;
                     vertical-align: top;
-                    &:hover {
-                        &:after {
-                            background: $yellow;
-                        }
-                    }
+                    
                     > a {
                         padding:0 $space/2;
                         height: 3*$space;
@@ -268,17 +304,6 @@ body {
                         line-height: 3*$space;
                         position: relative;
                         display: block;
-                        &:after {
-                            content:"";
-                            display: block;
-                            position: absolute;
-                            bottom: 0;
-                            #{$left}: 0;
-                            height: 3px;
-                            width: 100%;
-                            background: $ts;
-                            transition: 0.2s;
-                        }
                         &:hover {
                             color: $wh;
                         }
@@ -295,16 +320,18 @@ body {
             @include mediaMax(1023px) {
                 li {
                     display: block;
+                    >a{
+                        color: $primaryText;
+                        padding: 0 $space;
+                    }
                     a {
                         border-bottom: 1px solid $dviderColor;
-                        color: $primaryText;
                         display: block;
                         font-weight: 400;
                         height: 2*$space;
                         line-height: 2*$space;
                         margin-#{$left}:-$space;
                         margin-#{$right}:-$space;
-                        padding: 0 $space;
                     }
                 }
             }
