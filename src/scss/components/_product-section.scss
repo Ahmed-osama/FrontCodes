@@ -19,6 +19,7 @@
                 max-width:100%;
                 max-height: 100%;
                 margin:auto;
+                filter: drop-shadow(0px 7px 21px rgba(0, 0, 0, 0.14));
             }
         }
         &Thumb{
@@ -91,7 +92,7 @@
     &__cta{
         margin-top: $space;
         display: block;
-        @include mediaMin(1024px){
+        @include mediaMin(992px){
             display: inline-block;
         }
     }

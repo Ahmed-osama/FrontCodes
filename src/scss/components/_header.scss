@@ -271,9 +271,7 @@ body {
                     &.hasDrop{
                         > a{
                             position: relative;
-                            &:hover{
-                                background: $ts-bk-15;
-                            }
+                            
                             &:after{
                                 border-top: 5px solid $wh;
                             }
@@ -313,6 +311,7 @@ body {
                         display: block;
                         &:hover {
                             color: $wh;
+                            background: $ts-bk-15;
                         }
                     }
                     > .btn {

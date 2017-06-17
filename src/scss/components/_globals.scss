@@ -32,10 +32,10 @@
     }
     .btn{
         @include shadow(1);
+        @include rem(16);
         border: none;
         cursor:pointer;
         display: inline-block;
-        font-size:1rem;
         height: 1.5*$space;
         line-height: 1.5* $space;
         padding:0 $space;
@@ -46,6 +46,8 @@
             vertical-align: middle;
         }
         .icon{
+            width:$space/2;
+            height:$space/2;
             vertical-align: middle;
             & + span {
                 margin-#{$left}:$space/3;
@@ -71,9 +73,10 @@
             border-radius: $space/4*3;
         }
         &--cta{
+            @include lineHeight(1.8);
+            @include rem(18);
             font-weight:500;
-            height: 2*$space;
-            @include lineHeight(2.1);
+            height: 1.7*$space;
             padding:0 $space;
             position: relative;
             text-transform: uppercase;
