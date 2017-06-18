@@ -115,18 +115,27 @@
         color:$wh !important;
         cursor: pointer;
         display: inline-block;
-        height: 36px;
-        line-height:35px;
+        line-height:31px;
         padding: 0;
         text-align: center;
-        width: 36px;
+        height: 32px;
+        width: 32px;
+        @include mediaMin(768px){
+            line-height:35px;
+            height: 36px;
+            width: 36px;
+
+        }
         &:hover{
             line-height:35px;
         }
         .icon{
             fill: $wh;
-            height: 36px;
+            height: 31px;
             vertical-align: middle;
+             @include mediaMin(768px){
+                height: 36px;
+             }
         }
         &--sm{
             width: 30px;
@@ -300,7 +309,10 @@
             color:$primaryText;
             flex-grow: 1;
             text-transform: capitalize;
-            @include rem(28);
+            @include rem(22);
+            @include mediaMin(768px){
+                @include rem(28);
+            }
         }
         &__list{
             flex-grow: 1;

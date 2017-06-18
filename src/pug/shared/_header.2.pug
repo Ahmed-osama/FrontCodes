@@ -1,0 +1,39 @@
+header.main-header
+  .container.main-header__container
+    a.main-header__logo(href=data.nav.index.link)
+      img.hide-sm(src="img/logo-wide.png")
+      img.hide-lg(src="img/logo-wh.png")
+    input#headerSidemenu-state(type="checkbox" hiddin)
+    label.main-header__menuToggler(for='headerSidemenu-state')
+      -for(var i=0; i<=2; i++)
+        span
+    .main-header__sideMenu#headerSidemenu
+      .main-header__upper
+        .main-header__Phone
+          -var icon = {case:"phone", addClass:" main-header__PhoneIcon "}
+          include ../shared/_icon.pug
+          span 00966114068868
+        form.main-header__search
+          input.main-header__searchInput
+          -var icon = {case:"search", addClass:" main-header__searchIcon "}
+          include ../shared/_icon.pug
+        a.language.main-header__lang(href=data.nav.lang.link) #{data.nav.lang.name}
+
+      nav.main-header__nav
+        ul.main-header__navList
+          -for(var key in data.nav)
+            -if(key == "lang")
+              -continue
+            li
+              a(href=data.nav[key].link) #{data.nav[key].name}
+          li.hasDrop
+            a(href="#") DropDown
+            include ../components/_mega-menu.pug
+
+        .main-header__social
+          -for(var i=0; i<= data.social.length-2; i++)
+            a.main-header__socialItem.socialItem(data-wave href="", class=data.social[i].class)
+              -var icon = {case:data.social[i].class}
+              include ../shared/_icon.pug
+
+    label.main-header__menuTogglerOver(for='headerSidemenu-state')

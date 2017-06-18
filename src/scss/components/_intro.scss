@@ -113,9 +113,13 @@
 		&-video{
 			
 			margin-bottom: 0;
-			@include mediaMin(1024px) {
+			margin-#{$right}:-$space;
+			margin-#{$left}:-$space;
+			@include mediaMin(768px) {
 				margin-#{$right}:0;
 				margin-#{$left}:0;
+			}
+			@include mediaMin(1024px) {
 				margin-bottom: 0;
 			}
 		}

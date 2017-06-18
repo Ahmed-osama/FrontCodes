@@ -71,16 +71,23 @@
     &__row{
         display: flex;
         flex-direction: row;
-        padding:$space 0;
+        padding:$space/2 0;
         border-top:1px solid $dviderColor;
         border-bottom:1px solid $dviderColor;
         & + &{
             border-top: none;
         }
+        @include mediaMin(768px){
+            padding:$space 0;
+        }
         &Label{
-            padding-#{$right}:$space ;
-            @include rem(28);
+            padding-#{$right}:$space/2 ;
+            @include rem(22);
             @include lineHeight(1);
+            @include mediaMin(768px){
+                padding-#{$right}:$space ;
+                @include rem(28);
+            }
         }
         &Content{
             display: flex;
@@ -96,5 +103,4 @@
             display: inline-block;
         }
     }
-
 }

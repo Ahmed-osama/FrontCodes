@@ -37,6 +37,9 @@
             @include lineHeight(1);
             margin-bottom: $space/2;
             color:$wh;
+            &:hover{
+                color:$wh;
+            }
         }
     }
     &__bullets{
