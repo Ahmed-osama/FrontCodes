@@ -44,11 +44,16 @@
         transition:0.2s;
         span{
             vertical-align: middle;
+            & + .icon{
+                margin-top: 0;
+            }
         }
         .icon{
             width:$space/2;
             height:$space/2;
+            margin-top:$space/2;
             vertical-align: middle;
+            display: inline-block;
             & + span {
                 margin-#{$left}:$space/3;
             }

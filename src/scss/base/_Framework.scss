@@ -35,9 +35,10 @@
 
 //[2] GUIDE LIST
     .guideList{
-        background: $lightGry;
-        padding:$space 0;
-        border-#{$right}:1px solid $dviderColor;
+        background: lighten($dviderColor,3%);
+        border-#{$right}:1px solid darken($dviderColor,3%);
+        flex-basis: 40%;
+        flex-grow: 1;
         ul{
             list-style-type: none;
         }
@@ -48,15 +49,21 @@
         &__item{
             display: block;
             padding:$space/2 $space;
-            border-bottom: 1px solid $dviderColor;
+            border-bottom: 1px solid  darken($dviderColor,3%);
         }
     }    
     .guideSection{
         padding:$space;
+        border-top:1px solid  darken($dviderColor,3%);
+        &--noBorder{
+            border-top:none;
+        }
         &__title{
             margin-left:-$space;
             margin-right:-$space;
             padding-left:$space;
             padding-right:$space;
+            margin-bottom:$space;
+            
         }
     }

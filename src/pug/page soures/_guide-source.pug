@@ -3,8 +3,9 @@
     ul
         li: a.guideList__item(href="#buttons") buttons
         li: a.guideList__item(href="#feature-item") Feature item
+        li: a.guideList__item(href="#news-item") News item
   main.layout__item--grow
-      section.guideSection#buttons
+      section.guideSection.guideSection--noBorder#buttons
         .section-title.guideSection__title
           h2.section-title__title Buttons
         div
@@ -15,20 +16,188 @@
             -var icon = {case:"download"}
             include ../shared/_icon.pug
           br
-          a.btn.square.red_bg(href="#")
+          a.btn.btn--square.red_bg(href="#")
             -var icon = {case:"facebook"}
             include ../shared/_icon.pug
           br
-          a.btn.round.blue_bg(href="#") Round button
+          a.btn.btn--round.blue_bg(href="#") Round button
           br
-          a.btn.yellow_bg.cta(href="#") Call to Action
-        a.btn.gry_bg.block(href="#") block button
+          a.btn.yellow_bg.btn--cta(href="#") Call to Action
+        a.btn.btn--block.gry_bg(href="#") block button
         div.btnHolder
-          a.btn.green_bg.right(href="#") floated right
-          a.btn.red_bg.left(href="#") floated left
+          a.btn.btn--right.green_bg(href="#") floated right
+          a.btn.btn--left.red_bg(href="#") floated left
           .clearfix
 
-      section.guideSection#buttons
+      section.guideSection#feature-item
         .section-title.guideSection__title
           h2.section-title__title Feature item
-        div
+        div.row
+          -
+            var feature = {
+              title :data.content[1].title,
+              abstract :data.content[1].abstract,
+              icon:data.icons[3],
+              modifier:'feature-item--side '
+            }
+          -for(i =1; i <= 2; i++)
+            .col-ls-6
+              include ../components/_feature-item.pug
+          -
+            var feature = {
+              title :data.content[1].title,
+              abstract :data.content[1].abstract,
+              icon:data.icons[4]
+            }
+          -for(i =1; i <= 2; i++)
+            .col-ls-6
+              include ../components/_feature-item.pug
+      
+      section.guideSection#news-item
+        .section-title.guideSection__title
+          h2.section-title__title News item
+        div.row
+          -
+            var post = {
+              img:data.content[6].img,
+              caption:data.content[6].title,
+              abstract:data.content[6].abstract,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:true,
+              cardBounded:false,
+              horizontal:false,
+              over:false,
+              date:false,
+              padge:true
+            }
+          .col-ls-6.col-md-4
+            h3.guideSection__title Card
+            include ../components/_basic-post-view.pug
+         
+          -
+            var post = {
+              img:data.content[3].img,
+              caption:data.content[3].title,
+              abstract:false,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:true,
+              cardSimple:true,
+              cardBounded:false,
+              horizontal:false,
+              over:false,
+              date:false,
+              padge:false
+            }
+          .col-ls-6.col-md-4
+            h3.guideSection__title Card Simple
+            include ../components/_basic-post-view.pug
+          
+          
+          -
+            var post = {
+              img:data.content[3].img,
+              caption:data.content[3].title,
+              abstract:data.content[3].abstract,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:true,
+              cardBounded:true,
+              horizontal:false,
+              over:false,
+              date:false,
+              padge:false
+            }
+          .col-ls-6.col-md-4
+            h3.guideSection__title Card Bounded
+            include ../components/_basic-post-view.pug
+          
+          -
+            var post = {
+              img:data.content[2].img,
+              caption:data.content[2].title,
+              abstract:data.content[2].abstract,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:true,
+              cardBounded:true,
+              cardBoundedSimple:true,
+              horizontal:false,
+              over:false,
+              date:false,
+              padge:false
+            }
+          .col-ls-6.col-md-4
+            h3.guideSection__title Card Bounded Simple
+            include ../components/_basic-post-view.pug
+          -
+            var post = {
+              img:data.content[5].img,
+              caption:data.content[5].title,
+              abstract:data.content[5].abstract,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:false,
+              cardBounded:false,
+              cardBoundedSimple:false,
+              horizontal:true,
+              over:false,
+              date:true,
+              padge:false
+            }
+          .col-ls-6
+            h3.guideSection__title Horizontal
+            include ../components/_basic-post-view.pug
+          -
+            var post = {
+              img:data.content[7].img,
+              caption:data.content[7].title,
+              abstract:false,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:false,
+              cardBounded:false,
+              cardBoundedSimple:false,
+              horizontal:true,
+              horizontalSm:true,
+              over:false,
+              date:false,
+              padge:false
+            }
+          .col-ls-6
+            h3.guideSection__title Horizontal Sm
+            include ../components/_basic-post-view.pug
+          -
+            var post = {
+              img:data.content[7].img,
+              caption:data.content[7].title,
+              abstract:false,
+              icon:{
+                state:true,
+                name:"video"
+              },
+              card:false,
+              cardBounded:false,
+              cardBoundedSimple:false,
+              horizontal:false,
+              horizontalSm:false,
+              over:true,
+              date:false,
+              padge:false
+            }
+          .col-ls-6.col-md-4
+            h3.guideSection__title over
+            include ../components/_basic-post-view.pug

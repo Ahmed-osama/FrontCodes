@@ -7,92 +7,239 @@
     <title>FrontCodes | ui Componenets Liberary</title>
   </head>
   <body>
-    <header class="main-header"><a class="main-header__logo" href="index-en.html"><img src="img/logo-wh.png"/></a>
-      <input id="headerSidemenu-state" type="checkbox" hiddin="hiddin"/>
-      <label class="main-header__menuToggler" for="headerSidemenu-state"><span></span><span></span><span></span>
-      </label>
-      <div class="main-header__sideMenu" id="headerSidemenu">
-        <nav class="main-header__nav">
-          <ul>
-            <li><a href="index-en.html">home</a></li>
-            <li><a href="icons-en.html">icons</a></li>
-            <li><a href="guide-ar.html">Guide</a></li>
-            <li class="hasDrop"><a href="#">DropDown</a>
-              <div class="megaMenu dropMenu">
-                <div class="container megaMenu__container">
-                  <div class="row">
-                    <div class="col-lg-3 megaMenu__Block">
-                      <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
-                      <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
-                    </div>
-                    <div class="col-lg-3 megaMenu__Block">
-                      <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
-                      <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
-                    </div>
-                    <div class="col-lg-3 megaMenu__Block">
-                      <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
-                      <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
-                    </div>
-                    <div class="col-lg-3 megaMenu__Block">
-                      <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
-                      <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
+    <header class="main-header">
+      <div class="main-header__container"><a class="main-header__logo" href="index-en.html"><img class="hide-sm" src="img/logo-wide.png"/><img class="hide-lg" src="img/logo-wh.png"/></a>
+        <input id="headerSidemenu-state" type="checkbox" hiddin="hiddin"/>
+        <label class="main-header__menuToggler" for="headerSidemenu-state"><span></span><span></span><span></span>
+        </label>
+        <div class="main-header__sideMenu" id="headerSidemenu">
+          <div class="main-header__upper">
+            <div class="main-header__Phone">
+              <svg class="icon  main-header__PhoneIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"></path>
+              </svg><span>00966114068868</span>
+            </div>
+            <form class="main-header__search">
+              <input class="main-header__searchInput"/>
+              <svg class="icon  main-header__searchIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                <path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"></path>
+              </svg>
+            </form><a class="language main-header__lang" href="index-ar.html">ع</a>
+          </div>
+          <nav class="main-header__nav">
+            <ul class="main-header__navList">
+              <li><a href="index-en.html">home</a></li>
+              <li><a href="icons-en.html">icons</a></li>
+              <li><a href="guide-ar.html">Guide</a></li>
+              <li class="hasDrop"><a href="#">DropDown</a>
+                <div class="megaMenu dropMenu">
+                  <div class="container megaMenu__container">
+                    <div class="row">
+                      <div class="col-lg-3 megaMenu__Block">
+                        <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
+                        <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
+                      </div>
+                      <div class="col-lg-3 megaMenu__Block">
+                        <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
+                        <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
+                      </div>
+                      <div class="col-lg-3 megaMenu__Block">
+                        <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
+                        <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
+                      </div>
+                      <div class="col-lg-3 megaMenu__Block">
+                        <h3 class="megaMenu__heading">Main Category</h3><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a><a class="megaMenu__ListItem" href="#">Sub Sub Category</a>
+                        <h4 class="megaMenu__headingSub">sub Category</h4><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a><a class="megaMenu__ListItem megaMenu__ListItem--sub" href="#">Sub Sub Category</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          </ul>
-          <div class="btn btn--round yellow_bg main-header__cta"> 
-            <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-              <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"></path>
-            </svg><span>add your story</span>
-          </div>
-          <div class="main-header__social"><a class="language" href="index-ar.html">ع</a><a class="socialItem facebook" data-wave="data-wave" href="">
-              <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg></a><a class="socialItem twitter" data-wave="data-wave" href="">
-              <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg></a><a class="socialItem youtube" data-wave="data-wave" href="">
-              <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg></a><a class="socialItem googlePlus" data-wave="data-wave" href="">
-              <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-                <path d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z" fill-rule="evenodd" clip-rule="evenodd"></path>
-              </svg></a>
-          </div>
-        </nav>
+              </li>
+            </ul>
+            <div class="main-header__social"><a class="main-header__socialItem socialItem facebook" data-wave="data-wave" href="">
+                <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
+                </svg></a><a class="main-header__socialItem socialItem twitter" data-wave="data-wave" href="">
+                <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
+                </svg></a><a class="main-header__socialItem socialItem youtube" data-wave="data-wave" href="">
+                <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
+                </svg></a><a class="main-header__socialItem socialItem googlePlus" data-wave="data-wave" href="">
+                <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                  <path d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg></a>
+            </div>
+          </nav>
+        </div>
+        <label class="main-header__menuTogglerOver" for="headerSidemenu-state"></label>
       </div>
-      <label class="main-header__menuTogglerOver" for="headerSidemenu-state"></label>
     </header>
     <div class="layout">
       <aside class="layout__item guideList">
         <ul>
           <li><a class="guideList__item" href="#buttons">buttons</a></li>
           <li><a class="guideList__item" href="#feature-item">Feature item</a></li>
+          <li><a class="guideList__item" href="#news-item">News item</a></li>
         </ul>
       </aside>
       <main class="layout__item--grow">
-        <section class="guideSection" id="buttons">
+        <section class="guideSection guideSection--noBorder" id="buttons">
           <div class="section-title guideSection__title">
             <h2 class="section-title__title">Buttons</h2>
           </div>
           <div><a class="btn violet_bg" href="#">Default btn</a><br/><a class="btn green_bg" href="#"> <span>Button with icon</span>
               <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
                 <path d="M16 11h5l-9 10-9-10h5v-11h8v11zm1 11h-10v2h10v-2z"></path>
-              </svg></a><br/><a class="btn square red_bg" href="#">
+              </svg></a><br/><a class="btn btn--square red_bg" href="#">
               <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg></a><br/><a class="btn round blue_bg" href="#">Round button</a><br/><a class="btn yellow_bg cta" href="#">Call to Action</a></div><a class="btn gry_bg block" href="#">block button</a>
-          <div class="btnHolder"><a class="btn green_bg right" href="#">floated right</a><a class="btn red_bg left" href="#">floated left</a>
+              </svg></a><br/><a class="btn btn--round blue_bg" href="#">Round button</a><br/><a class="btn yellow_bg btn--cta" href="#">Call to Action</a></div><a class="btn btn--block gry_bg" href="#">block button</a>
+          <div class="btnHolder"><a class="btn btn--right green_bg" href="#">floated right</a><a class="btn btn--left red_bg" href="#">floated left</a>
             <div class="clearfix"></div>
           </div>
         </section>
-        <section class="guideSection" id="buttons">
+        <section class="guideSection" id="feature-item">
           <div class="section-title guideSection__title">
             <h2 class="section-title__title">Feature item</h2>
           </div>
-          <div></div>
+          <div class="row">
+            <div class="col-ls-6">
+              <div class="feature-item feature-item--side ">
+                <div class="feature-item__img">
+                  <svg class="icon feature-item__imgIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"></path>
+                  </svg>
+                </div>
+                <h4 class="feature-item__title">Shopping Guide for London</h4>
+                <p class="feature-item__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+              </div>
+            </div>
+            <div class="col-ls-6">
+              <div class="feature-item feature-item--side ">
+                <div class="feature-item__img">
+                  <svg class="icon feature-item__imgIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"></path>
+                  </svg>
+                </div>
+                <h4 class="feature-item__title">Shopping Guide for London</h4>
+                <p class="feature-item__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+              </div>
+            </div>
+            <div class="col-ls-6">
+              <div class="feature-item">
+                <div class="feature-item__img">
+                  <svg class="icon feature-item__imgIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"></path>
+                  </svg>
+                </div>
+                <h4 class="feature-item__title">Shopping Guide for London</h4>
+                <p class="feature-item__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+              </div>
+            </div>
+            <div class="col-ls-6">
+              <div class="feature-item">
+                <div class="feature-item__img">
+                  <svg class="icon feature-item__imgIcon " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"></path>
+                  </svg>
+                </div>
+                <h4 class="feature-item__title">Shopping Guide for London</h4>
+                <p class="feature-item__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="guideSection" id="news-item">
+          <div class="section-title guideSection__title">
+            <h2 class="section-title__title">News item</h2>
+          </div>
+          <div class="row">
+            <div class="col-ls-6 col-md-4">
+              <h3 class="guideSection__title">Card</h3>
+              <div class="post-view post-view--card "><a class="post-view__link" href="singleundefined.html" alt="The 1993 Movie ‘Groundhog Day’ has Been Made Into a Broadway Musical for Some Reason"></a>
+                <div class="post-view__img"><a class="post-view__padge btn" href="#">Lower limb</a><span class="post-view__icon"></span><img class="lazy" alt="The 1993 Movie ‘Groundhog Day’ has Been Made Into a Broadway Musical for Some Reason" data-original="img/content/7.jpg" src="img/content/7.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="The 1993 Movie ‘Groundhog Day’ has Been Made Into a Broadway Musical for Some Reason">
+                  <h4 class="post-view__maxTitle">The 1993 Movie ‘Groundhog Day’ has Been Made Into a Broadway Musical for Some Reason
+                  </h4>
+                  <p class="post-view__abstract">If you’ve always wanted to relive Groundhog Day over and over again, now’s your chance. The 1993 Bill Murray film has been made into a musical, which opened on Broadway on in March. </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6 col-md-4">
+              <h3 class="guideSection__title">Card Simple</h3>
+              <div class="post-view  post-view--card post-view--cardSimple "><a class="post-view__link" href="singleundefined.html" alt="America's 10 Best Spots for Seeing Wildflowers"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="America's 10 Best Spots for Seeing Wildflowers" data-original="img/content/4.jpg" src="img/content/4.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="America's 10 Best Spots for Seeing Wildflowers">
+                  <h4 class="post-view__maxTitle">America's 10 Best Spots for Seeing Wildflowers
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6 col-md-4">
+              <h3 class="guideSection__title">Card Bounded</h3>
+              <div class="post-view  post-view--card post-view--cardBounded "><a class="post-view__link" href="singleundefined.html" alt="America's 10 Best Spots for Seeing Wildflowers"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="America's 10 Best Spots for Seeing Wildflowers" data-original="img/content/4.jpg" src="img/content/4.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="America's 10 Best Spots for Seeing Wildflowers">
+                  <h4 class="post-view__maxTitle">America's 10 Best Spots for Seeing Wildflowers
+                  </h4>
+                  <p class="post-view__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6 col-md-4">
+              <h3 class="guideSection__title">Card Bounded Simple</h3>
+              <div class="post-view  post-view--card post-view--cardBounded post-view--cardBoundedSimple "><a class="post-view__link" href="singleundefined.html" alt="Want to step back in time and visit 1920s Paris?"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="Want to step back in time and visit 1920s Paris?" data-original="img/content/3.jpg" src="img/content/3.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="Want to step back in time and visit 1920s Paris?">
+                  <h4 class="post-view__maxTitle">Want to step back in time and visit 1920s Paris?
+                  </h4>
+                  <p class="post-view__abstract">London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6">
+              <h3 class="guideSection__title">Horizontal</h3>
+              <div class="post-view  post-view--horizontal "><a class="post-view__link" href="singleundefined.html" alt="9 California Music Festivals That Aren’t Coachella"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="9 California Music Festivals That Aren’t Coachella" data-original="img/content/6.jpg" src="img/content/6.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="9 California Music Festivals That Aren’t Coachella"><span class="date">
+                    <svg class="icon undefined" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
+                      <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.848 12.459c.202.038.202.333.001.372-1.907.361-6.045 1.111-6.547 1.111-.719 0-1.301-.582-1.301-1.301 0-.512.77-5.447 1.125-7.445.034-.192.312-.181.343.014l.985 6.238 5.394 1.011z"></path>
+                    </svg><span>October 19, 2017</span></span>
+                  <h4 class="post-view__maxTitle">9 California Music Festivals That Aren’t Coachella
+                  </h4>
+                  <p class="post-view__abstract">Not making it to Coachella this year? That festival-sized hole in your summer plans might be the universe’s way of telling you that there’s more than one gathering worth going to this year.—Meg Butler</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6">
+              <h3 class="guideSection__title">Horizontal Sm</h3>
+              <div class="post-view  post-view--horizontal post-view--horizontal-sm "><a class="post-view__link" href="singleundefined.html" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story" data-original="img/content/8.jpg" src="img/content/8.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story">
+                  <h4 class="post-view__maxTitle">I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-ls-6 col-md-4">
+              <h3 class="guideSection__title">over</h3>
+              <div class="post-view  post-view--over "><a class="post-view__link" href="singleundefined.html" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story"></a>
+                <div class="post-view__img"><span class="post-view__icon"></span><img class="lazy" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story" data-original="img/content/8.jpg" src="img/content/8.jpg"/>
+                </div>
+                <div class="post-view__caption" alt="I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story">
+                  <h4 class="post-view__maxTitle">I Took Grace Kelly’s Yacht to the Galapagos—And That’s the Least Peculiar Thing About This Story
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>
