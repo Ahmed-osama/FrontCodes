@@ -120,13 +120,12 @@ body {
             padding: 0;
             max-width: 100%;
             @include mediaMin(1024px) {
-                max-width: 1200px;
+               
                 margin: auto;
                 height: 100%;
                 align-items: stretch;
                 padding:0 $space/2;
             }
-
         }
     // LOGO
         &__logo {

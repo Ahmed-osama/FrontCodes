@@ -44,6 +44,12 @@
 				[
 					'src/pug/index-en.pug',
 					'src/pug/index-ar.pug',
+					
+					'src/pug/icons-en.pug',
+					'src/pug/icons-ar.pug',
+
+					'src/pug/guide-en.pug',
+					'src/pug/guide-ar.pug',
 
 				]
 			)

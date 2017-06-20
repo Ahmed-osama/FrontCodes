@@ -10,17 +10,26 @@
             display: flex;
             justify-content: center; /* align horizontal */
             align-items: center; /* align vertical */
+            transition:0.2s;
             &:hover{
-                background: $offWhite;
+                @include shadow(7);
+                border:$ts;
+                transform: scale(1.1);
+                z-index: 1;
+                background:$wh;
             }
-        }
-        &__itemIcon{
-            width: 5em;
-            height:5em;
-        }
-        &__itemTitle{
-            margin-top: $space;
-            color: $secondaryText
+            &:hover  &Icon{
+                color: $primaryColor;
+                fill: $primaryColor;
+            }
+            &Icon{
+                width: 5em;
+                height:5em;
+            }
+            &Title{
+                margin-top: $space;
+                color: $secondaryText;
+            }
         }
     }
 

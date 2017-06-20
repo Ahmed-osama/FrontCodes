@@ -21,7 +21,9 @@
 
             @include lineHeight(1);
             @include rem(21);
+            font-family:$titleFont;
             margin-bottom: $space;
+            
         }
         &Img{
             width: 3*$space;
