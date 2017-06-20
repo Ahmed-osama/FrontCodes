@@ -40,7 +40,13 @@
 //PUG
 	gulp.task('pug', function(){
 		return gulp
-			.src('src/pug/*.pug')
+			.src(
+				[
+					'src/pug/index-en.pug',
+					'src/pug/index-ar.pug',
+
+				]
+			)
 			.pipe(plumber())
 			.pipe(pug({
 				pretty:true,

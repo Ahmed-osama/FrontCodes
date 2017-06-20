@@ -327,6 +327,7 @@
             align-items:center;
             justify-content :flex-start;
             margin-top: $space/2;
+            flex-wrap: wrap;
             @include mediaMin(768px){
                 justify-content :flex-end;
                 text-align:$left;
@@ -339,6 +340,7 @@
             padding:2px $space/2;
             border-radius:3px;
             color:$secondaryText;
+            white-space: nowrap;
             &:hover{
                 background: $offWhite;
                 color:$primaryText;

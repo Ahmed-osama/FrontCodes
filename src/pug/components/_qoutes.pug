@@ -3,7 +3,7 @@ section.section.quote-section
     -var icon = {case:'quote', addClass:"quote-section__Icon "}
     include ../shared/_icon.pug
     .quote-section__quote
-      p.quote-section__quoteText London is a brilliant place to visit whatever your age, and both seniors full of beans, and those who prefer to explore at a slower pace
+      p.quote-section__quoteText #{data.content[1].abstract}
       img.quote-section__quoteImg(src="img/content/user.png")
       a.quote-section__quoteWriter Ahmed Osama
     .quote-section__bullets

@@ -1,8 +1,8 @@
 .main-footer{
-	background:lighten($dviderColor,5%);
+	background:$dviderColor;
 	border-top:1px solid $dviderColor;
 	color:rgba(255,255,255,0.8);
-	padding:15px 30px;
+	padding:$space/2 $space $space/2 2*$space;
 	flex-direction:column;
 	text-align: center	;
 	clear: both;

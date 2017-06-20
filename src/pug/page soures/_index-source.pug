@@ -12,13 +12,14 @@
     horizontal   : true,
     horizontalSm : true,
   }
+include ../components/_product-section.pug
 -
   var intro= {
     calltoAction:true
   }
 include ../components/_intro.pug
 .category-title
-  h1 Post Items
+  h1.container Post Items
 section.section
   .container
     h2.section__mainTitle Prosthetic & Orthotic Services
@@ -50,7 +51,7 @@ section.section
         .col-ls-6.col-md-4
           include ../components/_basic-post-view.pug
       .clearfix
-include ../components/_product-section.pug
+
 section.section.section--offWhite
   .container
     .row
@@ -146,6 +147,57 @@ section.section
     include ../components/_clients-table.pug
     .clearfix
 
+
+section.section
+  .container
+    h2.section__mainTitle.section__mainTitle--center Share widget
+    include ../components/_share-widget.pug
+    .clearfix
+include ../components/_qoutes.pug
+
+section.section.section--offWhite
+  .container
+    .sub-section-title
+      h4.sub-section-title__title #{data.sections.titels[1]}
+      .sub-section-title__list
+        -for(i =0; i <= 2; i++)
+            -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+            a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =3; i <= 5; i++)
+        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
+        .col-ls-6.col-md-4
+          include ../components/_basic-post-view.pug 
+      .clearfix
+
+section.section
+  .container
+    .sub-section-title
+      h4.sub-section-title__title #{data.sections.titels[3]}
+      .sub-section-title__list
+        -for(i =0; i <= 2; i++)
+            -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+            a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =0; i <= 2; i++)
+        .col-sm-12
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
+          include ../components/_basic-post-view.pug    
+      .clearfix
+section.section.section--offWhite
+  .container
+    .sub-section-title
+      h4.sub-section-title__title #{data.sections.titels[0]}
+      .sub-section-title__list
+        -for(i =0; i <= 2; i++)
+            -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+            a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+    .row
+      -for(i =3; i <= 5; i++)
+        .col-sm-12
+          -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,icon:false, card:false, horizontal:true,date:true,horizontalSm:true}
+          include ../components/_basic-post-view.pug
+      .clearfix
 section.section
   .container
     h2.section__mainTitle.section__mainTitle--center Features
@@ -170,51 +222,4 @@ section.section
           }
         .col-ls-6.col-md-4
           include ../components/_feature-item.pug
-    .clearfix
-section.section
-  .container
-    h2.section__mainTitle.section__mainTitle--center Share widget
-    include ../components/_share-widget.pug
-    .clearfix
-include ../components/_qoutes.pug
-
-section.container
-  .sub-section-title
-    h4.sub-section-title__title #{data.sections.titels[1]}
-    .sub-section-title__list
-       -for(i =0; i <= 2; i++)
-          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
-          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-  .row
-    -for(i =3; i <= 5; i++)
-      -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract, card:true, horizontal:false,date:true,card:true}
-      .col-ls-6.col-md-4
-        include ../components/_basic-post-view.pug 
-    .clearfix
-
-section.container
-  .sub-section-title
-    h4.sub-section-title__title #{data.sections.titels[3]}
-    .sub-section-title__list
-       -for(i =0; i <= 2; i++)
-          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
-          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-  .row
-    -for(i =0; i <= 2; i++)
-      .col-sm-12
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:data.content[i].abstract,icon:false, card:false, horizontal:true,date:true}
-        include ../components/_basic-post-view.pug    
-    .clearfix
-section.container
-  .sub-section-title
-    h4.sub-section-title__title #{data.sections.titels[0]}
-    .sub-section-title__list
-       -for(i =0; i <= 2; i++)
-          -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
-          a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
-  .row
-    -for(i =3; i <= 5; i++)
-      .col-sm-12
-        -var post = {img:data.content[i].img,caption:data.content[i].title,abstract:false,icon:false, card:false, horizontal:true,date:true,horizontalSm:true}
-        include ../components/_basic-post-view.pug
     .clearfix
