@@ -4,6 +4,9 @@
         li: a.guideList__item(href="#buttons") buttons
         li: a.guideList__item(href="#feature-item") Feature item
         li: a.guideList__item(href="#news-item") News item
+        li: a.guideList__item(href="#product-section") Product Section
+        li: a.guideList__item(href="#intro") Intro
+        li: a.guideList__item(href="#subSectionTitle") Sub section title
   main.layout__item--grow
       section.guideSection.guideSection--noBorder#buttons
         .section-title.guideSection__title
@@ -53,15 +56,16 @@
             .col-ls-6
               include ../components/_feature-item.pug
       
+
       section.guideSection#news-item
         .section-title.guideSection__title
           h2.section-title__title News item
         div.row
           -
             var post = {
-              img:data.content[6].img,
-              caption:data.content[6].title,
-              abstract:data.content[6].abstract,
+              img:data.content[0].img,
+              caption:data.content[0].title,
+              abstract:data.content[0].abstract,
               icon:{
                 state:true,
                 name:"video"
@@ -79,8 +83,8 @@
          
           -
             var post = {
-              img:data.content[3].img,
-              caption:data.content[3].title,
+              img:data.content[1].img,
+              caption:data.content[1].title,
               abstract:false,
               icon:{
                 state:true,
@@ -121,9 +125,9 @@
           
           -
             var post = {
-              img:data.content[2].img,
-              caption:data.content[2].title,
-              abstract:data.content[2].abstract,
+              img:data.content[4].img,
+              caption:data.content[4].title,
+              abstract:data.content[4].abstract,
               icon:{
                 state:true,
                 name:"video"
@@ -161,8 +165,8 @@
             include ../components/_basic-post-view.pug
           -
             var post = {
-              img:data.content[7].img,
-              caption:data.content[7].title,
+              img:data.content[6].img,
+              caption:data.content[6].title,
               abstract:false,
               icon:{
                 state:true,
@@ -201,3 +205,29 @@
           .col-ls-6.col-md-4
             h3.guideSection__title over
             include ../components/_basic-post-view.pug
+      section.guideSection#product-section
+        .section-title.guideSection__title
+          h2.section-title__title Product Section
+        div.row
+          include ../components/_product-section.pug
+      section.guideSection#intro
+        .section-title.guideSection__title
+          h2.section-title__title Intro
+          h3.guideSection__title callto Action
+        div.row
+          -
+            var intro= {
+              calltoAction:true
+            }
+          include ../components/_intro.pug
+          
+      section.guideSection#subSectionTitle
+        .section-title.guideSection__title
+          h2.section-title__title Sub section Title
+        .row
+          .sub-section-title
+            h4.sub-section-title__title #{data.sections.titels[2]}
+            .sub-section-title__list
+              -for(i =0; i <= 2; i++)
+                -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
+                a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}

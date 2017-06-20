@@ -370,7 +370,8 @@
         @include mediaMin(768px){
             flex-direction: row;
             margin-bottom:$space;
-             &__list{
+            flex-basis: 100%;
+            &__list{
                  margin-top: 0;
                 text-align:$right;
             }
