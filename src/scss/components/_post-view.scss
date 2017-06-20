@@ -360,7 +360,8 @@
         }
         &--card &__maxTitle{
             margin-top: $space/2;
-            @include rem(18);
+            margin-bottom: $space/2;
+            @include rem(20);
             @include mediaMin(768px) {
                 margin-top: $space;
             }
@@ -371,6 +372,7 @@
         }
         &--cardBounded &__maxTitle{
             margin-top: 0;
+            margin-bottom:0;
             @include rem(22);
             @include mediaMin(768px) {
                 @include lineHeight(1);

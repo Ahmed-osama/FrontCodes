@@ -4,9 +4,10 @@
 		$bk      : #000000;
 		$blue    : #2095f2;
 		$green   : #4bae4f;
+		$orange  : #FF5722;
 		$purple  : #9b26af;
 		$red     : #f34235;
-		$orange  : #FF5722;
+		$teal    : #009688;
 		$ts      : transparent;
 		$ts-bk-15: rgba(0,0,0,0.15);
 		$ts-bk-50: rgba(0,0,0,0.5);
@@ -31,7 +32,7 @@
 	//theme
 		$accentColor    : $bk;
 		$dviderColor    : $offWhite;
-		$primaryColor   : $red;
+		$primaryColor   : $teal;
 		$primaryText	: $darkGry;
 		$secondaryText	: $gry;
 
@@ -62,8 +63,8 @@
 	$reverse   : "";
 		
 	@if($direction == 'rtl'){
-		$titleFont: 'nassim';
-		$bodyFont : 'bahej';
+		$titleFont: 'brushez';
+		$bodyFont : 'nassim';
 		$left     : right;
 		$right    : left;
 		$reverse  : -1;
