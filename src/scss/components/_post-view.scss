@@ -49,9 +49,9 @@
             color:$primaryColor;
         }
         &:hover &__img img{
-            -webkit-filter: grayscale(50%);
-            filter: grayscale(50%);
-            transform: scale(1.1);
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            transform: scale(1.2);
             transition: 1s;
 
         }
@@ -64,21 +64,22 @@
     //[3] - ABSOLUTED ITEMS
         &__link,
         &__img img,
-        &__img iframe{
+        &__img iframe,
+        &__img &__video{
             #{$left}: 0;
             #{$right}: 0;
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translateZ(0) scale(1.0, 1.0);
             background: $ts;
             bottom: 0;
             margin: auto;
-            min-height: 100%;
+            max-height: 100%;
+            max-width: 100%;
             position: absolute;
             top: 0;
             transition: 1s;
-            width: 100%;
-            -webkit-backface-visibility: hidden;
-            -webkit-transform: translateZ(0) scale(1.0, 1.0);
         }
-        &__img iframe{
+        &__img iframe,&__img &__video{
             z-index: 2;
         }
         &__link {
@@ -216,13 +217,14 @@
             overflow: hidden;
             padding-top: 8*$pPercent;
             position: relative;
+            background: $wh;
             &:after {
                 #{$right}: 0;
-                background: $bk;
+                background: $primaryColor;
                 content: "";
                 display: block;
                 height: 100%;
-                opacity: 0.05;
+                opacity: 0.03;
                 position: absolute;
                 top: 0;
                 width: 100%;
@@ -239,19 +241,14 @@
                 height:8*$space;
             }
         }
+        &--cardBounded &__img{
+            box-shadow: none;
+        }
         &--cardSimple &__img{
             @include shadow(3);
-            @include mediaMin(1024px) {
-                height:6*$space;
-            }
-        }
-        &--cardBoundedSimple &__img{
-            @include mediaMin(1024px) {
-                height:6*$space;
-            }
         }
         &--iframe &__img{
-            padding-top: 60%;
+            padding-top: 56%;
         }
         &--horizontal &__img{
             #{$left}: 0;
@@ -339,11 +336,8 @@
             border-bottom: 1px solid $dviderColor;
             height:3*$space;
             padding-#{$left}: $space/2;
-            padding-top:$space/2;
-            @include mediaMin(768px) {
-                padding-#{$left}:$space;
-                padding-top:$space;
-            }
+            padding-top:0;
+            display: table;
         }
 
     //[10] - MAXTITLE
@@ -362,16 +356,21 @@
             height: auto;
             max-height:2*$space;
         }
+        &--horizontal-sm &__maxTitle{
+            @include rem(18);
+            display: table-cell;
+            vertical-align: middle;
+        }
         &--over &__maxTitle{
             height: auto;
             max-height: 78px;
         }
         &--card &__maxTitle{
             margin-top: $space/2;
-            margin-bottom: $space/2;
-            @include rem(20);
+            @include rem(18);
             @include mediaMin(768px) {
                 margin-top: $space;
+                margin-bottom: $space/2;
             }
         }
         &--cardSimple &__maxTitle{
@@ -380,7 +379,6 @@
         }
         &--cardBounded &__maxTitle{
             margin-top: 0;
-            margin-bottom:0;
             @include rem(22);
             @include mediaMin(768px) {
                 @include lineHeight(1);
@@ -453,6 +451,7 @@
             &-sm{
                 height:3*$space;
                 padding-#{$left}:4.5*$space;
+                margin-bottom: $space/2;
             
             }
         }
