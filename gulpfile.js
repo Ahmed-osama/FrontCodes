@@ -39,8 +39,7 @@
 
 //PUG
 	gulp.task('pug', function(){
-		return gulp
-			.src(
+		gulp.src(
 				[
 					'src/pug/index-en.pug',
 					'src/pug/index-ar.pug',
