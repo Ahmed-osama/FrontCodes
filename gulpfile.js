@@ -34,6 +34,7 @@
             sourceRoot: 'source'
         }))
 		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('C:/wamp/www/frontCodes/css'))
 		.pipe(livereload())
 	})
 

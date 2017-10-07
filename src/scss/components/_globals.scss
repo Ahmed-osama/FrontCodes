@@ -9,12 +9,14 @@
     [7] - Title
     [8] - category title
     [9] - icon
-    [10]- placeholders
+    [10]- colorBadge
+    [11]- placeholders
+    [12]- inputs
 */
 
 
 //[0] - UTILITES
-    [hiddin]{
+    [hiddin], [v-cloak]{
         display: none;
     }
     a{
@@ -35,18 +37,23 @@
         @include rem(16);
         border: none;
         cursor:pointer;
-        display: inline-block;
+        display: inline-flex;
+        align-items:center;
+        justify-content:center;
         height: 1.5*$space;
-        line-height: 1.5* $space;
         padding:0 $space;
         text-align: center;
         text-decoration:none;
         transition:0.2s;
-        span{
-            vertical-align: middle;
-            & + .icon{
-                margin-top: 0;
-            }
+        @mediaMin(1024px){
+            height: 2*$space;
+            line-height: 2*$space;
+        }
+        &:hover{
+            @include shadow(3);
+        }
+        &:active{
+            @include shadow(2);
         }
         .icon{
             width:$space/2;
@@ -58,16 +65,8 @@
                 margin-#{$left}:$space/3;
             }
         }
-        &:hover{
-            @include shadow(3);
-        }
-        &:active{
-            @include shadow(2);
-        }
-        @mediaMin(1024px){
-            height: 2*$space;
-            line-height: 2*$space;
-        }
+        
+        
         &--square{
             line-height: 1.5* $space;
             height: 1.5* $space;
@@ -95,11 +94,31 @@
              }
         }
         &--accent{
-             color: $wh;
-             @include btnBg($accentColor,10%);
-              &:hover{
-                 color:$wh;
-             }
+            color: $wh;
+            @include btnBg($accentColor,10%);
+            &:hover{
+                color:$wh;
+            }
+        }
+        &--loading{
+            > * {
+                display: none;
+            }
+            font-size: 0;
+            position: relative;
+            &:after{
+                content:"";
+                position: absolute;
+                @include absoluteCenter();
+                width: 20px;
+                height: 20px;
+                background-color: $wh;
+                animation-name: pulse;
+                animation-iteration-count: infinite;
+                animation-duration: 0.5s;
+                border-radius: 50%;
+                transition: 0.2s;
+            }
         }
         &--block{
             display:block;
@@ -110,10 +129,32 @@
         &--right{
             float:$right;
         }
+        &--mb{
+            margin-bottom: $space;
+        }
     }
 
 //[2] - social items
 
+    
+    .facebook{
+        @include btnBg($facebook,10%)
+    }
+    .googleplus{
+         @include btnBg($googlePlus,10%)
+    }
+    .youtube{
+         @include btnBg($youtube,10%)
+    }
+    .twitter{
+        @include btnBg($twitter,10%)
+    }
+    .instagram{
+        @include btnBg($instagram,10%)
+    }
+    .rss{
+        @include btnBg($rss,10%)
+    }
     .socialItem{
         border-radius: 50%;
         box-shadow:none;
@@ -160,24 +201,6 @@
             margin-#{$left}: 10px;
         }
     }
-    .facebook{
-        @include btnBg($facebook,10%)
-    }
-    .googleplus{
-         @include btnBg($googlePlus,10%)
-    }
-    .youtube{
-         @include btnBg($youtube,10%)
-    }
-    .twitter{
-        @include btnBg($twitter,10%)
-    }
-    .instagram{
-        @include btnBg($instagram,10%)
-    }
-    .rss{
-        @include btnBg($rss,10%)
-    }
 
 //[3] - CATEGORYIS PALLET
     .blue{//
@@ -203,12 +226,12 @@
     }
 
 //[4] - hidden xxs
-    .hide-sm{
+    .u-hide-sm{
         @include mediaMax(1023px){
             display: none !important;
         }
     }
-    .hide-lg{
+    .u-hide-lg{
         @include mediaMin(1024px){
             display: none !important;
         }
@@ -216,23 +239,53 @@
 
 //[5] - breadcrumb
     .breadCrumb{
-        font-size: 0.85em;
         list-style-type: none;
-        li{
+        @include rem(16);
+
+        &__Item{
+            height: $space;
             display: inline-block;
-            a{
-                color: inherit;
-            }
-            & + li{
-                margin-#{$right}: 10px;
+            vertical-align: middle;
+            font-family:$titleFont;
+            & + &{
                 &:before{
-                    content:"\f04d";
                     display: inline-block;
-                    font-family: "<";
-                    margin-#{$left}: 10px;
                     vertical-align: middle;
+                    color:inherit;
+                    color: $midGry;
+                    width: $space;
+                    height:$space;
+                    opacity: 0.5;
+                    line-height:$space/10*9;
+                    text-align: center;
+                    @include rem(20);
+                    @if($direction == 'rtl'){
+                        line-height:$space/10*7;
+                        content:"\203a";
+                    }
+                    @if($direction != 'rtl'){
+                        content:"\203A";
+                    }
                 }
             }
+            &--tc{
+                display: table-cell;
+            }
+        }
+        &--mb{
+            margin-bottom: $space/2;
+        }
+        &--wh{
+            color:$wh;
+        }
+        &--wh &__Item{
+            &:hover{
+                color:$wh;
+                text-shadow:0 0 2px rgba(255,255,255,0.1);
+            }
+        }
+        &--tc {
+            display: table-cell;
         }
     }
 
@@ -450,5 +503,73 @@
             margin-#{$right}: 10px;
             margin-bottom: 0;
             width:calc(66% - 10px); 
+        }
+    }
+//[12] - inputs
+    label {
+        display: inline-block;
+        @include rem(18);
+        display: block;
+        margin-bottom: $space/4;
+    }
+    input[type="text"],
+    input[type="mail"],
+    textarea,
+    input[type="password"]{
+         -webkit-appearance: none;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="number"],
+    textarea,
+    select
+    {
+        display:block;
+        padding:0  $space/2;
+        border: 1px solid darken($dviderColor,5%);
+        color: $secondaryText;
+        height: 1.5*$space;
+        line-height: 1.5* $space;
+        box-sizing: border-box;
+        width:100%;
+        max-width:100%;
+        font-family: $bodyFont;
+        margin-bottom: $space/2;
+        @include placeholder($midGry);
+        @include rem(16);
+       
+        &:focus{
+            outline: none;
+            border: 1px solid lighten($primaryColor,10%);
+        }
+    }
+    textarea{
+        height: auto;
+        min-height: 4*$space;
+        max-width: 100%;
+    }
+//[13] - loading
+    .loading{
+        position: absolute;
+        z-index: 2;
+        background-color:rgba(255,255,255,0.7);
+        background-image: url(../img/loading.gif);
+        background-repeat: no-repeat;
+        background-position:50% 50%; 
+        @include absoluteCenter();
+        &--fixed{
+            width:100px;
+            height:100px;
+            clear: both;
+            margin: auto;
+            position: fixed;
+            z-index: 2;
+            @include shadow(4);
+        }
+        &__container{
+            position: relative;
+            min-height: 308px;
         }
     }
