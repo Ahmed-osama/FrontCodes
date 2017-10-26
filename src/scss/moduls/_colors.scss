@@ -1,0 +1,21 @@
+.blue{//
+    @include colorSet($blue, $wh);
+}
+.green{
+     @include colorSet($green, $wh);
+}
+.red{
+     @include colorSet($red, $wh);
+}
+.purple{
+     @include colorSet($purple, $wh);
+}
+.yellow{
+    @include colorSet($yellow, $bk);
+}
+.gry{
+    @include colorSet($dviderColor, $primaryText);
+}
+.white{//
+    @include colorSet($wh, $primaryText);
+}
