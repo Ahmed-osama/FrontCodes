@@ -22,7 +22,38 @@
     a{
         text-decoration: none;
     }
-
+    .u-hide-sm{
+        @include mediaMax(1023px){
+            display: none !important;
+        }
+    }
+    .u-hide-lg{
+        @include mediaMin(1024px){
+            display: none !important;
+        }
+    }
+    .u-date{
+        @include rem(12);
+        color:$lightGry;
+        overflow: hidden    ;
+        vertical-align: middle;
+        span{
+            vertical-align: middle;
+        }
+        .icon{
+            fill:$lightGry;
+            height: 1em;
+            margin-#{$right}:5px;
+            vertical-align: middle;
+            width: 1em;
+        }
+    }
+    .u-titleFont{
+        font-family: $titleFont;
+    }
+    .u-bodyFont{
+        font-family: $bodyFont;
+    }
 //[1] - Buttons
     .btnHolder{
         &--tac{
@@ -49,7 +80,7 @@
         text-decoration:none;
         transition:0.2s;
         border-radius:2px;
-        @mediaMin(1024px){
+        @include mediaMin(1024px){
             height: 2*$space;
         }
         &:hover{
@@ -67,38 +98,38 @@
                 margin-#{$left}:$space/3;
             }
         }
-        
-        
+        &--round{
+            border-radius: $space/4*3;
+        }
         &--square{
-            
             height: 1.5* $space;
             width: 1.5* $space;
             padding:0;
         }
-        &--round{
-            border-radius: $space/4*3;
-        }
         &--cta{
-           
             @include rem(18);
             font-weight:500;
             height: 1.7*$space;
             padding:0 $space;
             position: relative;
             text-transform: uppercase;
-            
         }
         &--sm{
             @include rem(14);
             width: 1.2*$space;
             height: 1.2*$space;
         }
+        &--xs{
+            @include rem(14);
+            width: 1*$space;
+            height: 1*$space;
+        }
         &--primary{
-             color: $wh;
-             @include btnBg($primaryColor,10%);
-             &:hover{
-                 color:$wh;
-             }
+            color: $wh;
+            @include btnBg($primaryColor,10%);
+            &:hover{
+                color:$wh;
+            }
         }
         &--accent{
             color: $wh;
@@ -143,8 +174,6 @@
     }
 
 //[2] - social items
-
-    
     .facebook{
         @include btnBg($facebook,10%)
     }
@@ -199,6 +228,22 @@
                 height: 36px;
             }
         }
+        &--lg{
+            width: 1.8*$space;
+            height: 1.8*$space;
+            line-height:1.7*$space;
+            .icon{
+                height: 1.8*$space;
+            }
+            @include mediaMin(768px){
+                width: 2*$space;
+                height: 2*$space;
+                line-height:1.9*$space;
+                .icon{
+                    height: 2*$space;
+                }
+            }
+        }
         &--gry{
             filter: grayscale(100%);
             &:hover{
@@ -233,23 +278,12 @@
         @include colorSet($wh, $primaryText);
     }
 
-//[4] - hidden xxs
-    .u-hide-sm{
-        @include mediaMax(1023px){
-            display: none !important;
-        }
-    }
-    .u-hide-lg{
-        @include mediaMin(1024px){
-            display: none !important;
-        }
-    }
+
 
 //[5] - breadcrumb
     .breadCrumb{
         list-style-type: none;
         @include rem(16);
-
         &__Item{
             height: $space;
             display: inline-block;
@@ -297,23 +331,8 @@
         }
     }
 
-//[6] - data
-    .date{
-        @include rem(12);
-        color:$lightGry;
-        overflow: hidden    ;
-        vertical-align: middle;
-        span{
-            vertical-align: middle;
-        }
-        .icon{
-            fill:$lightGry;
-            height: 1em;
-            margin-#{$right}:5px;
-            vertical-align: middle;
-            width: 1em;
-        }
-    }
+
+    
 
 //[7] - Title
     .section{
@@ -342,7 +361,7 @@
                 }
             }
         }
-        .section__Img{
+        &__Img{
             margin-bottom:$space;
             @include mediaMin(1024px){
                 margin-bottom:0;
@@ -468,8 +487,26 @@
         }
     }
 //[11] - placeholders
+    @keyframes placeHolderShimmer {
+        0%{ background-position: -468px 0; }
+        100%{ background-position: 468px 0; }
+    }
+      
+    .animated-background {
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-name: placeHolderShimmer;
+        background: $lightGry;
+        background: linear-gradient(to right, rgba(218, 218, 218, 0.2) 8%, rgba(255, 255, 255, 0.00) 18%, rgba(218, 218, 218, 0.2) 33%);
+        background-size: 800px 104px;
+    }
+
+
     .placeholder{ 
-        @extend %mainGradient;
+        // @extend %mainGradient;
+        @extend .animated-background;
         background:rgba(0,0,0,0.05);
         border-radius:2px;
         display: block;
@@ -513,51 +550,7 @@
             width:calc(66% - 10px); 
         }
     }
-//[12] - inputs
-    label {
-        display: inline-block;
-        @include rem(18);
-        display: block;
-        margin-bottom: $space/4;
-    }
-    input[type="text"],
-    input[type="mail"],
-    textarea,
-    input[type="password"]{
-         -webkit-appearance: none;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="password"],
-    input[type="number"],
-    textarea,
-    select
-    {
-        display:block;
-        padding:0  $space/2;
-        border: 1px solid darken($dviderColor,5%);
-        color: $secondaryText;
-        height: 1.5*$space;
-        line-height: 1.5* $space;
-        box-sizing: border-box;
-        width:100%;
-        max-width:100%;
-        font-family: $bodyFont;
-        margin-bottom: $space/2;
-        @include placeholder($midGry);
-        @include rem(16);
-       
-        &:focus{
-            outline: none;
-            border: 1px solid lighten($primaryColor,10%);
-        }
-    }
-    textarea{
-        height: auto;
-        min-height: 4*$space;
-        max-width: 100%;
-    }
+
 //[13] - loading
     .loading{
         position: absolute;

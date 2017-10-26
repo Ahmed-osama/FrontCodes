@@ -1,0 +1,27 @@
+header.main-header
+  .main-header__container.container
+    a.main-header__logo(href=data.nav.index.link)
+      img.u-hide-sm(src="img/logo-wide.png")
+      img.u-hide-lg(src="img/logo-wh.png")
+    a.main-header__menuToggler#sideMenuToggler
+      -for(var i=0; i<=2; i++)
+        span
+    .main-header__sideMenu#headerSidemenu
+      nav.main-header__nav
+        ul.main-header__navList
+          li: a(href="#") #{rtl?"ستوديو كورابيا":"korabia studio"}
+          li: a(href="#") #{rtl?"كرة قدم":"football"}
+          li: a(href="#") #{rtl?"توك شو":"talkshow"}
+          li: a(href="#") #{rtl?"رياضات اخري":"other sport"}
+    .main-header__menuCloser#menuCloser
+    .main-header__search#searchForm
+      form.main-header__searchForm
+        input.main-header__searchInput(placeholder=rtl?"بحث عن ..":"what do you look for?")
+        -var icon = {case:"search", addClass:" main-header__searchIcon "}
+        include ../shared/_icon.pug
+        input(type="submit" hidden)
+    a.main-header__searchButton#searchButton(href="#")
+      -var icon = {case:"search", addClass:" main-header__searchButtonIcon "}
+      include ../shared/_icon.pug
+      -var icon = {case:"close", addClass:" main-header__searchButtonIcon "}
+      include ../shared/_icon.pug

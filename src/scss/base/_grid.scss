@@ -43,9 +43,10 @@
 
   //[3.1] - column defaults
     %col-basic-setting{
-        position: relative;
-        width: 100%;
-        min-height: 1px;
+      position: relative;
+      flex-basis: 100%;
+      max-width: 100%;
+      min-height: 1px;
         padding-#{$left}: $grid-space;
         padding-#{$right}: $grid-space;
         

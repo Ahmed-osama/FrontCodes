@@ -98,9 +98,9 @@
 
     &__cta{
         margin-top: $space;
-        display: block;
+        display: flex;
         @include mediaMin(992px){
-            display: inline-block;
+            display: inline-flex;
         }
     }
 }
