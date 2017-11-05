@@ -225,9 +225,15 @@
         .section-title.guideSection__title
           h2.section-title__title Sub section Title
         .row
-          .sub-section-title
-            h4.sub-section-title__title #{data.sections.titels[2]}
-            .sub-section-title__list
+          .heading
+            h4.heading__title #{!rtl?"ترويسه عاديه":"normal heading"}
+            .heading__list
               -for(i =0; i <= 2; i++)
-                -if(i==0){activeClass="sub-section-title__listItem--active"}else{activeClass=""}
-                a.sub-section-title__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+                -if(i==0){activeClass="heading__listItem--active"}else{activeClass=""}
+                a.heading__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+          .heading.heading--startWithList
+            .heading__list
+              -for(i =0; i <= 2; i++)
+                -if(i==0){activeClass="heading__listItem--active"}else{activeClass=""}
+                a.heading__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
+            a.heading__more #{!rtl?"more":"المزيد"}

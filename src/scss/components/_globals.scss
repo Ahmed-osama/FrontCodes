@@ -1,10 +1,7 @@
 /*
     [0] - UTILITES
-    [1] - Buttons
     [2] - social items
-    [3] - CATEGORYIS PALLET
-    [4] - hidden xxs
-    [5] - breadcrumb
+    [3] - breadcrumb
     [6] - data
     [7] - Title
     [8] - category title
@@ -140,7 +137,7 @@
     }
 
 
-//[5] - breadcrumb
+//[3] - breadcrumb
     .breadCrumb{
         list-style-type: none;
         @include rem(16);
@@ -195,54 +192,9 @@
     
 
 //[7] - Title
-    .section{
-        padding:$space 0;
-        &--offWhite{
-            background: $offWhite;
-        }
-        &__mainTitle{
-            @include lineHeight(1);
-            margin-bottom:$space;
-            &--center{
-                text-align: center;
-            }
-        }
-        &__abstract{
-            color: $secondaryText;
-            margin-bottom:$space;
-            @include mediaMin(1024px){
-                margin-bottom: 2*$space;
-            }
-        }
-        &__noMarginItem{
-            @include mediaMin(1024px){
-                &.post-view{
-                    margin-bottom: 0;
-                }
-            }
-        }
-        &__Img{
-            margin-bottom:$space;
-            @include mediaMin(1024px){
-                margin-bottom:0;
-            }
-        }
-        @include mediaMin(1024px){
-            padding:2*$space 0 $space;
-            &__mainTitle{
-                @include lineHeight(2);
-            }
-            &__TextArea{
-                padding-#{$right}:2*$space;
-            }
-            &__TextAreaSibling{
-                padding-#{$left}:3*$space;
 
-            }
-        }
-    }
     
-    .sub-section-title{
+    .heading{
         display: flex;
         flex-direction: column;
         margin-bottom:$space/2;
@@ -258,16 +210,15 @@
             @include mediaMin(768px){
                 @include rem(28);
             }
+            &--sm{
+                @include rem(16);
+            }
         }
         &__list{
             flex-grow: 1;
             text-align:$left;
             list-style-type: none;
             vertical-align: middle;
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flex;
-            display: -o-flex;
             display: flex;
             align-items:center;
             justify-content :flex-start;
@@ -276,6 +227,16 @@
             @include mediaMin(768px){
                 justify-content :flex-end;
                 text-align:$left;
+            }
+        }
+        &--startWithList &__list{
+            margin-top: 0;
+            justify-content: flex-start;
+            padding: 0;
+            margin-bottom: 0;
+            @include mediaMin(768px){
+                justify-content :flex-start;
+
             }
         }
         &__listItem{
@@ -304,9 +265,15 @@
                 margin-#{$left}: 10px;
             }
         }
-        .sub-section-body + &{
-            margin-top: $space;
+
+        &__more{
+            display: flex;
+            font-family:$titleFont;
+            justify-content: flex-end;
+            flex-grow: 1;
+            @include rem(16);
         }
+
         @include mediaMin(768px){
             flex-direction: row;
             margin-bottom:$space;

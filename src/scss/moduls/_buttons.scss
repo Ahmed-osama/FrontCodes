@@ -130,4 +130,10 @@
     &--mb{
         margin-bottom: $space;
     }
+    &--nopadding{
+        padding: 0;
+    }
+    &--disappear{
+       display: none;
+    }
 }

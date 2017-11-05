@@ -1,6 +1,9 @@
 /*
-    Layout is customized for every project
+    # Layout is customized for every project
+    1 - layout
+    1 - section
 */
+//[1] - layout
 .flex{
      display: flex;
     &--wrap{
@@ -35,3 +38,43 @@
         }
     }
 }
+
+
+
+//[2] - Sections
+    .section{
+        padding:$space 0;
+        &--offWhite{
+            background: $offWhite;
+        }
+        &__mainTitle{
+            @include lineHeight(1);
+            margin-bottom:$space;
+            &--center{
+                text-align: center;
+            }
+        }
+        &__abstract{
+            color: $secondaryText;
+            margin-bottom:$space;
+            @include mediaMin(1024px){
+                margin-bottom: 2*$space;
+            }
+        }
+
+        &__Img{
+            margin-bottom:$space;
+            @include mediaMin(1024px){
+                margin-bottom:0;
+            }
+        }
+        @include mediaMin(1024px){
+            padding:2*$space 0 $space;
+            &__mainTitle{
+                @include lineHeight(2);
+            }
+            &__TextArea{
+                padding-#{$right}:2*$space;
+            }
+        }
+    }
