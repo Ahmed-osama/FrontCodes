@@ -38,7 +38,7 @@
         span{
             vertical-align: middle;
         }
-        .icon{
+        .u-icon{
             fill:$lightGry;
             height: 1em;
             margin-#{$right}:5px;
@@ -97,7 +97,7 @@
         &:hover{
             line-height:35px;
         }
-        .icon{
+        .u-icon{
             fill: $wh;
             height: 31px;
             vertical-align: middle;
@@ -109,7 +109,7 @@
             width: 30px;
             height: 30px;
             line-height:29px;
-            .icon{
+            .u-icon{
                 height: 36px;
             }
         }
@@ -117,14 +117,14 @@
             width: 1.8*$space;
             height: 1.8*$space;
             line-height:1.7*$space;
-            .icon{
+            .u-icon{
                 height: 1.8*$space;
             }
             @include mediaMin(768px){
                 width: 2*$space;
                 height: 2*$space;
                 line-height:1.9*$space;
-                .icon{
+                .u-icon{
                     height: 2*$space;
                 }
             }

@@ -32,7 +32,7 @@
     &:active{
         @include shadow(2);
     }
-    .icon, svg{
+    .u-icon, svg{
         width:$space/2;
         height:$space/2;
         vertical-align: middle;
@@ -41,8 +41,8 @@
             margin-#{$left}:$space/3;
         }
     }
-    .icon + span,
-    span + .icon{
+    .u-icon + span,
+    span + .u-icon{
         margin-#{$left}:$space/3;
     }
 

@@ -237,3 +237,23 @@
                 -if(i==0){activeClass="heading__listItem--active"}else{activeClass=""}
                 a.heading__listItem(class=activeClass, href=data.sections.sub[i].link) #{data.sections.sub[i].name}
             a.heading__more #{!rtl?"more":"المزيد"}
+      section.guideSection#subSectionTitle
+        .section-title.guideSection__title
+          h2.section-title__title Vs Item
+        .row
+          .col-md-4
+            include ../components/_vs-item.pug
+          .col-md-4
+            -
+              vsItem = {
+                teamsName : true
+              }
+            include ../components/_vs-item.pug
+          .col-md-4
+            -
+              vsItem = {
+                teamsName : true,
+                title:rtl?"كأس الامم الفريقية":"cup of african nations",
+                card:true
+              }
+            include ../components/_vs-item.pug
