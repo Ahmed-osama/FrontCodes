@@ -1,14 +1,12 @@
 /*
-    [0] - UTILITES
-    [2] - social items
-    [3] - breadcrumb
-    [6] - data
-    [7] - Title
-    [8] - category title
-    [9] - icon
-    [10]- colorBadge
-    [11]- placeholders
-    [12]- inputs
+    0 - UTILITES
+    1 - social items
+    2 - breadcrumb
+    3 - Title
+    4 - icon
+    5 - color padge
+    6 - placeholders
+    7 - loading
 */
 
 
@@ -54,7 +52,13 @@
     .u-bodyFont{
         font-family: $bodyFont;
     }
-//[2] - social items
+    .u-icon{
+        display: inline-block;
+        font-size: inherit;
+        height: 1em;
+        width: 1em;
+    }
+//[1] - social items
     .facebook{
         @include btnBg($facebook,10%)
     }
@@ -137,7 +141,7 @@
     }
 
 
-//[3] - breadcrumb
+//[2] - breadcrumb
     .breadCrumb{
         list-style-type: none;
         @include rem(16);
@@ -191,9 +195,7 @@
 
     
 
-//[7] - Title
-
-    
+//[3] - Title
     .heading{
         display: flex;
         flex-direction: column;
@@ -202,6 +204,9 @@
             padding-top: 0;
             border-top: none;
         }
+
+
+
         &__title{
             color:$primaryText;
             flex-grow: 1;
@@ -214,6 +219,9 @@
                 @include rem(16);
             }
         }
+
+
+
         &__list{
             flex-grow: 1;
             text-align:$left;
@@ -239,6 +247,9 @@
 
             }
         }
+
+
+        
         &__listItem{
             @include rem(14);
             display: inline-block;
@@ -286,20 +297,7 @@
     }
 
 
-//[8] - category title
-    .category-title{
-        padding: $space;
-        color:$wh;
-        @extend %mainGradient;
-    }
-//[9] - icon
-    .icon{
-        display: inline-block;
-        font-size: inherit;
-        height: 1em;
-        width: 1em;
-    }
-//[10] - color padge
+//[5] - color padge
     .colorLabel{
         width: $space;
         height: $space;
@@ -313,7 +311,7 @@
             margin-#{$left}:$space/3; 
         }
     }
-//[11] - placeholders
+//[6] - placeholders
     @keyframes placeHolderShimmer {
         0%{ background-position: -468px 0; }
         100%{ background-position: 468px 0; }
@@ -378,7 +376,7 @@
         }
     }
 
-//[13] - loading
+//[7] - loading
     .loading{
         position: absolute;
         z-index: 2;
