@@ -42,7 +42,7 @@
 		return gulp
 			.src(
 				[
-					'src/pug/index-en.pug',
+					// 'src/pug/index-en.pug',
 					'src/pug/index-ar.pug',
 					
 					// 'src/pug/icons-en.pug',

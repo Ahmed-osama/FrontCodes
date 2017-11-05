@@ -64,7 +64,7 @@
         &:active{
             @include shadow(2);
         }
-        @mediaMin(1024px){
+        @include mediaMin(1024px){
             height: 2*$space;
             line-height: 2*$space;
         }
@@ -73,6 +73,12 @@
             height: 1.5* $space;
             width: 1.5* $space;
             padding:0;
+        }
+        @include mediaMin(1024px){
+            &--square{
+                height: 2*$space;
+                line-height: 2*$space;
+            }
         }
         &--round{
             border-radius: $space/4*3;
