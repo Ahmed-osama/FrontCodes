@@ -32,6 +32,15 @@
             bottom:auto;
 
         }
+        &--large &__img{
+            width: 4*$space;
+            height: 4*$space;
+            &Icon{
+                fill: $primaryText;
+                width: $space*3;
+                height: $space*3;
+            }
+        }
 
     // [2] - TITLE
         &__title{

@@ -9,117 +9,73 @@
     [7] - Title
     [8] - category title
     [9] - icon
-    [10]- placeholders
+    [10]- colorBadge
+    [11]- placeholders
+    [12]- inputs
 */
 
 
 //[0] - UTILITES
-    [hiddin]{
+    [hiddin], [v-cloak]{
         display: none;
     }
     a{
         text-decoration: none;
     }
-
-//[1] - Buttons
-    .btnHolder{
-        &--tac{
-            text-align: center;
-        }
-        .btn + .btn{
-            margin-#{$left}: $space;
+    .u-hide{
+        display: none;
+    }
+    .u-hide-sm{
+        @include mediaMax(1023px){
+            display: none !important;
         }
     }
-    .btn{
-        @include shadow(1);
-        @include rem(16);
-        border: none;
-        cursor:pointer;
-        display: inline-block;
-        height: 1.5*$space;
-        line-height: 1.5* $space;
-        padding:0 $space;
-        text-align: center;
-        text-decoration:none;
-        transition:0.2s;
+    .u-hide-lg{
+        @include mediaMin(1024px){
+            display: none !important;
+        }
+    }
+    .u-date{
+        @include rem(12);
+        color:$lightGry;
+        overflow: hidden    ;
+        vertical-align: middle;
         span{
             vertical-align: middle;
-            & + .icon{
-                margin-top: 0;
-            }
         }
         .icon{
-            width:$space/2;
-            height:$space/2;
-            margin-top:$space/2;
+            fill:$lightGry;
+            height: 1em;
+            margin-#{$right}:5px;
             vertical-align: middle;
-            display: inline-block;
-            & + span {
-                margin-#{$left}:$space/3;
-            }
-        }
-        &:hover{
-            @include shadow(3);
-        }
-        &:active{
-            @include shadow(2);
-        }
-        @include mediaMin(1024px){
-            height: 2*$space;
-            line-height: 2*$space;
-        }
-        &--square{
-            line-height: 1.5* $space;
-            height: 1.5* $space;
-            width: 1.5* $space;
-            padding:0;
-        }
-        @include mediaMin(1024px){
-            &--square{
-                height: 2*$space;
-                line-height: 2*$space;
-            }
-        }
-        &--round{
-            border-radius: $space/4*3;
-        }
-        &--cta{
-            @include lineHeight(1.8);
-            @include rem(18);
-            font-weight:500;
-            height: 1.7*$space;
-            padding:0 $space;
-            position: relative;
-            text-transform: uppercase;
-            
-        }
-        &--primary{
-             color: $wh;
-             @include btnBg($primaryColor,10%);
-             &:hover{
-                 color:$wh;
-             }
-        }
-        &--accent{
-             color: $wh;
-             @include btnBg($accentColor,10%);
-              &:hover{
-                 color:$wh;
-             }
-        }
-        &--block{
-            display:block;
-        }
-        &--left{
-            float:$left;
-        }
-        &--right{
-            float:$right;
+            width: 1em;
         }
     }
-
+    .u-titleFont{
+        font-family: $titleFont;
+    }
+    .u-bodyFont{
+        font-family: $bodyFont;
+    }
 //[2] - social items
-
+    .facebook{
+        @include btnBg($facebook,10%)
+    }
+    .googleplus{
+         @include btnBg($googlePlus,10%)
+    }
+    .youtube{
+         @include btnBg($youtube,10%)
+    }
+    .twitter{
+        @include btnBg($twitter,10%)
+    }
+    .instagram{
+        @include btnBg($instagram,10%)
+    }
+    .rss{
+        @include btnBg($rss,10%)
+    }
     .socialItem{
         border-radius: 50%;
         box-shadow:none;
@@ -156,6 +112,22 @@
                 height: 36px;
             }
         }
+        &--lg{
+            width: 1.8*$space;
+            height: 1.8*$space;
+            line-height:1.7*$space;
+            .icon{
+                height: 1.8*$space;
+            }
+            @include mediaMin(768px){
+                width: 2*$space;
+                height: 2*$space;
+                line-height:1.9*$space;
+                .icon{
+                    height: 2*$space;
+                }
+            }
+        }
         &--gry{
             filter: grayscale(100%);
             &:hover{
@@ -166,99 +138,61 @@
             margin-#{$left}: 10px;
         }
     }
-    .facebook{
-        @include btnBg($facebook,10%)
-    }
-    .googleplus{
-         @include btnBg($googlePlus,10%)
-    }
-    .youtube{
-         @include btnBg($youtube,10%)
-    }
-    .twitter{
-        @include btnBg($twitter,10%)
-    }
-    .instagram{
-        @include btnBg($instagram,10%)
-    }
-    .rss{
-        @include btnBg($rss,10%)
-    }
 
-//[3] - CATEGORYIS PALLET
-    .blue{//
-        @include colorSet($blue, $wh);
-    }
-    .green{
-         @include colorSet($green, $wh);
-    }
-    .red{
-         @include colorSet($red, $wh);
-    }
-    .purple{
-         @include colorSet($purple, $wh);
-    }
-    .yellow{
-        @include colorSet($yellow, $bk);
-    }
-    .gry{
-        @include colorSet($dviderColor, $primaryText);
-    }
-    .white{//
-        @include colorSet($wh, $primaryText);
-    }
-
-//[4] - hidden xxs
-    .hide-sm{
-        @include mediaMax(1023px){
-            display: none !important;
-        }
-    }
-    .hide-lg{
-        @include mediaMin(1024px){
-            display: none !important;
-        }
-    }
 
 //[5] - breadcrumb
     .breadCrumb{
-        font-size: 0.85em;
         list-style-type: none;
-        li{
+        @include rem(16);
+        &__Item{
+            height: $space;
             display: inline-block;
-            a{
-                color: inherit;
-            }
-            & + li{
-                margin-#{$right}: 10px;
+            vertical-align: middle;
+            font-family:$titleFont;
+            & + &{
                 &:before{
-                    content:"\f04d";
                     display: inline-block;
-                    font-family: "<";
-                    margin-#{$left}: 10px;
                     vertical-align: middle;
+                    color:inherit;
+                    color: $midGry;
+                    width: $space;
+                    height:$space;
+                    opacity: 0.5;
+                    line-height:$space/10*9;
+                    text-align: center;
+                    @include rem(20);
+                    @if($direction == 'rtl'){
+                        line-height:$space/10*7;
+                        content:"\203a";
+                    }
+                    @if($direction != 'rtl'){
+                        content:"\203A";
+                    }
                 }
             }
+            &--tc{
+                display: table-cell;
+            }
+        }
+        &--mb{
+            margin-bottom: $space/2;
+        }
+        &--wh{
+            color:$wh;
+        }
+        &--wh &__Item{
+            &:hover{
+                color:$wh;
+                text-shadow:0 0 2px rgba(255,255,255,0.1);
+            }
+        }
+        &--tc {
+            display: table-cell;
         }
     }
 
-//[6] - data
-    .date{
-        @include rem(12);
-        color:$lightGry;
-        overflow: hidden    ;
-        vertical-align: middle;
-        span{
-            vertical-align: middle;
-        }
-        .icon{
-            fill:$lightGry;
-            height: 1em;
-            margin-#{$right}:5px;
-            vertical-align: middle;
-            width: 1em;
-        }
-    }
+
+    
 
 //[7] - Title
     .section{
@@ -287,7 +221,7 @@
                 }
             }
         }
-        .section__Img{
+        &__Img{
             margin-bottom:$space;
             @include mediaMin(1024px){
                 margin-bottom:0;
@@ -413,8 +347,26 @@
         }
     }
 //[11] - placeholders
+    @keyframes placeHolderShimmer {
+        0%{ background-position: -468px 0; }
+        100%{ background-position: 468px 0; }
+    }
+      
+    .animated-background {
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-name: placeHolderShimmer;
+        background: $lightGry;
+        background: linear-gradient(to right, rgba(218, 218, 218, 0.2) 8%, rgba(255, 255, 255, 0.00) 18%, rgba(218, 218, 218, 0.2) 33%);
+        background-size: 800px 104px;
+    }
+
+
     .placeholder{ 
-        @extend %mainGradient;
+        // @extend %mainGradient;
+        @extend .animated-background;
         background:rgba(0,0,0,0.05);
         border-radius:2px;
         display: block;
@@ -456,5 +408,29 @@
             margin-#{$right}: 10px;
             margin-bottom: 0;
             width:calc(66% - 10px); 
+        }
+    }
+
+//[13] - loading
+    .loading{
+        position: absolute;
+        z-index: 2;
+        background-color:rgba(255,255,255,0.7);
+        background-image: url(../img/loading.gif);
+        background-repeat: no-repeat;
+        background-position:50% 50%; 
+        @include absoluteCenter();
+        &--fixed{
+            width:100px;
+            height:100px;
+            clear: both;
+            margin: auto;
+            position: fixed;
+            z-index: 2;
+            @include shadow(4);
+        }
+        &__container{
+            position: relative;
+            min-height: 308px;
         }
     }

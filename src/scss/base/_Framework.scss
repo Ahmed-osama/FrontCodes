@@ -39,8 +39,12 @@
         border-#{$right}:1px solid darken($dviderColor,3%);
         flex-basis: 40%;
         flex-grow: 1;
+        min-width: 222px;
         ul{
             list-style-type: none;
+            position: fixed;
+            left: 0;
+            min-width: 222px;
         }
         ul, li{
             margin: 0;

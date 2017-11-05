@@ -1,0 +1,107 @@
+/*
+    1 - Defaults
+    2 - input container
+    3 - form subtitle
+    4 - form row
+*/
+
+//[1] - defaults
+    label {
+        display: inline-block;
+        @include rem(18);
+        display: block;
+        margin-bottom: $space/4;
+    }
+    input[type="text"],
+    input[type="mail"],
+    textarea,
+    input[type="password"]{
+        -webkit-appearance: none;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="number"],
+    textarea,
+    select
+    {
+        display:block;
+        padding:0  $space/2;
+        border: 1px solid darken($dviderColor,5%);
+        color: $secondaryText;
+        height: 1.5*$space;
+        line-height: 1.5* $space;
+        box-sizing: border-box;
+        width:100%;
+        max-width:100%;
+        font-family: $bodyFont;
+        margin-bottom: $space/2;
+        @include placeholder($midGry);
+        @include rem(16);
+    
+        &:focus{
+            outline: none;
+            border: 1px solid lighten($primaryColor,10%);
+        }
+    }
+    textarea{
+        height: auto;
+        min-height: 4*$space;
+        max-width: 100%;
+    }
+//[2] - input container
+    .input-container{
+        position: relative;
+        &--required &:after{
+            content:"*";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            #{$right}:-5px;
+            color:$midGry;
+            @include rem(25);
+        }
+
+        &__tip{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            bottom:0;
+            margin: auto;
+            #{$right}:30px;
+            color:$secondaryText;
+            input:focus + &{
+                color:$primaryColor;
+            }
+        }
+    }
+//[3] - form subtitle
+    .form-subtitle{
+        font-weight:400;
+        @include rem(16);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        &__text{
+            flex-grow: 1;
+        }
+        &__icon{
+            height: 34px;
+            margin-#{$right}:10px;
+            fill:$primaryColor;
+        }
+    }
+
+//[3] - form row
+    .form-row{
+        display: flex;
+        & > *{
+            flex-grow: 1;
+            & + & {
+                margin-#{$left}:20px;
+            }   
+        }
+    }

@@ -7,14 +7,14 @@
 	@import 'base/_layout.scss';
 	
 
-//[2] PLUGINS
 
-//[3] Shared
+
+//[2] Shared
 	@import 'components/_globals.scss';
-	@import 'components/_header.2.scss';
+	@import 'components/_header.3.scss';
 	@import 'components/_footer.scss';
 
-//[4] components
+//[3] components
 	@import 'components/_post-view.scss';
 	@import 'components/_comment.scss';
 	@import 'components/_intro.scss';
@@ -25,6 +25,10 @@
 	@import 'components/_qoutes.scss';
 	@import 'components/_product-section.scss';
 
-
+//[4] moduls
+	@import 'moduls/_colors.scss';
+	@import 'moduls/_form.scss';
+	@import 'moduls/_buttons.scss';
+	
 //[5] Frame work items
 	@import 'base/_Framework.scss';

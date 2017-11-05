@@ -19,7 +19,21 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
+  %arrow{
+    width: 1.5*$space;
+    min-width: 1.5*$space;
+    height: 1.5*$space;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $primaryColor;
+    border-radius: 50%;
+    cursor:pointer;
+    .icon{
+        width: 0.5*$space;
+        height: 0.5*$space;
+    }
+  }
 
   @mixin rem($sizeValue){
     font-size: $sizeValue + px;
@@ -85,7 +99,7 @@
         $selectors:'#{$selectors}.col-#{$scope}-#{$i},' ;
     }
     #{$selectors}{
-      @content
+      @content;
     }
   }
 
@@ -93,7 +107,7 @@
   @mixin initGrid($width, $pull, $push, $offset){
     @for $i from 12 through 1 {
       .col-#{$width}-#{$i}{
-        flex: 0 0 ($i/12)*100%;
+        flex-basis:($i/12)*100%;
         max-width: ($i/12)*100%;
       }
       
