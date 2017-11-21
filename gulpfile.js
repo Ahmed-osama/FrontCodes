@@ -1,26 +1,50 @@
 // Definitions
 	var gulp 	     = require('gulp'),
-		uglify       = require('gulp-uglify'),
-		sass         = require('gulp-ruby-sass'),
-		autoprefixer = require('gulp-autoprefixer'),
 		sourcemaps   = require('gulp-sourcemaps'),
-		pug          = require('gulp-pug'),
-		data         = require('gulp-data'),
-		path	     = require('path'),
 		plumber	     = require('gulp-plumber'),
 		livereload   = require('gulp-livereload'),
-		surge        = require('gulp-surge');
+		surge        = require('gulp-surge'),
+		rename 		 = require("gulp-rename"),
+		path	     = require('path'),
 
-// Uglify
-	gulp.task('compress', function(){
+		babel 		 = require('gulp-babel'),
+		babelify 	 = require('babelify'),
+		browserify   = require('browserify'),
+		uglify       = require('gulp-uglify'),
+		source 		 = require('vinyl-source-stream'),
+		buffer 		 = require('vinyl-buffer'),
 
-		gulp.src('src/js/*js')	
-			.pipe(plumber())
-			.pipe(uglify())
-			.pipe(gulp.dest('js'))
-			.pipe(livereload())
+
+
+		sass         = require('gulp-ruby-sass'),
+		autoprefixer = require('gulp-autoprefixer'),
+
+		pug          = require('gulp-pug'),
+		data         = require('gulp-data');
+
+// JS
+	gulp.task('es6',  () => {
+		browserify('src/js/app.js')
+		.transform('babelify', {
+			presets: ['es2015']
+		})
+		.bundle()	
+		.pipe(source('app.js'))
+		.pipe(buffer())
+		.pipe(rename('bundle.js'))
+		.pipe(plumber())
+		.pipe(gulp.dest('js/'));
 	})
 
+	gulp.task('compress', function(){
+		gulp
+			.src('./js/bundle.js')	
+			.pipe(rename('bundle.min.js'))
+			.pipe(plumber())
+			.pipe(uglify())
+			.pipe(gulp.dest('./js'))
+			.pipe(livereload())
+	})
 //Style 
 	gulp.task('style', function(){
 
@@ -46,11 +70,11 @@
 	gulp.task('pug', function(){
 		gulp.src(
 				[
-					// 'src/pug/index-en.pug',
-					// 'src/pug/index-ar.pug',
+					'src/pug/index-en.pug',
+					'src/pug/index-ar.pug',
 
-					// 'src/pug/icons-en.pug',
-					// 'src/pug/icons-ar.pug',
+					'src/pug/icons-en.pug',
+					'src/pug/icons-ar.pug',
 
 					'src/pug/guide-en.pug',
 					'src/pug/guide-ar.pug',
@@ -70,15 +94,16 @@
 	})
 
 //Watch
-	gulp.slurped = false;
+	var start = false;
 	gulp.task('watch', function(){
 		livereload.listen();
-		gulp.watch('src/js/*.js', ['compress']);
+		gulp.watch('src/js/app.js',['es6'])
 		gulp.watch(['src/scss/*.scss','src/scss/**/*.scss' ], ['style']);
 		gulp.watch(['src/pug/*.pug', 'src/pug/**/*.pug'], ['pug']);
-		if(!gulp.slurped){
+		gulp.watch(['js/bundle.js'], ['compress']);
+		if(!start){
+			start = true;
 			gulp.watch('gulpfile.js', ['default']);
-			gulp.slurped = true;
 		}
 	})
 //surge
@@ -90,4 +115,4 @@
 	})
 
 
-gulp.task('default',['compress','style','pug','watch'])
+gulp.task('default',['es6','compress','style','pug','watch'])
