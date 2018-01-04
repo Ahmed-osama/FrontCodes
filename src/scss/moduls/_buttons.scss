@@ -17,8 +17,8 @@
     display: inline-flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
-    height: 1.5*$space;
-    padding:0 $space;
+    height: 40px;
+    padding:0 15px;
     text-align: center;
     text-decoration:none;
     transition:0.2s;
@@ -40,9 +40,17 @@
         & + span {
             margin-#{$left}:$space/3;
         }
+        &--lg{
+            width:20px;
+            height:20px;
+        }
+        &--sm{
+            width: 10px;
+        }
     }
     .u-icon + span,
-    span + .u-icon{
+    span + .u-icon,
+    span + span{
         margin-#{$left}:$space/3;
     }
 
@@ -57,31 +65,58 @@
         line-height: 2*$space;
     }
     &--round{
-        border-radius: $space/4*3;
+        border-radius: 20px;
+        &.btn--sm{
+            border-radius: 15px;
+        }
+        &.btn--xs{
+            border-radius: 10px;
+        }
+        &.btn--thick{
+            border-radius: 22.5px;
+        }
+        &.btn--cta{
+            border-radius: 25px;
+        }
     }
 
     &--square{
-        height: 1.5* $space;
-        width: 1.5* $space;
+        height: 40px;
+        width: 40px;
         padding:0;
+        &.btn--sm{
+            width:30px;
+            height:30px;
+        }
+        &.btn--xs{
+            width: 20px;
+            height: 20px;
+        }
     }
+
+    &--thick{
+        height: 45px;
+    }
+
     &--cta{
-        @include rem(18);
+       @include rem(15);
         font-weight:500;
-        height: 1.7*$space;
         padding:0 $space;
         position: relative;
         text-transform: uppercase;
+        height: 50px;
     }
     &--sm{
-        @include rem(14);
-        width: 1.2*$space;
-        height: 1.2*$space;
+        @include rem(12);
+        height:30px;
+        padding-left:10px;
+        padding-right:10px;
     }
     &--xs{
-        @include rem(14);
-        width: 1*$space;
-        height: 1*$space;
+        @include rem(11);
+        height: 20px;
+        padding-left:5px;
+        padding-right:5px;
     }
     &--primary{
         color: $wh;
@@ -135,5 +170,9 @@
     }
     &--disappear{
        display: none;
+    }
+    &--more{
+        font-weight: 500;
+        @include rem(13);
     }
 }

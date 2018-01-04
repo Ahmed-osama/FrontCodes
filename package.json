@@ -9,18 +9,25 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babelify": "^8.0.0",
     "browserify": "^14.5.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
     "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
     "gulp-pug": "^3.3.0",
+    "gulp-purifycss": "^0.2.0",
     "gulp-rename": "^1.2.2",
+    "hammerjs": "^2.0.8",
     "jquery": "^3.2.1",
     "svg-country-flags": "^1.1.3",
+    "swiper": "^4.0.7",
+    "velocity-animate": "^1.5.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "vue": "^2.5.3"
+    "vue": "^2.5.3",
+    "vue-lazyload": "^1.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

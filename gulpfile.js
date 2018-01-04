@@ -1,4 +1,6 @@
 // Definitions
+
+// Definitions
 	var gulp 	     = require('gulp'),
 		sourcemaps   = require('gulp-sourcemaps'),
 		plumber	     = require('gulp-plumber'),
@@ -14,10 +16,10 @@
 		source 		 = require('vinyl-source-stream'),
 		buffer 		 = require('vinyl-buffer'),
 
-
-
 		sass         = require('gulp-ruby-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
+		purify 		 = require('gulp-purifycss'),
+		minifycss    = require('gulp-minify-css');
 
 		pug          = require('gulp-pug'),
 		data         = require('gulp-data');
@@ -26,14 +28,17 @@
 	gulp.task('es6',  () => {
 		browserify('src/js/app.js')
 		.transform('babelify', {
-			presets: ['es2015']
+			presets: ['es2015'],
+			sourceMapsAbsolute: true
 		})
 		.bundle()	
 		.pipe(source('app.js'))
+		.pipe(plumber())
 		.pipe(buffer())
 		.pipe(rename('bundle.js'))
 		.pipe(plumber())
-		.pipe(gulp.dest('js/'));
+		.pipe(gulp.dest('js/'))
+		.pipe(plumber())
 	})
 
 	gulp.task('compress', function(){
@@ -47,7 +52,6 @@
 	})
 //Style 
 	gulp.task('style', function(){
-
 		sass('src/scss/*.scss',{
 			sourcemap: true,
 			style:"compressed"
@@ -58,13 +62,24 @@
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-        .pipe(sourcemaps.write('maps', {
-            includeContent: false,
-            sourceRoot: 'source'
+		// .pipe(csscss())
+		.pipe(sourcemaps.write('maps', {
+			includeContent: false,
+			sourceRoot: 'source'
 		}))
 		.pipe(gulp.dest('css'))
 		.pipe(livereload())
 	})
+
+	gulp.task('purecss', function() {
+		return gulp.src(['./css/ltr-style.css','./css/rtl-style.css'])
+		.pipe(purify(['./*.html']))
+		.pipe(minifycss())
+		.pipe(rename({
+			suffix: '.pure'
+		}))
+		.pipe(gulp.dest('./css/'));
+	});
 
 //PUG
 	gulp.task('pug', function(){
@@ -78,6 +93,7 @@
 
 					'src/pug/guide-en.pug',
 					'src/pug/guide-ar.pug',
+
 
 				]
 			)
@@ -95,12 +111,21 @@
 
 //Watch
 	var start = false;
+	var watchFiles = {
+		js:['src/js/*.js', 'src/js/**/*.js', 'src/js/**/**/*.js'],
+		scss:['src/scss/*.scss','src/scss/**/*.scss' ],
+		css:['./css/ltr-style.css','./css/rtl-style.css'],
+		pug:['src/pug/*.pug', 'src/pug/**/*.pug'],
+		compress:['js/bundle.js']
+	}
+
 	gulp.task('watch', function(){
 		livereload.listen();
-		gulp.watch('src/js/app.js',['es6'])
-		gulp.watch(['src/scss/*.scss','src/scss/**/*.scss' ], ['style']);
-		gulp.watch(['src/pug/*.pug', 'src/pug/**/*.pug'], ['pug']);
-		gulp.watch(['js/bundle.js'], ['compress']);
+		gulp.watch(watchFiles.js,['es6'])
+		gulp.watch(watchFiles.scss, ['style']);
+		gulp.watch(watchFiles.css, ['purecss']);
+		gulp.watch(watchFiles.pug, ['pug']);
+		gulp.watch(watchFiles.compress, ['compress']);
 		if(!start){
 			start = true;
 			gulp.watch('gulpfile.js', ['default']);

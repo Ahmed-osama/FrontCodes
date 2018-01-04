@@ -52,12 +52,16 @@
     .u-bodyFont{
         font-family: $bodyFont;
     }
+    .u-block{
+        display: block;
+    }
     .u-icon{
         display: inline-block;
         font-size: inherit;
         height: 1em;
         width: 1em;
     }
+
 //[1] - social items
     .facebook{
         @include btnBg($facebook,10%)
@@ -82,27 +86,25 @@
         box-shadow:none;
         color:$wh !important;
         cursor: pointer;
-        display: inline-block;
+        display: inline-flex;
         line-height:31px;
         padding: 0;
-        text-align: center;
+        align-items: center;
         height: 32px;
         width: 32px;
+        justify-content: center;
         @include mediaMin(768px){
-            line-height:35px;
-            height: 36px;
-            width: 36px;
+            height: 45px;
+            width: 45px;
 
         }
-        &:hover{
-            line-height:35px;
-        }
+
         .u-icon{
             fill: $wh;
             height: 31px;
             vertical-align: middle;
              @include mediaMin(768px){
-                height: 36px;
+                height: 20px;
              }
         }
         &--sm{
@@ -144,30 +146,33 @@
 //[2] - breadcrumb
     .breadCrumb{
         list-style-type: none;
-        @include rem(16);
+        display: flex;
+        align-items: center;
         &__Item{
             height: $space;
-            display: inline-block;
-            vertical-align: middle;
+            display: inline-flex;
+            align-items: middle;
             font-family:$titleFont;
+            font-style:italic;
+            @include rem(13);
+            line-height: 12px;
             & + &{
                 &:before{
-                    display: inline-block;
-                    vertical-align: middle;
+            
                     color:inherit;
                     color: $midGry;
                     width: $space;
                     height:$space;
                     opacity: 0.5;
-                    line-height:$space/10*9;
+                    line-height:23px;
                     text-align: center;
-                    @include rem(20);
+                    @include rem(13);
                     @if($direction == 'rtl'){
                         line-height:$space/10*7;
-                        content:"\203a";
+                        content:"/";
                     }
                     @if($direction != 'rtl'){
-                        content:"\203A";
+                        content:"\\";
                     }
                 }
             }
@@ -176,7 +181,7 @@
             }
         }
         &--mb{
-            margin-bottom: $space/2;
+            margin-bottom:15px;
         }
         &--wh{
             color:$wh;
@@ -192,36 +197,53 @@
         }
     }
 
-
     
 
 //[3] - Title
     .heading{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        
         margin-bottom:$space/2;
-        &--noborder{
-            padding-top: 0;
-            border-top: none;
-        }
-
-
-
-        &__title{
-            color:$primaryText;
-            flex-grow: 1;
-            text-transform: capitalize;
-            @include rem(22);
-            @include mediaMin(768px){
-                @include rem(28);
+        @include mediaMax(768px){
+            &--break{
+                flex-direction: column;
             }
+        }
+        &--border{
+            &Top{
+                padding-top: 30px;
+                border-top: 3px solid $dviderColor;
+            }
+        }
+        &__title{
+            align-items: center;
+            display: flex;
+            color:$primaryText;
+            text-transform: capitalize;
+            @include rem(21);
+            font-weight: 500;
+            margin-bottom: 0;
+            margin-#{$right}:10px;
             &--sm{
                 @include rem(16);
             }
+            @include mediaMin(769px){
+                margin-#{$right}:20px;
+            }
+        }
+        &--break &__title{
+            @include mediaMax(768px){
+                margin-bottom: 20px;
+            }
         }
 
-
-
+        &--startWithList &__title{
+            flex-grow: initial;
+            @include mediaMin(769px){
+                margin-#{$right}:40px;
+            }
+        }
         &__list{
             flex-grow: 1;
             text-align:$left;
@@ -232,7 +254,17 @@
             justify-content :flex-start;
             margin-top: $space/2;
             flex-wrap: wrap;
-            @include mediaMin(768px){
+            @include rem(14);
+            font-weight: 500;
+            @include mediaMax(768px){
+                overflow: hidden;
+                overflow-x: scroll;
+                display: block;
+                white-space: nowrap;
+                margin-left: -15px;
+                margin-right: -15px;
+            }
+            @include mediaMin(769px){
                 justify-content :flex-end;
                 text-align:$left;
             }
@@ -247,34 +279,28 @@
 
             }
         }
-
-
         
         &__listItem{
             @include rem(14);
-            display: inline-block;
-            color:$wh;
-            padding:2px $space/2;
+            display: inline-flex;
+            color:$primaryText;
+            padding:0 15px;
             border-radius:3px;
-            color:$secondaryText;
             white-space: nowrap;
+            align-items:center;
+            height: 35px;
+            border-radius: 17px;
+
             &:hover{
-                background: $offWhite;
                 color:$primaryText;
             }
             &--active{
                 background: $primaryColor;
-                color:$wh;
-                @include shadow(1);
                 &:hover{
-                    color:$wh;
                     background: darken($primaryColor,10%);
-                    @include shadow(2);
                 }
             }
-            & + & {
-                margin-#{$left}: 10px;
-            }
+        
         }
 
         &__more{
@@ -284,15 +310,37 @@
             flex-grow: 1;
             @include rem(16);
         }
+        &__middle{
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-weight: 500;
+            @include rem(14);
+            a{
+                display: inline-flex;
+                align-items: center;
+            }
+            .u-icon{
+                width: 20px;
+                height: 20px;
+                margin-#{$right}:10px;
+                fill: currentColor;
+            }
+        }
 
         @include mediaMin(768px){
             flex-direction: row;
             margin-bottom:$space;
             flex-basis: 100%;
             &__list{
-                 margin-top: 0;
+                margin-top: 0;
                 text-align:$right;
             }
+        }
+
+        &--nomb{
+            margin-bottom: 0;
         }
     }
 
@@ -397,5 +445,295 @@
         &__container{
             position: relative;
             min-height: 308px;
+        }
+        
+        &-div{
+            position: relative;
+            opacity: 0.8;
+            overflow: hidden !important;
+            max-height: 200px;
+            
+            &:before{
+                content:"";
+                display: block;
+            }
+            &:before, &--row:before{
+                background: url(../img/ripple.gif) 50% 50% no-repeat white;
+                min-height: 100px;
+                height: 100%;
+                z-index: 6;
+                right: 0;
+                top: 0;
+                width: 100%;
+                position: absolute;
+                transition: 0.2s;
+            }
+            &--fixed{
+                max-height: none;
+                &:before{
+                    background: url(../img/ripple.gif) 50% 50% no-repeat white;
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    z-index: 10;
+                }
+            }
+            &--row {
+                padding-bottom:60px;
+                position: relative;
+                max-height: none;
+                
+                &:before{
+                    height: 60px;
+                    box-shadow: none;
+                    clear: both;
+                    width: auto;
+                    position: absolute;
+                    bottom: 10px;
+                    z-index: 10;
+                    top: auto;
+                    min-height: 0;
+                    width:100%;
+                }
+            }
+        }
+    }
+
+//[8] - Dropdown
+    .dropdown{
+        border-radius: 10px;
+        font-family: $titleFont;
+        font-size: 13px;
+        color:$primaryText;
+        display: block;
+        position: relative;
+        transition:0.2s;
+        position: relative;
+        &--mb{
+
+            margin-bottom: 20px;
+        }
+        &__button{
+
+            svg{
+                width: 24px !important;
+                height: 20px !important;
+            }
+        }
+    
+        &__list{
+            padding: 12px 20px;
+            background: $wh;
+            overflow: hidden;
+            min-width: 200px;
+            &--dd{
+                padding:0;
+                border-radius: 3px;
+                box-shadow:0 5px 10px rgba(0,0,0,0.1);
+                z-index: 3;
+                position:absolute;
+                top: calc(100% + 5px );
+                #{$left}:0;
+                width: 100%;
+            }
+            .heading__more &--dd{
+                #{$left}:auto;
+                #{$right}:0;
+            }
+        }
+        &__item{
+            color: $bk;
+            &--opt{
+                padding: 5px 20px;
+                cursor: pointer;
+                & + .dropdown__item--opt {
+                    border-top:1px solid $dviderColor ;
+                }
+                &:hover{
+                    color: $primaryColor;
+                }
+            }
+            a{
+                text-decoration: none;
+                line-height: 30px;
+                display: block;
+                color: $bk;
+                &:hover{
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+    .is-selected{
+        background: $primaryColor;
+        color:$wh;
+        &:hover{
+        color: $wh;
+        }
+    }
+
+//[9] - TAG
+    .tag{
+        @extend .btn;
+        @extend .btn--round;
+        @extend .orangeLame_bg;
+        @extend .orange_bgHover;
+        height: 35px !important;
+        margin-bottom: 15px;
+        & + &{
+            margin-#{$left}:15px;
+        }
+    }
+
+//[10] - ads
+    .ad-placement{
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        @include mediaBoth(321px, 639px){
+            background: $dviderColor;
+        }
+        &--nopt{
+            padding-top: 0;
+        }
+        &--nopb{
+            padding-bottom: 0;
+        }
+        &--mobile{
+            display: none;
+            //background: yellow;
+            @media all and(max-width:768px){
+                display: block;
+                clear: both;
+            }
+        }
+        &--desktop{
+            display: none;
+            //background: red;
+            @media all and(min-width:769px){
+                display: block;
+            }
+        }
+        &--nop{
+            padding:0;
+        }
+
+        &--mb{
+            margin-bottom: 20px;
+        }
+    }
+    .ad-fixed{
+        transition:0.1s;
+        text-align: center;
+        position: fixed;
+        top: 200px;
+        z-index: 5;
+        min-width: 120px;
+        min-height: 600px;
+        @media all and(max-width:1279px){
+            display: none;
+        }
+
+        &--innerPage{
+            top: 100px;
+            &.active-scroll{
+                top:70px;
+            }
+            @media all and(max-width:1350px){
+                top: 70px;
+            }
+        }
+        &--left{
+            left:0;
+        }
+        &--right{
+            right:0;
+        }
+        @include mediaMin(1500px){
+            top:181px;
+            &.active-scroll{
+                top:70px;
+            }
+        }
+        @include mediaMin(1500px){
+            &--left{
+                left:calc(50% - 585px);
+                transform:translateX(-100%);
+            }
+            &--right{
+                right:calc(50% - 585px);
+                transform:translateX(100%);
+            }
+        }
+    }
+
+//[11] - article
+    article{
+        padding:20px  10px;
+        @include mediaMin(960px){
+            padding:20px  0;
+            padding-#{$left}:40px; 
+        }
+        p{
+            margin-bottom: 20px;
+            @include rem(17);
+            line-height: 2em;
+        }
+        h1,h2,h3,h4,h5,h6{
+            font-weight: 500;
+            margin-bottom: 10px;
+            line-height: 1.5em;
+        }
+        h1 {
+            @include rem(28);
+        }
+        h2 {
+            @include rem(24);
+        }
+        h3{
+            @include rem(22);
+        }
+        h4{
+            @include rem(20);
+        }
+        h5 {
+            @include rem(17);
+        }
+        h6 {
+            @include rem(15);
+        }
+
+        .msg{
+            margin-bottom: 40px;
+            @include mediaMin(960px){
+                margin-#{$left}:-40px; 
+            }
+        }
+    }
+
+//[12] - MSG
+    .msg{
+        font-weight: 500;
+        background: rgba(0,0,0,0.1);
+        padding: 15px;
+        padding-#{$left}:30px;
+        border-#{$left}:5px solid rgba(0,0,0,0.2);
+        @include rem(16);
+        line-height: 2em;
+
+        &--note{
+            background:#fff9ee;
+            border-#{$left}-color:$orange;
         }
     }

@@ -7,6 +7,7 @@
         li: a.guideList__item(href="#product-section") Product Section
         li: a.guideList__item(href="#intro") Intro
         li: a.guideList__item(href="#subSectionTitle") Sub section title
+        li: a.guideList__item(href="#cover") cover
   main.layout__item--grow
       section.guideSection.guideSection--noBorder#buttons
         .section-title.guideSection__title
@@ -257,3 +258,24 @@
                 card:true
               }
             include ../components/_vs-item.pug
+      section.guideSection#cover
+        .section-title.guideSection__title
+          h2.section-title__title Cover
+        .row
+          -
+            cover = {
+              title:true,
+              meta:true,
+              socials:true,
+              album:false,
+              icon:false,
+              video:false,
+              img:'img/cover/3.jpg',
+              nextPrev:false,
+              maskEffect:true,
+              padge:true,
+              abstract: data.content[1].abstract,
+              meta:false,
+              wide:true
+            }
+          include ../components/_cover.pug
