@@ -16,6 +16,7 @@
   if(post.cardBounded) modifierClass += 'post-view--cardBounded '
   if(post.cardBoundedSimple) modifierClass += 'post-view--cardBoundedSimple '
 
+
 .post-view(class=modifierClass)
   -if(post.link)
     //- [1] - OVERALL LINK
@@ -33,7 +34,7 @@
           -var icon = {case:"star-filled"}
           include ../shared/_icon.pug
     //- [2.2] - SHARE
-    -if(false)
+    -if(post.share)
       span.post-view__share
         a.socialItem(href="#" class=data.social[0].class)
           -var icon = {case:"facebook"}
@@ -42,8 +43,8 @@
     -if(post.padge)
       a.post-view__padge.btn(href="#") Lower limb
     //- [2.4] - ICONS
-    span.post-view__icon
-      -if(post.video)
+    -if(post.icon.state)
+      span.post-view__icon
         -var icon = {case:post.icon.name, addClass:"post-view__icon-inner"}
         include ../shared/_icon.pug
     -if(!post.iframe)
