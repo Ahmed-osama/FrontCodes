@@ -1,27 +1,47 @@
 -
   var modifierClass= modifierClass || ""
   if(!post.img) post.img = 'img/content/1.jpg'
+  if(!post.img2) post.img2 = 'img/content/2.jpg'
+  if(!post.img3) post.img3 = 'img/content/3.jpg'
   if(!post.abstract) post.abstract = false
   if(post.fav == undefined) post.fav = true
   if(post.share == undefined) post.share = true
   if(post.iframe == undefined) post.iframe = false
-  if(post.link == undefined) post.link = 'single'+ext+'.html'
+  if(post.gallery == undefined) post.gallery = false
+  if(post.icon == undefined) post.icon = {}
+  if(post.link == undefined) post.link = 'single'+ext
+  if(post.iterator == undefined) post.iterator = 1
 
   if(post.iframe) modifierClass += 'post-view--iframe '
   if(post.horizontal) modifierClass += 'post-view--horizontal '
+  if(post.championshipBox) modifierClass += 'post-view--championshipBox '
+  if(post.cricleView) modifierClass += 'post-view--cricleView '
+  if(post.horizontalmob) modifierClass += 'post-view--horizontal-mob '
   if(post.horizontalSm) modifierClass += 'post-view--horizontal-sm '
   if(post.over) modifierClass += 'post-view--over '
+  if(post.state) modifierClass += 'post-view--state '
   if(post.card) modifierClass += 'post-view--card '
+  if(post.imgauto) modifierClass += 'post-view--imgauto '
+  if(post.carddesktop) modifierClass += 'post-view--card-desktop '
+  if(post.card && !post.abstract && !post.cardFreeCaption) modifierClass += 'post-view--cardNoabstract '
   if(post.cardSimple) modifierClass += 'post-view--cardSimple '
   if(post.cardBounded) modifierClass += 'post-view--cardBounded '
+  if(post.cardBoundeddesktop) modifierClass += 'post-view--cardBounded-desktop '
   if(post.cardBoundedSimple) modifierClass += 'post-view--cardBoundedSimple '
-
+  if(post.cardFreeCaption) modifierClass += 'post-view--cardFreeCaption '
+  if(post.featured) modifierClass += 'post-view--featured '
+  if(post.gallery) modifierClass += 'post-view--gallery '
+  if(post.album) modifierClass += 'post-view--album '
+  if(post.discover) modifierClass += 'post-view--discover '
+  if(post.videoLook) modifierClass += 'post-view--videoLook '
+  if(post.addClass) modifierClass += ' '+post.addClass+' '
 
 .post-view(class=modifierClass)
-  -if(post.link)
+  -if(post.link && !post.gallery)
     //- [1] - OVERALL LINK
     a.post-view__link(href=post.link alt=post.caption)
-  
+  -else if(post.gallery)
+    a.post-view__link.post-view__link--fancy(href=post.link)
   //- [2] - IMG HOLDER
   .post-view__img
     //- [2.1] - FAVOURITE
@@ -34,37 +54,59 @@
           -var icon = {case:"star-filled"}
           include ../shared/_icon.pug
     //- [2.2] - SHARE
-    -if(post.share)
+    -if(false)
       span.post-view__share
         a.socialItem(href="#" class=data.social[0].class)
           -var icon = {case:"facebook"}
           include ../shared/_icon.pug
     //- [2.3] - Padge
-    -if(post.padge)
-      a.post-view__padge.btn(href="#") Lower limb
+    -if(true)
+      a.post-view__padge.btn(href="#") #{typeof(post.padge)== String? post.padge : (rtl?"انفوجرافيك":"Russia")}
     //- [2.4] - ICONS
     -if(post.icon.state)
       span.post-view__icon
-        -var icon = {case:post.icon.name, addClass:"post-view__icon-inner"}
+          -var icon = {case:post.icon.name || "play", addClass:"post-view__icon-inner"}
+          include ../shared/_icon.pug
+    -if(post.album)
+      span.post-view__albumcount
+        span.post-view__albumcount-num 12
+        -var icon = {case:'allbumtag', addClass:"post-view__albumcount-icon"}
         include ../shared/_icon.pug
-    -if(!post.iframe)
+
+
+    
+
+            
+    -if(!post.iframe && !post.gallery)
       img.lazy( alt=post.caption, data-original=post.img,  src=post.img)
+    -else if(post.gallery)
+      .post-view__gallery
+        .post-view__galleryMaster
+          img.lazy( alt=post.caption, data-original=post.img,  src=post.img)
+        .post-view__galleryThumbs
+          .post-view__galleryfirstthumb
+            img.lazy(alt=post.caption, v-lazy='"'+post.img2+'"',  src='/Content/img/_.png')
+          .post-view__galleryLastthumb
+            span.post-view__galleryNum #{post.iterator*23 + "+"}
+            img.lazy(alt=post.caption, v-lazy='"'+post.img3+'"',  src='/Content/img/_.png')
     -else
       iframe(width="" height="" src="https://www.youtube.com/embed/2KvN1z76VWw" frameborder="0" allowfullscreen)
   //- [3] - TEXTAREA
-  .post-view__caption(alt=post.caption )
-    -if(post.date)
-      span.date
-        -var icon = {case:"date"}
-        include ../shared/_icon.pug
-        span October 19, 2017
+  .post-view__caption(alt=post.caption)
+    
     -if(post.caption && !post.iframe)
+
       h4.post-view__maxTitle
         -if(post.flag)
           a.post-view__flag(class=post.flag, href="countery-index"+ext+".html")
         |#{post.caption}
     -if(post.abstract)
       p.post-view__abstract #{post.abstract}
+    -if(post.date)
+      span.date.post-view__date
+        //- -var icon = {case:"date"}
+        //- include ../shared/_icon.pug
+        span #{!rtl?"October 19, 2017":"12 أكتوبر 2018"}
 -
   post={}
-  modifierClass=" "
+  modifierClass=""

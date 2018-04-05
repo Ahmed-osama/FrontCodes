@@ -1,0 +1,21 @@
+.ranktable
+    .ranktable__row.ranktable__row--th
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--15 
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--25.ranktable__cell--alignStart الفريق
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--15 فوز
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--15 خسارة
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--15 تعادل
+        .ranktable__cell.ranktable__cell--th.ranktable__cell--15 نقاط
+    -for(var o = 0; o<7; o++)
+        .ranktable__row
+            .ranktable__cell.ranktable__cell--15.ranktable__cell--up #{o+1}
+            .ranktable__cell.ranktable__cell--25.ranktable__cell--alignStart
+                .listView
+                    img.listView__img.listView__img--sm(src='http://via.placeholder.com/50x50')
+                    .listView__data.listView__data--sm
+                        p.listView__title مصر
+                     
+            .ranktable__cell.ranktable__cell--15 22
+            .ranktable__cell.ranktable__cell--15 1
+            .ranktable__cell.ranktable__cell--15 3
+            .ranktable__cell.ranktable__cell--15 69
