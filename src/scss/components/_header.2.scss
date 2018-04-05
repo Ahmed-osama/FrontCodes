@@ -9,6 +9,7 @@ body {
 }
 
 .main-header {
+    border-top:3px solid $yellow;
     // BASICS
         ul {
             list-style-type: none;
@@ -256,8 +257,6 @@ body {
                     cursor: pointer;
                 }
             }
-
-           
         }
         input:checked + &__menuToggler + &__sideMenu {
             @include mediaMax(1023px) {

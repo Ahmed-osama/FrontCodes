@@ -1,0 +1,86 @@
+-
+    var coverModifierClass = ""
+    cover = cover || {}
+    if(cover.maskEffect) coverModifierClass += " cover--maskEffect "
+    if(cover.wide) coverModifierClass += " cover--wide "
+    if(cover.album) coverModifierClass += " cover--album "
+    if(cover.video) coverModifierClass += " cover--video "
+    if(cover.title == undefined) cover.title = false
+    if(cover.abstract == undefined) cover.abstract = false
+    if(cover.meta == undefined) cover.meta = false
+    if(cover.padge == undefined) cover.padge = false
+    if(cover.socials == undefined) cover.socials = false
+    if(cover.nextPrev == undefined) cover.nextPrev = false
+    if(cover.icon == undefined) cover.icon = false
+    if(cover.iconModefier == undefined) cover.iconModefier = ''
+    if(cover.img == undefined) cover.img = '"img/cover/1.jpg"'
+    if(cover.album) cover.iconModefier += ' cover__icon--album '
+    if(cover.activeVideo) cover.iconModefier += ' cover__activeVideo '
+
+
+section.cover(class=coverModifierClass :class='{"cover--videoActivated":videoActive, "cover--videoScrolled":videoScrolled}')
+
+    img.cover__img.cover__img--focus(src=cover.img v-lazy=cover.img)
+    -if(cover.maskEffect)
+        img.cover__img.cover__img--blur(src=cover.img v-lazy=cover.img)
+    -if(cover.video) 
+        video-frame.cover__video(src='https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fwww.facebook.com%2Fvideos%2F10156034252676165%2F&show_text=0' v-if='videoActive', autplay=true)
+   
+    .container.cover__container
+        .cover__caption
+            -if(cover.title)
+                h1.cover__title #{rtl?'عثمان بن مظعون .. أول مهاجر توفى في المدينة المنورة':'Othman bin Mazzoun .. The first immigrant died in Medina'}
+            -if(cover.abstract)
+                p.cover__abstract #{rtl?'سلسلة من الفيديوهات التي تسلط الضوء على قصص نجاح لأناس تحلوا بالتفاؤل وتحملوا الصعاب حتى أدركوا النجاح وأصبحوا نماذج مشرفة متميزون':'A series of videos that highlight success stories for people who are optimistic And bear the difficulties until they realized success and became outstanding models'}
+           
+            -if(cover.meta)
+                .cover__meta
+                    -if(!cover.album && !cover.video)
+                        span.cover__metaitem.cover__metaitem--writer
+                            span #{rtl?"بقلم : ":"by : "} 
+                            a(href='#') #{rtl?"رباب حسن":"Rabab Hassaan"} 
+                    -else if(!cover.video)
+                        span.cover__metaitem  #{rtl?"33 صورة":"33 image"} 
+                    span.cover__metaitem.date.cover__metaitem--date
+                        span #{rtl?'الإثنين 12 مايو 2017':'Monday 12 May 2017'}
+                    span.cover__metaitem.date.cover__metaitem--views
+                        -var icon = {case:'eye'}
+                        include ../shared/_icon.pug
+                        span #{rtl?'3500 مشاهدة':'3500 views'}
+        -if(cover.icon)
+            -if(cover.icon == 'album')
+                span.cover__icon(class=cover.iconModefier, data-src='img/cover/1.jpg', data-index='0', title=data.content[13].title @click.prevent='openAlbum($event)') 
+                    -var icon = {case:cover.icon, addClass:"cover__icon-inner"}
+                    include ../shared/_icon.pug
+            -else
+                span.cover__icon(class=cover.iconModefier, @click='videoActive = true')
+                    -var icon = {case:cover.icon, addClass:"cover__icon-inner"}
+                    include ../shared/_icon.pug
+        -if(cover.padge)
+            .cover__padge
+                .cover__padgeItem.btn.white_bg #{rtl?"سنة العرض : 2017":"year of production : 2017"} 
+                .cover__padgeItem.btn.white_bg #{rtl?"عدد الحلقات : 31":"Episods : 31"} 
+        -if(cover.socials)  
+            .cover__socials
+                a.cover__socialsItem.cover__socialsItem--fav.socialItem.white_bg(href="#")
+                    -var icon = {case:'fav'}
+                    include ../shared/_icon.pug
+                //a.cover__socialsItem.socialItem.dark_bg(href="#" data-count='12')
+                    -var icon = {case:'eye'}
+                    include ../shared/_icon.pug
+                a.cover__socialsItem.socialItem.facebook(href="#")
+                    -var icon = {case:'facebook'}
+                    include ../shared/_icon.pug
+                a.cover__socialsItem.socialItem.twitter(href="#")
+                    -var icon = {case:'twitter'}
+                    include ../shared/_icon.pug
+                    
+        -if(cover.nextPrev) 
+            .cover__nextPrev
+                a.btn.btn--square.btn--round(href="#")
+                    -var icon = {case:!rtl?'chevron-left':'chevron-right'}
+                    include ../shared/_icon.pug
+                a.btn.btn--round(href="#")
+                    span #{rtl?"التالي":"next"}
+                    -var icon = {case:rtl?'chevron-left':'chevron-right'}
+                    include ../shared/_icon.pug

@@ -1,0 +1,34 @@
+-
+    vsItem = vsItem || {}
+    vsItem.addClass = vsItem.addClass || ""
+    vsItem.title = vsItem.title || false
+
+    vsItem.teamAname = vsItem.teamAname || rtl?"الأهلي":"Ahly"
+    vsItem.teamAimg = vsItem.teamAimg || "img/logos/chelsea.png"
+    
+    vsItem.teamBname = vsItem.teamBname || rtl?"الزمالك":"zmalek"
+    vsItem.teamBimg = vsItem.teamBimg || "img/logos/manchester.png"
+    
+    vsItem.loop = vsItem.loop || 1
+
+    if(vsItem.card) vsItem.addClass += " vsitem--card"
+    if(vsItem.list) vsItem.addClass += " vsitem--listview"
+    
+.vsItem(class=vsItem.addClass)
+    -if(vsItem.title)
+        h4.vsItem__Title  #{vsItem.title}
+    -for(var o = 0; o<vsItem.loop; o++)
+        .vsItem__Content
+            .vsItem__TeamA
+                -if(vsItem.teamsName)
+                    h5.vsItem__TeamTitle #{vsItem.teamAname}
+                img.vsItem__TeamImg.lazy(src="img/logos/chelsea.png" data-original="img/logos/chelsea.png")
+            .vsItem__Score
+                span.vsItem__ScoreNum.red_bg
+                    span.vsItem__ScoreNumA 3
+                    span.vsItem__ScoreNumColon :
+                    span.vsItem__ScoreNumB 2
+            .vsItem__TeamB
+                img.vsItem__TeamImg.lazy(src="img/logos/manchester.png" data-original="img/logos/manchester.png")
+                -if(vsItem.teamsName)
+                    h5.vsItem__TeamTitle #{vsItem.teamBname}

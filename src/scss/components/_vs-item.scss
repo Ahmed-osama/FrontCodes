@@ -1,0 +1,298 @@
+.vsItem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &--scaled{
+        transform: scale(1.1);
+        @include mediaMax(768px){
+            transform: scale(1) translateX(14px);
+            max-width: 280px;
+        }
+    }
+    &--card{
+        padding:0 10px;
+        border-radius: 3px;
+        background: $wh;
+        box-shadow: 0px 3px 4.7px  rgba(0,0,0,0.11);
+        transition:0.2s;
+        border:none;
+        &:hover{
+            @include mediaMin(769px){
+
+               
+            }
+        }
+    }
+    &--listview{
+        margin-bottom: $space/2;
+        padding: 0;
+        @include mediaMax(420px){
+            margin-left: -20px;
+            margin-right: -20px;
+            border-radius: 0;
+            border-left: 0;
+            border-right: 0;
+        }
+    }
+    //Title
+        &__Title{
+            border-bottom: 1px solid $dviderColor;
+            @include rem(14);
+            height: 50px;
+            line-height: 50px;
+            min-width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+        &--listview  &__Title{
+            font-weight: bold;
+            // background:  $offWhite;
+        }
+    //content
+        &__Content{
+            display: flex;
+            &+&{
+                border-top: 1px solid $lightGry;
+            }
+            
+        }
+        &--card &__Content{
+           align-items: center;
+           justify-content: center;
+           height: 110px;
+           align-items:center;
+        }
+        &--listview &__Content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 60px;
+            @include mediaMin(1024px){
+                height: 100px;
+
+            }
+            @include mediaMax(768px){
+                position: relative;
+                display: block;
+            }
+        }
+        //Card inside feature
+        .featuredProgram__score &__Content{
+            max-width: 100%;
+        }
+    //Team
+        &__Team{
+            &Img{
+                width: 40px;
+                height: 40px;
+                margin:0 10px;
+            }
+            &A, &B{
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-basis: 50%;
+                max-width: 50%;
+            }
+            &A{
+                text-align: $right;
+                padding-#{$left}: 10px;
+                justify-content: flex-end;
+
+            }
+            &B{
+                text-align: $left;
+                padding-#{$right}: 10px;
+                justify-content: flex-start;
+            }
+            &Title{
+                font-family:$bodyFont;
+                @include rem(16);
+                width: 80px;
+                
+            }
+        }
+        &--card &__Team{
+            &A, &B{
+                flex-direction: column;
+            }
+            &A{
+                flex-direction: column-reverse;
+            }
+            &Title{
+                margin-top: 10px;
+                text-align: center;
+                margin-bottom: 0;
+                max-width: 100%;
+                width: 80px;
+                max-height: 28px;
+                overflow: hidden;
+                max-width: 100%;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            &Img{
+                width: 30px;
+                height: 30px;
+                @include mediaMax(768px){
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        &--larg &__Team{
+            &Title{
+              width: auto;
+              @include mediaMin(768px){
+                @include rem(22);
+                white-space: nowrap;
+              }
+            }
+            &Img{
+                @include mediaMin(768px){
+                    width: 60px;
+                    height: 60px;
+
+                }
+            }
+        }
+        &--listview &__Team{
+            &A, &B{
+                flex-direction: row;
+                @include mediaMax(768px){
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    height: 100%;
+                }
+            }
+            &Title{
+                margin-top: 0;
+                width: auto;
+                max-width: none;
+                @include mediaMax(320px){
+                    @include rem(14);
+                }
+                @include mediaMin(700px){
+                    @include rem(20);
+                }
+            }
+            &A{
+                text-align: $right;
+                @include mediaMax(768px){
+                    float: $left;
+                    padding-#{$right}: 45px;
+                }
+                @include mediaMax(480px){
+                    padding-#{$right}: 30px;
+                }
+
+            }
+            &B{
+                text-align: $left;
+                @include mediaMax(768px){
+                    float: $right;
+                    padding-#{$left}: 45px;
+                }
+                @include mediaMax(480px){
+                    padding-#{$left}: 30px;
+                }
+            }
+            &Img{
+                @include mediaMin(480px){
+                    width: 30px;
+                    height: 30px;
+                }
+                @include mediaMin(769px){
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+        }
+        .featuredProgram__score &__Team{
+            @include mediaMax(767px){
+                &Title{
+                    color:$wh;
+                    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+                }
+            }
+        }
+    // Score
+        &__Score{
+            padding:0 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include mediaMax(767px){
+                 padding:0;
+            }
+            &Num{
+                display: inline-flex;
+                @include rem(15);
+                height: 25px;
+                line-height: 24px;
+                padding:0 5px;
+                border-radius: 2px;
+                min-width: 50px;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                &Colon{
+                    flex-basis:10px;
+                    text-align: center;
+                }
+                &A, &B{
+                    flex-grow: 1;
+                }
+                &A{
+                    text-align: $right;
+                }
+                &B{
+                    text-align: $left;
+                }
+                &Date{
+                    color:$gry;
+                    height: 18px;
+                    white-space: nowrap;
+                    @include rem(11);
+                }
+                @include mediaMax(400px){
+                    min-width: 40px;
+                }
+            }
+        }
+        &--card &__Score{
+            margin-bottom: 30px;
+            &Date{
+                @include rem(14);
+                color:$secondaryText;
+                display: block;
+                white-space: nowrap;
+                max-width: 100px;
+                overflow: hidden;
+
+            }
+        }
+        .carousel--swiper &--card &__Score{
+            padding: 0;
+        }
+        &--listview  &__Score{
+            margin-bottom: 0;
+            @include mediaMax(1023px){
+                padding:0;
+            }
+            @include mediaMax(768px){
+                position: absolute;
+                top: 0;
+                bottom:0;
+                height: 100%;
+                left: 0;right: 0;
+                margin:auto;
+            }
+        }
+}

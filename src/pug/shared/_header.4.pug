@@ -1,0 +1,59 @@
+header.main-header()
+  .main-header__container.container
+    a.main-header__logo(href='index'+ext)
+      img.u-hide-sm(src="img/logo-wh.png")
+      img.u-hide-lg(src="img/logo-sm.png")
+    a.main-header__menuToggler(:class='{"main-header__menuToggler--active":sidemenu}', @click="sidemenu=!sidemenu")
+      -for(var i=0; i<=2; i++)
+        span
+    .main-header__sideMenu(:class='{"main-header__sideMenu--active":sidemenu}')
+      nav.main-header__nav
+        ul.main-header__navList
+          li: a(href="#") #{rtl?"مع عمرو خالد":"With Amr Khaled"}
+          li.hasDrop
+            a(href="#") #{rtl?"الدين للحياة":"Religion for life"}
+            a.more(href="#" @click.prevent='slideToggle($event)')
+              -var icon = {case:"chevron-down", addClass:"more__icon"}
+              include ../shared/_icon.pug
+            ul.dropMenu
+              li: a(href="#") #{rtl?"مع عمرو خالد":"With Amr Khaled"}
+              li: a(href="#") #{rtl?"الدين للحياة":"Religion for life"}
+              li: a(href="#") #{rtl?"أيامنا الحلوة":"Our sweet days"}
+              li: a(href="#") #{rtl?"حقق ذاتك":"Achieve your self"}
+              li: a(href="#") #{rtl?"إنسان اصيل":"Ensan Aseel"}
+              
+          li: a(href="#") #{rtl?"أيامنا الحلوة":"Our sweet days"}
+          li: a(href="#") #{rtl?"حقق ذاتك":"Achieve your self"}
+          li: a(href="#") #{rtl?"إنسان اصيل":"Ensan Aseel"}
+          li: a(href="#") #{rtl?"طقطقة":"taqtqa"}
+          li.hasDrop.hasDrop--noArrow
+            a(href="#")
+              -var icon = {case:"more", addClass:" "}
+              include ../shared/_icon.pug
+            a.more(href="#" @click.prevent='slideToggle($event)')
+              -var icon = {case:"chevron-down", addClass:"more__icon"}
+              include ../shared/_icon.pug
+            ul.dropMenu
+              li: a(href="#") #{rtl?"مع عمرو خالد":"With Amr Khaled"}
+              li: a(href="#") #{rtl?"الدين للحياة":"Religion for life"}
+              li: a(href="#") #{rtl?"أيامنا الحلوة":"Our sweet days"}
+              li: a(href="#") #{rtl?"حقق ذاتك":"Achieve your self"}
+              li: a(href="#") #{rtl?"إنسان اصيل":"Ensan Aseel"}
+              
+
+    .main-header__menuCloser(:class='{"main-header__menuCloser--active":sidemenu}', @click="sidemenu = false")
+    .btn.btn--round.yellow_bg.main-header__cta(@click.prevent='modalLogin = true')
+      -var icon = {case:"user", addClass:" "}
+      include ../shared/_icon.pug
+      span #{rtl?'تسجيل الدخول':'sign up'}
+    .main-header__search(:class='{"main-header__search--active":headerSearch}')
+      form.main-header__searchForm
+        input.main-header__searchInput(placeholder=rtl?"بحث عن ..":"what do you look for?")
+        -var icon = {case:"search", addClass:" main-header__searchIcon "}
+        include ../shared/_icon.pug
+        input(type="submit" hidden)
+    a.main-header__searchButton#searchButton.btn.btn--round.btn--square.yellow_bg( href="#", :class='{"main-header__searchButton--active":headerSearch}', @click.prevent="headerSearch = !headerSearch")
+      -var icon = {case:"search", addClass:" main-header__searchButtonIcon "}
+      include ../shared/_icon.pug
+      -var icon = {case:"close", addClass:" main-header__searchButtonIcon "}
+      include ../shared/_icon.pug

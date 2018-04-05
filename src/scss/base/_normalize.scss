@@ -26,6 +26,32 @@ html {
   }
 }
 
+
+body {
+  margin: 0;
+  padding-top: 80px;
+  
+}
+html, body{
+  max-width: 100%;
+  overflow-x: hidden;
+
+  &.no-scrl{
+    overflow: hidden;
+    position: relative;
+  }
+
+}
+
+/**
+ * Firefox specific rule
+ */
+
+@-moz-document url-prefix() {
+  body {
+    font-weight: lighter !important;
+  }
+}
 /* Sections
    ========================================================================== */
 
@@ -292,6 +318,14 @@ audio:not([controls]) {
 img {
   border-style: none;
   max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include rem(12);
+  color:rgba(0,0,0,0.6);
+  text-align: center;
+  vertical-align: middle;
+  line-height:200px;
 }
 
 /**

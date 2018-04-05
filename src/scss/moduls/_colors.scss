@@ -13,9 +13,19 @@
 .yellow{
     @include colorSet($yellow, $bk);
 }
+.orange{
+    @include colorSet($orange, $bk);
+}
+.orangeLame{
+    @include colorSet($yellow, $bk);
+}
 .gry{
-    @include colorSet($dviderColor, $primaryText);
+    @include colorSet($lightGry, $primaryText);
 }
 .white{//
     @include colorSet($wh, $primaryText);
+}
+
+.dark{
+    @include colorSet($primaryText, $primaryColor);
 }

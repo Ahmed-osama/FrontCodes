@@ -3,7 +3,6 @@
 	@import 'base/_mixins.scss';
 	@import 'base/_normalize.scss';
 	@import 'base/_fonts.scss';
-	@import 'base/_grid.scss';
 	@import 'base/_layout.scss';
 	
 
@@ -11,7 +10,7 @@
 
 //[2] Shared
 	@import 'components/_globals.scss';
-	@import 'components/_header.3.scss';
+	@import 'components/_header.4.scss';
 	@import 'components/_footer.scss';
 
 //[3] components
@@ -24,10 +23,14 @@
 	@import 'components/_share-widget.scss';
 	@import 'components/_qoutes.scss';
 	@import 'components/_product-section.scss';
+	@import 'components/_vs-item.scss';
+	@import 'components/_cover.scss';
 
 //[4] moduls
 	@import 'moduls/_colors.scss';
 	@import 'moduls/_form.scss';
+	@import 'moduls/_buttons.scss';
+	@import 'moduls/_animation.scss';
 	
 //[5] Frame work items
 	@import 'base/_Framework.scss';
