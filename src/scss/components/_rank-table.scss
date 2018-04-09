@@ -1,0 +1,59 @@
+.ranktable{
+    &__row{
+        @extend .topScorer__row;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        height: auto;
+        margin-top: 0;
+        margin-bottom: 10px;
+        &--th{
+            background: #f0f2f5;
+        }
+    }
+    &__cell{
+        text-align: center;
+        padding:10px 5px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        @include mediaMin(480px){
+            font-size: 14px;
+        }
+        &--11{
+            flex-basis:11%;
+            max-width:11%;
+        }
+        &--12{
+            flex-basis:12%;
+            max-width:12%;
+        }
+        &--15{
+            flex-basis:15%;
+            max-width:15%;
+        }
+        &--10{
+            flex-basis:10%;
+            max-width:10%;
+        }
+        &--29{
+            flex-basis:29%;
+            max-width:29%;
+        }
+        &--41{
+            flex-basis:41%;
+            max-width:41%;
+        }
+        &--up{
+            position: relative;
+            &:after{
+                @extend .topScorer__box--up:after;
+            }
+        }
+        &--alignStart{
+            justify-content: flex-start;
+            text-align:$left;
+        }
+    }
+}

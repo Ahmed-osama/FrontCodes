@@ -1,0 +1,42 @@
+-var arrowsClass = ["topScorer__box--up","topScorer__box--down","topScorer__box--up","topScorer__box--down","topScorer__box--down"]
+
+-
+    if(!topScorer.head) topScorer.head = false
+    if(!topScorer.score) topScorer.score = false
+    if(!topScorer.info) topScorer.info = false
+    if(topScorer.information) topScorer.addClass += " topScorer--information"
+    if(!topScorer.iterator) topScorer.iterator = 0
+
+
+.topScorer(class=topScorer.addClass)
+    -if(topScorer.head)
+        .topScorer__head
+            .topScorer__box.topScorer__box--stretch #{rtl?"اللاعب":"Player"}
+            .topScorer__box #{rtl?"مباريات":"Played"}
+            .topScorer__box #{rtl?"أهداف":"Goals"}
+    
+    .topScorer__body
+        -if(topScorer.score)
+            -var ranking = [1,2,3,4,5]
+            -for(t=0+topScorer.iterator;t<=3+topScorer.iterator;t++)
+                .topScorer__row
+                    .topScorer__box.topScorer__box--first(class=arrowsClass[t]) #{ranking[t]}
+                    .topScorer__box.topScorer__box--stretch
+                        
+                        include _listView
+                    .topScorer__box 8
+                    .topScorer__box 12
+        -if(topScorer.info)
+            -for(t=0+topScorer.iterator;t<=3+topScorer.iterator;t++)
+                .topScorer__row
+                    .topScorer__box
+                        -
+                            var listView = {
+                                    playerImg:data.players[t].img,
+                                    playerName:data.players[t].name,
+                                    nationality:data.players[t].position
+                                    
+                                }
+                        include _listView
+                    .topScorer__box.topScorer__box--shirt
+                        span.topScorer__number 10

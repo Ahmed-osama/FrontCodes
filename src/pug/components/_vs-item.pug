@@ -1,34 +1,56 @@
 -
-    vsItem = vsItem || {}
-    vsItem.addClass = vsItem.addClass || ""
-    vsItem.title = vsItem.title || false
+    vsItem           = vsItem           ||  {}
+    flag             = flag             ||  {}
+    vsItem.addClass  = vsItem.addClass  ||  ""
+    vsItem.title     = vsItem.title     ||  false
+    vsItem.teamAname = vsItem.teamAname ||  (rtl?"الأهلي":"Ahly")
+    vsItem.teamAimg  = vsItem.teamAimg  ||  "img/logos/chelsea.png"
+    vsItem.teamBname = vsItem.teamBname ||( rtl?"الزمالك":"Zamalek")
+    vsItem.teamBimg  = vsItem.teamBimg  ||  "img/logos/manchester.png"
+    vsItem.loop      = vsItem.loop      ||  1
+    vsItem.group     = vsItem.group    ||  false
 
-    vsItem.teamAname = vsItem.teamAname || rtl?"الأهلي":"Ahly"
-    vsItem.teamAimg = vsItem.teamAimg || "img/logos/chelsea.png"
-    
-    vsItem.teamBname = vsItem.teamBname || rtl?"الزمالك":"zmalek"
-    vsItem.teamBimg = vsItem.teamBimg || "img/logos/manchester.png"
-    
-    vsItem.loop = vsItem.loop || 1
-
-    if(vsItem.card) vsItem.addClass += " vsitem--card"
-    if(vsItem.list) vsItem.addClass += " vsitem--listview"
+    if(vsItem.card) vsItem.addClass += "vsitem--card"
+    if(vsItem.list) vsItem.addClass += "vsitem--listview"
+    if(vsItem.vertical) vsItem.addClass += " vsItem--vertical"
+    if(vsItem.large) vsItem.addClass += " vsItem--large"
+    if(vsItem.space) vsItem.addClass += " vsItem--space"
+    if(vsItem.groupblock) vsItem.addClass += " vsItem--groupblock"
+    if(flag.cricleView) flag.addClass = "cricleView"
+    if(flag.cricleViewLarge) flag.addClass += " cricleView--lg"
     
 .vsItem(class=vsItem.addClass)
     -if(vsItem.title)
         h4.vsItem__Title  #{vsItem.title}
     -for(var o = 0; o<vsItem.loop; o++)
+        -if(vsItem.groupName)
+            .vsItem__groupName GROUP 
+                span A
         .vsItem__Content
-            .vsItem__TeamA
+            a.vsItem__TeamA(href="team"+ext)
                 -if(vsItem.teamsName)
                     h5.vsItem__TeamTitle #{vsItem.teamAname}
-                img.vsItem__TeamImg.lazy(src="img/logos/chelsea.png" data-original="img/logos/chelsea.png")
-            .vsItem__Score
-                span.vsItem__ScoreNum.red_bg
-                    span.vsItem__ScoreNumA 3
-                    span.vsItem__ScoreNumColon :
-                    span.vsItem__ScoreNumB 2
-            .vsItem__TeamB
-                img.vsItem__TeamImg.lazy(src="img/logos/manchester.png" data-original="img/logos/manchester.png")
+                span.vsItem__bodyFlag(class=flag.addClass)
+                    img.vsItem__TeamImg.lazy(  src='img/logos/chelsea.png')
+            -if(!vsItem.timeMatch)
+                .vsItem__Score
+                    a.vsItem__ScoreNum(href="singleMatch"+ext)
+                        span.vsItem__ScoreNumA 3
+                        //span.vsItem__ScoreNumColon :
+                        span.vsItem__ScoreNumB 2
+                    -if(vsItem.time)
+                        .vsItem__time
+                            span.vsItem__min 75
+                            span.vsItem__half #{rtl?"الشوط الثانى":"Second half"}
+            -if(vsItem.timeMatch)
+                .vsItem__Score
+                    a.vsItem__ScoreNum(href="singleMatch"+ext)
+                        a.btn.btn--sm.btn--block.gry_bg(href=vsItem.link) 03:00
+            a.vsItem__TeamB(href="team"+ext)
+                span.vsItem__bodyFlag(class=flag.addClass)
+                    img.vsItem__TeamImg.lazy( src='img/logos/chelsea.png')
                 -if(vsItem.teamsName)
                     h5.vsItem__TeamTitle #{vsItem.teamBname}
+            -if(vsItem.group)
+                span.vsItem__groupSympol.btn.btn--square.btn--round #{vsItem.group}
+            

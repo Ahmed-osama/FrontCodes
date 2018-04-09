@@ -111,7 +111,7 @@
               abstract:data.content[3].abstract,
               icon:{
                 state:true,
-                name:"video"
+                name:"play"
               },
               card:true,
               cardBounded:true,
@@ -179,7 +179,7 @@
               horizontal:true,
               horizontalSm:true,
               over:false,
-              date:false,
+              date:true,
               padge:false
             }
           .col-ls-6
@@ -192,7 +192,7 @@
               abstract:false,
               icon:{
                 state:true,
-                name:"video"
+                name:"play"
               },
               card:false,
               cardBounded:false,
@@ -201,7 +201,8 @@
               horizontalSm:false,
               over:true,
               date:false,
-              padge:false
+              padge:false,
+              share:false
             }
           .col-ls-6.col-md-4
             h3.guideSection__title over
@@ -279,3 +280,8 @@
               wide:true
             }
           include ../components/_cover.pug
+
+        include ../components/_rank-table
+        -var topScorer = {head:true,score:true}
+        include ../components/_topScorer
+        include ../components/_listView
