@@ -68,6 +68,7 @@
 			sourceRoot: 'source'
 		}))
 		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('E:/Xamp/htdocs/shamlola-tv/shamlola-tv/src/assets/css'))
 		.pipe(livereload())
 	})
 

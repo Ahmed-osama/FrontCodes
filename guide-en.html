@@ -8,52 +8,19 @@
   </head>
   <body>
     <header class="main-header">
-      <div class="main-header__container container"><a class="main-header__logo" href="indexundefined"><img class="u-hide-sm" src="img/logo-wh.png"/><img class="u-hide-lg" src="img/logo-sm.png"/></a><a class="main-header__menuToggler" :class="{&quot;main-header__menuToggler--active&quot;:sidemenu}" @click="sidemenu=!sidemenu"><span></span><span></span><span></span></a>
-        <div class="main-header__sideMenu" :class="{&quot;main-header__sideMenu--active&quot;:sidemenu}">
+      <div class="main-header__container"><a class="main-header__logo" href="index-en.html"><img class="u-hide-sm" src="img/logo-wide.png"/><img class="u-hide-lg" src="img/logo-wh.png"/></a><a class="main-header__menuToggler" id="sideMenuToggler"><span></span><span></span><span></span></a>
+        <div class="main-header__sideMenu" id="headerSidemenu">
           <nav class="main-header__nav">
             <ul class="main-header__navList">
-              <li><a href="#">With Amr Khaled</a></li>
-              <li class="hasDrop"><a href="#">Religion for life</a><a class="more" href="#" @click.prevent="slideToggle($event)">
-                  <svg class="u-icon more__icon">
-                    <use xlink:href="#icon-chevron-down"></use>
-                  </svg></a>
-                <ul class="dropMenu">
-                  <li><a href="#">With Amr Khaled</a></li>
-                  <li><a href="#">Religion for life</a></li>
-                  <li><a href="#">Our sweet days</a></li>
-                  <li><a href="#">Achieve your self</a></li>
-                  <li><a href="#">Ensan Aseel</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Our sweet days</a></li>
-              <li><a href="#">Achieve your self</a></li>
-              <li><a href="#">Ensan Aseel</a></li>
-              <li><a href="#">taqtqa</a></li>
-              <li class="hasDrop hasDrop--noArrow"><a href="#">
-                  <svg class="u-icon  ">
-                    <use xlink:href="#icon-more"></use>
-                  </svg></a><a class="more" href="#" @click.prevent="slideToggle($event)">
-                  <svg class="u-icon more__icon">
-                    <use xlink:href="#icon-chevron-down"></use>
-                  </svg></a>
-                <ul class="dropMenu">
-                  <li><a href="#">With Amr Khaled</a></li>
-                  <li><a href="#">Religion for life</a></li>
-                  <li><a href="#">Our sweet days</a></li>
-                  <li><a href="#">Achieve your self</a></li>
-                  <li><a href="#">Ensan Aseel</a></li>
-                </ul>
-              </li>
+              <li><a href="#">korabia studio</a></li>
+              <li><a href="#">football</a></li>
+              <li><a href="#">talkshow</a></li>
+              <li><a href="#">other sport</a></li>
             </ul>
           </nav>
         </div>
-        <div class="main-header__menuCloser" :class="{&quot;main-header__menuCloser--active&quot;:sidemenu}" @click="sidemenu = false"></div>
-        <div class="btn btn--round yellow_bg main-header__cta" @click.prevent="modalLogin = true">
-          <svg class="u-icon  ">
-            <use xlink:href="#icon-user"></use>
-          </svg><span>sign up</span>
-        </div>
-        <div class="main-header__search" :class="{&quot;main-header__search--active&quot;:headerSearch}">
+        <div class="main-header__menuCloser" id="menuCloser"></div>
+        <div class="main-header__search" id="searchForm">
           <form class="main-header__searchForm">
             <input class="main-header__searchInput" placeholder="what do you look for?"/>
             <svg class="u-icon  main-header__searchIcon ">
@@ -61,7 +28,7 @@
             </svg>
             <input type="submit" hidden="hidden"/>
           </form>
-        </div><a class="main-header__searchButton btn btn--round btn--square yellow_bg" id="searchButton" href="#" :class="{&quot;main-header__searchButton--active&quot;:headerSearch}" @click.prevent="headerSearch = !headerSearch">
+        </div><a class="main-header__searchButton" id="searchButton" href="#">
           <svg class="u-icon  main-header__searchButtonIcon ">
             <use xlink:href="#icon-search"></use>
           </svg>
