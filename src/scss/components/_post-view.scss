@@ -60,7 +60,7 @@ transition: 0.2s;
     }
     &:not(.post-view--over):hover{
         .post-view__caption{
-            background: #d1d7e1;
+            //background: #d1d7e1;
         }
     }
     &--videoLook:hover &__caption{
@@ -582,8 +582,7 @@ transition: 0.2s;
     &--cardBounded &__caption{
         padding: 20px;
         padding-top: 15px;
-        //background: $offWhite;
-        background: #f0f2f5;
+        background: $wh;
         border-radius: 0 0 3px 3px;
         @include mediaMin(768px) {
             height:210px;

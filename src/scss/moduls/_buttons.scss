@@ -33,8 +33,8 @@
         @include shadow(2);
     }
     .u-icon, svg{
-        width:$space/2;
-        height:$space/2;
+        width:15px;
+        height:15px;
         vertical-align: middle;
         display: inline-block;
         & + span {
@@ -60,10 +60,7 @@
     &:active{
         @include shadow(2);
     }
-    @include mediaMin(1024px){
-        height: 2*$space;
-        line-height: 2*$space;
-    }
+  
     &--round{
         border-radius: 20px;
         &.btn--sm{

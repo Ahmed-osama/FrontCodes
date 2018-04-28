@@ -18,7 +18,7 @@
 
 		sass         = require('gulp-ruby-sass'),
 		autoprefixer = require('gulp-autoprefixer'),
-		purify 		 = require('gulp-purifycss'),
+		// purify 		 = require('gulp-purifycss'),
 		minifycss    = require('gulp-minify-css');
 
 		pug          = require('gulp-pug'),
@@ -68,13 +68,13 @@
 			sourceRoot: 'source'
 		}))
 		.pipe(gulp.dest('css'))
-		.pipe(gulp.dest('E:/Xamp/htdocs/shamlola-tv/shamlola-tv/src/assets/css'))
+		.pipe(gulp.dest('D:/Xamp/htdocs/Hotels App/hotels-app/static/css'))
 		.pipe(livereload())
 	})
 
 	gulp.task('purecss', function() {
 		return gulp.src(['./css/ltr-style.css','./css/rtl-style.css'])
-		.pipe(purify(['./*.html']))
+		// .pipe(purify(['./*.html']))
 		.pipe(minifycss())
 		.pipe(rename({
 			suffix: '.pure'
@@ -89,11 +89,11 @@
 					'src/pug/index-en.pug',
 					'src/pug/index-ar.pug',
 
-					'src/pug/icons-en.pug',
-					'src/pug/icons-ar.pug',
+					// 'src/pug/icons-en.pug',
+					// 'src/pug/icons-ar.pug',
 
-					'src/pug/guide-en.pug',
-					'src/pug/guide-ar.pug',
+					// 'src/pug/guide-en.pug',
+					// 'src/pug/guide-ar.pug',
 
 
 				]

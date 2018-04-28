@@ -68,6 +68,9 @@
                 padding-top: 0;
             }
         }
+        &--fullPadding{
+          padding: $space;
+        }
         &--downShadow{
             box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
         }
@@ -97,6 +100,9 @@
         }
         @include mediaMin(1024px){
             padding:2*$space 0 $space;
+            &--fullPadding{
+               padding:2*$space;
+            }
             &__mainTitle{
                 @include lineHeight(2);
             }
@@ -117,9 +123,19 @@
     padding-#{$right}: $grid-space;
     &--main{
       padding-top: $grid-space-sm;
+      height: calc(100vh - 50px);
       @include mediaMin(768px){
-        padding-top: $grid-space;
+        height: calc(100vh - 80px);
+        padding-top: 30px;
       }
+    }
+    &--height100{
+        height: 100%;
+    }
+    &--center{
+        align-items: center;
+        justify-content: center;
+        display: flex;
     }
     @include mediaMin(480px) {
        max-width: 480px;

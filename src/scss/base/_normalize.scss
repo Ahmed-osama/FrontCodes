@@ -94,7 +94,8 @@ article, aside, footer, header, nav, section {
   }
   h4{
     @include rem(20);
-    @include lineHeight(1)
+    @include lineHeight(1);
+    margin-bottom: 15px;
   }
   h5 {
     @include rem(18);
