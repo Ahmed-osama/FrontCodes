@@ -237,6 +237,9 @@
             font-weight: 500;
             margin-bottom: 0;
             margin-#{$right}:10px;
+            span{
+                margin:0 10px;
+            }
             &--sm{
                 @include rem(16);
             }
@@ -811,5 +814,10 @@
         &--note{
             background:#fff9ee;
             border-#{$left}-color:$orange;
+        }
+        &--error{
+            background:#ffeeee;
+            border-#{$left}-color:$red;
+            color:$red;
         }
     }
