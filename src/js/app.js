@@ -1,78 +1,90 @@
-import Vue from './moduls/vue'
-import initPlugins from './moduls/init'
-import util from './moduls/util'
+import Observer from './moduls/observe'
+let observer = new Observer()
+let render = function (obj) {
+    
+    let {
+        template = () => { },
+        data = {},
+        target = null,
+        clean = false
+    } = obj
+    target = document.querySelector(target)
+    if (Array.isArray(data)) {
+        let list = ''
+        data.forEach((item, index) => {
+            list += template(item, index)
+        })
+        if (clean) {
+            if (target) target.innerHTML = list
+        } else {
+            if (target) target.innerHTML += list
+        }
+    } else {
+        if (clean) {
+            if (target) target.innerHTML = template(data)
+        } else {
+            if (target) target.innerHTML += template(data)
+        }
+    }
+   
+}
 
-//plugins
-    import axios from 'axios'
-    import Hammer from 'hammerjs'
-    import VueLazyload from 'vue-lazyload'
+observer.subscribe('datachange', render)
 
-
-
-//vue objects
-    import state from './moduls/state'
-    import methods from './moduls/methods'
-    import watch from './moduls/watch'
-    import computed from './moduls/computed'
-
-//directives\
-    import './moduls/directives/clickoutside'
-    import './moduls/directives/sticky'
-
-//componenets
-    import './moduls/componenet/dropdown'
-    import './moduls/componenet/album-popup'
-    import './moduls/componenet/video'
-    import './moduls/componenet/modal'
-
-
-//plugins init
-
-    Vue.use(VueLazyload, {
-        preLoad: 1.3,
-        error: '/img/placeholder-image.png',
-        loading: '/img/spacer.png',
-        attempt: 1,
+let componenet = {
+    el:'#list',
+    list:[1, 2, 3],
+    listmerge(){
+        return this.list.join(", ") 
+    },
+    template:function(data){
+        return `<li>${data}</li>`
+    },
+    paragraph(data){
+        return `${data}`
+    },
+    add(item){
+        this.list.push(item)
+        this.build()
         
-    })
+    },
+    remove(index){
+        this.list.splice(index,1)
+        this.build()
+    },
 
+    build(){
+        observer.puplish('datachange', {
+            data:this.list,
+            template:this.template,
+            target:this.el,
+            clean:true
+        })
+        observer.puplish('datachange', {
+            data: this.listmerge(),
+            template: this.paragraph,
+            target: '#computed',
+            clean: true
+        })
+    }
+}
 
+componenet.build()
 
-var app = new Vue({
-    el:'#js-app',
-    data:state,
-    methods,
-    computed,
-    watch,
-    mounted(){
-        let self = this;
-        setTimeout(initPlugins.swiper, 300);
-        window.addEventListener('resize', this.screenDemintions);
-        this.albumArr = this.domDataToArr('.post-view__link--fancy, .cover__icon--zoom');
-
-        //sidemenu touch events
-            let win = window
-            let windowArea = new Hammer(win)
-            let swipeDir = !util.ltr?'panright':'panleft'
-            let swipeDirRev = util.ltr?'panright':'panleft'
-            // windowArea.on(swipeDir, function(){
-            //     self.sidemenu = true
-            // })
-            // windowArea.on(swipeDirRev, function(){
-            //     self.sidemenu = false
-            // })
-
-
-        //window scroll
-            window.addEventListener('scroll',util.debounce(self.windowScroll))
-        
-        //video activce on mobile devices
-            console.log(
-                this.winWidth <= 480 ,
-                util.ios(),
-                util.touch()
-            )
-            if((this.winWidth <= 480 || util.ios()) && util.touch()) this.videoActive = true
-       
+document.getElementById('add').addEventListener('keyup', function (e) {
+    if(e.keyCode === 13){
+        componenet.add(e.target.value)
+        e.target.value = ''
+    }
+})
+function getindex (collection, node){
+    collection = Array.from(collection)
+    return collection.indexOf(node)
+}
+document.getElementById('list').addEventListener('click', function (e) {
+    let target = e.target.matches('li') ? e.target : e.target.closest('li');
+    if (target){
+ 
+        componenet.remove(getindex(document.querySelectorAll('#list li'), target ))
     }
 })
